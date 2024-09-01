@@ -803,8 +803,8 @@
     <ActionMap name="activity_layer" isLayer="1">
         <Import actionmap="voice_chat" />
 
-        <Binding input="kb:escape" action="hold" signal="skip_current_activity" consume="1"/>
-        <NoResend input="kb:escape"/>
+        <Binding input="kb:backspace" action="hold" signal="skip_current_activity" consume="1"/>
+        <NoResend input="kb:backspace"/>
 
         <Binding input="pad:back"   action="hold" signal="skip_current_activity" consume="1"/>
         <NoResend   input="pad:back"/>
@@ -888,8 +888,8 @@
         <Import actionmap="common_system_nopausemenu"/>
         <Binding input="pad:b" action="press"   signal="skip_cinematic"/>
         <NoResend input="pad:b"/>
-        <Binding input="kb:escape" action="hold"   signal="skip_cinematic"/>
-        <NoResend input="kb:escape"/>
+        <Binding input="kb:backspace" action="hold"   signal="skip_cinematic"/>
+        <NoResend input="kb:backspace"/>
     </ActionMap>
 
     <!-- ******************************************************************************** -->
@@ -2705,8 +2705,8 @@
    <!-- Event proposition action map use escape -->
     <ActionMap name="event_proposition_layer_cancel" isLayer="1">
         <!--Keyboard-->
-        <Binding input="kb:escape" action="hold" signal="cancel_event_proposition" consume="1"/>
-        <NoResend input="kb:escape"/>
+        <Binding input="kb:backspace" action="hold" signal="cancel_event_proposition" consume="1"/>
+        <NoResend input="kb:backspace"/>
         <!--End Keyboard-->
 
         <Binding input="pad:back"       action="hold" signal="accept_event_proposition" consume="1"/>
@@ -2763,8 +2763,8 @@
         <NoResend input="pad:back"/>
         <Binding input="pad:touchpad"   action="hold" signal="skip_phone_communication" additive="1"/>
         <NoResend input="pad:touchpad"/>
-        <Binding input="kb:escape"   action="hold" signal="skip_phone_communication" consume="1"/>
-        <NoResend input="kb:escape"/>
+        <Binding input="kb:backspace"   action="hold" signal="skip_phone_communication" consume="1"/>
+        <NoResend input="kb:backspace"/>
 
         <!-- REMOTEPLAY BEGIN -->
         <Binding input="pad:touch_front_center"   action="hold" signal="skip_phone_communication" additive="1"/>
