@@ -803,7 +803,7 @@
     <ActionMap name="activity_layer" isLayer="1">
         <Import actionmap="voice_chat" />
 
-        <Binding input="kb:escape" action="press" signal="skip_current_activity" consume="1"/>
+        <Binding input="kb:escape" action="hold" signal="skip_current_activity" consume="1"/>
         <NoResend input="kb:escape"/>
 
         <Binding input="pad:back"   action="hold" signal="skip_current_activity" consume="1"/>
@@ -2705,7 +2705,7 @@
    <!-- Event proposition action map use escape -->
     <ActionMap name="event_proposition_layer_cancel" isLayer="1">
         <!--Keyboard-->
-        <Binding input="kb:escape" action="press" signal="cancel_event_proposition" consume="1"/>
+        <Binding input="kb:escape" action="hold" signal="cancel_event_proposition" consume="1"/>
         <NoResend input="kb:escape"/>
         <!--End Keyboard-->
 
@@ -2763,7 +2763,7 @@
         <NoResend input="pad:back"/>
         <Binding input="pad:touchpad"   action="hold" signal="skip_phone_communication" additive="1"/>
         <NoResend input="pad:touchpad"/>
-        <Binding input="kb:escape"   action="press" signal="skip_phone_communication" consume="1"/>
+        <Binding input="kb:escape"   action="hold" signal="skip_phone_communication" consume="1"/>
         <NoResend input="kb:escape"/>
 
         <!-- REMOTEPLAY BEGIN -->
