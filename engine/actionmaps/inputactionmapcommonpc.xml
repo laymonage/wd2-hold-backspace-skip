@@ -888,7 +888,7 @@
         <Import actionmap="common_system_nopausemenu"/>
         <Binding input="pad:b" action="press"   signal="skip_cinematic"/>
         <NoResend input="pad:b"/>
-        <Binding input="kb:escape" action="press"   signal="skip_cinematic"/>
+        <Binding input="kb:escape" action="hold"   signal="skip_cinematic"/>
         <NoResend input="kb:escape"/>
     </ActionMap>
 
