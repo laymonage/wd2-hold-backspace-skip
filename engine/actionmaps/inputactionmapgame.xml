@@ -72,17 +72,28 @@
     <Import actionmap="common_takedown"/>
     <Import actionmap="common_musicplayer_control"/>
     <Import actionmap="common_softwares"/>
-    <Import actionmap="common_pda"/>
     <Import actionmap="common_aiming"/>
-    <Import actionmap="menus"/>
   </ActionMap>
   
-  <ActionMap name="spectator_cam">
+  <ActionMap name="spectator_cam" resendOnChange="0">
     <Import actionmap="system"/>
     <Import actionmap="common_camera_look"/>
     <Import actionmap="common_musicplayer_control"/>
-    <Import actionmap="common_pda"/>
+    <Import actionmap="common_install_download"/>
+    <Import actionmap="common_pausemenu"/>
     <Import actionmap="menus"/>
+  </ActionMap>
+
+  <ActionMap name="party_activities_pannel">
+    <Import actionmap="system"/>
+    <Import actionmap="common_camera_look"/>
+    <Import actionmap="common_musicplayer_control"/>
+    <Import actionmap="common_pausemenu"/>
+    <Import actionmap="menus"/>
+    <Binding input="pad:a" action="click" signal="party_activity_select"/>
+    <Binding input="pad:b" action="click" signal="party_activity_back"/>
+    <Binding input="pad:down" action="click" signal="party_activity_down"/>
+    <Binding input="pad:up" action="click" signal="party_activity_up"/>
   </ActionMap>
 
   <ActionMap name="editor" >
@@ -486,6 +497,9 @@
     <ActionMap name="driving_custom_horn" controlSchemeContext="driving">
         <Import actionmap="driving"/>
 
+		<Binding input="cs:vehicle_horn"      action="press"   signal="trigger_custom_horn"/>
+        <Binding input="cs:vehicle_horn"      action="release" signal=""/>
+		
         <Binding input="pad:left_thumb_push"    action="press"   signal="trigger_custom_horn"/>
         <Binding input="pad:left_thumb_push"    action="release" signal=""/>
         <!-- REMOTEPLAY BEGIN -->
@@ -513,6 +527,9 @@
 
         <Binding input="pad:a"    action="press" signal="trigger_back_weapon"/>
         <Binding input="pad:a"    action="release" signal=""/>
+		
+		<Binding input="cs:vehicle_horn"      action="press"   signal="trigger_custom_horn"/>
+        <Binding input="cs:vehicle_horn"      action="release" signal=""/>
 
         <Binding input="pad:left_thumb_push"    action="press"   signal="trigger_custom_horn"/>
         <Binding input="pad:left_thumb_push"    action="release" signal=""/>
@@ -618,6 +635,9 @@
     
     <Binding input="pad:left_thumb_push" action="press" signal="" consume="1"/>
     <NoResend input="pad:left_thumb_push"/>
+	
+	<Binding input="cs:nav_sprint" action="press" signal="" consume="1"/>
+	<NoResend input="cs:nav_sprint"/>
 		
     <!-- REMOTEPLAY BEGIN -->
     <Binding input="pad:touch_back_bottomleft" action="press" signal="" consume="1"/>
@@ -802,6 +822,10 @@
   <!-- MISSION SPECIFIC ! -->
   <ActionMap name="S09M020_NoNethack" isLayer="1">
     <Binding input="pad:right_thumb_push" action="press" signal="" consume="1"/>
+    
+    <!--Keyboard-->
+    <Binding input="cs:network_hack" action="press" signal="" consume="1"/>
+    <NoResend input="cs:network_hack"/>
 
     <!-- REMOTEPLAY BEGIN -->
     <Binding input="pad:touch_front_bottomright" action="press" signal="" consume="1"/>
@@ -920,7 +944,14 @@
 	<Import actionmap="common_pausemenu"/>	
 	<Import actionmap="common_system_nopausemenu"/>	
   </ActionMap>
-  
+
+  <!--This action map has no usage since the securitycamera action map imports common_pausemenu where show_pause_menu is aready present-->
+  <ActionMap name="S16M05_NoSmartphone" resendOnChange="0" isLayer="1">
+    <Binding input="pad:start" action="release"  signal="" consume="1"/>
+    <Binding input="pad:start" action="click"  signal="show_pause_menu" consume="1"/>
+    <NoResend input="pad:start"/>
+  </ActionMap>
+
   <ActionMap name="Nuddle_WalkAndTalk" isLayer="1">
     <Binding input="pad:left"   action="press"    signal="" consume="1"/>
     <Binding input="pad:left"   action="release"  signal="" consume="1"/>
@@ -937,128 +968,95 @@
 	<Import actionmap="driving"/>
   </ActionMap>
 
-  <ActionMap name="race_on_foot" resendOnChange="0" isLayer="1" >
-    <Binding input="pad:y" action="hold" signal="resetvehicle" consume="1"/>
-    <Binding input="cs:hack_right" action="hold" signal="resetvehicle" consume="1"/>
+  <ActionMap name="race_tutorial" isLayer="1">
+	<Binding input="pad:b" action="press" signal="menu_button_back" consume="1" noHistory="1"/>
+    <NoResend input="pad:b"/>
 
-    <!-- Pause Menu binding ! -->
-    <Binding input="pad:start" action="release"  signal="" consume="1"/>
-    <Binding input="pad:start" action="click"  signal="show_pause_menu" consume="1"/>
-	<Binding input="kb:escape" action="press"  signal=""/>
-    <!-- End Pause Menu binding ! -->
-  </ActionMap>
-
-  <ActionMap name="race_no_wheapon_wheel" resendOnChange="0" isLayer="1" >
-    <Binding input="pad:up"     action="press"    signal="" consume="1"/>
-    <Binding input="pad:up"     action="release"  signal="" consume="1"/>
-    <Binding input="pad:down"   action="press"    signal="" consume="1"/>
-    <Binding input="pad:down"   action="release"  signal="" consume="1"/>
-    <Binding input="pad:left"   action="press"    signal="" consume="1"/>
-    <Binding input="pad:left"   action="release"  signal="" consume="1"/>
-    <Binding input="pad:right"  action="press"    signal="" consume="1"/>
-    <Binding input="pad:right"  action="release"  signal="" consume="1"/>
-    <Import actionmap="lock_weapons_in_race"/>
-  </ActionMap>
-
-  <ActionMap name="race_no_net_hacking" resendOnChange="0" isLayer="1" >
-    <Binding input="pad:right_thumb_push" action="press"    signal="" consume="1"/>
-    <Binding input="pad:right_thumb_push" action="release"  signal="" consume="1"/>
-    <Binding input="pad:right_thumb_push" action="click"    signal="" consume="1"/>
-
-    <!-- REMOTEPLAY BEGIN -->
-    <Binding input="pad:touch_front_bottomright" action="press"    signal="" consume="1"/>
-    <Binding input="pad:touch_front_bottomright" action="release"  signal="" consume="1"/>
-    <Binding input="pad:touch_front_bottomright" action="click"    signal="" consume="1"/>
-    <!-- REMOTEPLAY END -->
-  </ActionMap>
-
-  <ActionMap name="race_driving_default" resendOnChange="0" isLayer="1">
-    <Import actionmap="race_on_foot"/>
+    <Binding input="pad:touchpad" action="click" signal="menu_button_back" consume="1"/>
+    <NoResend input="pad:touchpad"/>
 	
+	<Binding input="kb:escape" action="press" signal="menu_button_back" consume="1" noHistory="1"/>
+    <NoResend input="kb:escape"/>
+	
+	<Binding input="mouse:move" action="update" signal="menu_mouse_move" consume="1"/>
+	
+    <Binding input="mouse:lb" action="press" signal="lb_press" consume="1" consume_aliases="1"/>
+	<Binding input="mouse:lb" action="release" signal="lb_release" consume="1" consume_aliases="1"/>
+	<NoResend input="mouse:lb"/>
+  </ActionMap>
+
+  <!--used in S23M040 to access Mission_load_checkpoint San_Francisco_S23.San_Francisco_S23.S23M040 CheckPoint_2-->  
+  <ActionMap name="race_driving_no_vehicle_exit" resendOnChange="0" isLayer="1">
     <!-- Disable exit vehicle -->
-	
+
     <Binding input="cs:vehicle_exit" action="press" signal="" consume="1"/>
-    <Binding input="cs:vehicle_exit" action="release" signal="" consume="1"/>
-    <Binding input="cs:vehicle_exit" action="click" signal="" consume="1"/>
-    <Binding input="cs:vehicle_exit" action="hold" signal="" consume="1"/>
-    <Binding input="pad:y" action="click" signal="" consume="1"/>
     <Binding input="pad:y" action="press" signal="" consume="1"/>
-    <Binding input="pad:y" action="release" signal="" consume="1"/>
-  </ActionMap>
-
-  <ActionMap name="race_driving_drone" resendOnChange="0" isLayer="1" controlSchemeContext="rcdrone">
-    <Import actionmap="race_on_foot"/>
-    <Import actionmap="common_musicplayer_control"/>
-
-    <Binding input="pad:back" action="click" signal="" consume="1"/>
-    <Binding input="pad:back" action="release" signal="" consume="1"/>
-    <Binding input="pad:back" action="press" signal="" consume="1"/>
-    <NoResend input="pad:back"/>
-	<Binding input="kb:escape" action="press"  signal="show_pause_menu"/>
-	
-    <!-- REMOTEPLAY BEGIN -->
-    <Binding input="pad:touch_front_center" action="click" signal="" consume="1"/>
-    <Binding input="pad:touch_front_center" action="release" signal="" consume="1"/>
-    <Binding input="pad:touch_front_center" action="press" signal="" consume="1"/>
-    <NoResend input="pad:touch_front_center"/>
-    <!-- REMOTEPLAY END   -->
-
-    <!--disable show_map, M key-->
-    <Binding  input="cs:map_open" action="press" signal="" consume="1"/>
-    <Binding  input="cs:map_open" action="release" signal="" consume="1"/>
-    <Binding  input="cs:map_open" action="click" signal="" consume="1"/>
-
-    
-    <!--dispite having race_no_wheapon_wheel in stack the wheapon wheel should be blocked here since race_no_wheapon_wheel does not support the control scheme context-->
-
-    <!--the pad driving is provided in common_remote_control_driving, however since the context is rcdrone it wont work with common_remote_control_driving since it is build for the vehicle context-->
-    <!-- move -->
-    <PcAnalog name="move" device="cs">
-      <Input input="rcdrone_fly_forward" axis="1"/>
-      <Input input="rcdrone_fly_backward" axis="1" invert="1"/>
-      <Input input="rcdrone_fly_right" axis="0"/>
-      <Input input="rcdrone_fly_left" axis="0" invert="1"/>
-    </PcAnalog>
-    <Binding input="cs:move" action="press"   signal="rcsteering" consume="1" />
-    <Binding input="cs:move" action="update"  signal="rcsteering" consume="1" />
-    <Binding input="cs:move" action="release" signal="rcsteering" consume="1" />
-
-    <!-- ascent -->
-    <Binding input="cs:rcdrone_ascent" action="press" signal="accelerator" consume="1"/>
-    <Binding input="cs:rcdrone_ascent" action="update" signal="accelerator" consume="1"/>
-    <Binding input="cs:rcdrone_ascent" action="release" signal="accelerator" consume="1"/>
-
-    <!-- descent -->
-    <Binding input="cs:rcdrone_descent" action="press" signal="reverse" consume="1"/>
-    <Binding input="cs:rcdrone_descent" action="update" signal="reverse" consume="1"/>
-    <Binding input="cs:rcdrone_descent" action="release" signal="reverse" consume="1"/>
-
-    <!-- speed boost -->
-    <Binding input="cs:rcdrone_speedboost" action="press" signal="rctc_speedboost" consume="1"/>
-
-    <!-- drop, rctc_dropobject -->
-    <Binding input="cs:rcdrone_drop" action="press" signal="" consume="1"/>
-
-    <!-- callback, rctc_call_back -->
-    <Binding input="pad:b" action="hold" signal="" consume="1"/>
-    <Binding input="pad:touch_back_right"   action="press"      signal="" consume="1"/>
-    <NoResend input="pad:touch_back_right"/>
-    <Binding input="cs:rcdrone_exit" action="hold" signal="" consume="1"/>
-
-    <!-- switch to jumper, rctc_switch_to_jumper -->
-    <Binding input="cs:rcdrone_switchtojumper" action="press" signal="" consume="1"/>
-
-    <!-- switch camera -->
-    <Binding input="cs:rcdrone_cameraswitch" action="press" signal="cameraswitch" consume="1"/>
   </ActionMap>
   
-  <ActionMap name="race_driving_toy_car" resendOnChange="0" isLayer="1">
-    <Import actionmap="race_driving_drone"/>
+  <ActionMap name="race_on_foot" resendOnChange="0" controlSchemeContext="onfoot">
+    <Import actionmap="common_camera_look"/>
+    <Import actionmap="common_hack_selection_layer"/>
+    <Import actionmap="common_interact"/>
+    <Import actionmap="common_move_no_cover"/>
+    <Import actionmap="common_musicplayer_control"/>
+    <Import actionmap="common_race"/>
+    <Import actionmap="common_showconsole"/>
   </ActionMap>
 
+  <ActionMap name="race_driving_default" resendOnChange="0" controlSchemeContext="driving">
+    <Import actionmap="common_camera_look"/>
+    <Import actionmap="common_driving_noprofiler"/>
+    <Import actionmap="common_hack_selection_layer"/>
+    <Import actionmap="common_look_back"/>
+    <Import actionmap="common_musicplayer_control"/>
+    <Import actionmap="common_race"/>
+    <Import actionmap="common_showconsole"/>
+    <Import actionmap="common_softwares"/>
+    
+    <!--camera switch-->
+    <Binding input="cs:vehicle_cameraswitch" action="press" signal="vehicle_camera_switch"/>
+    <Binding input="pad:down" action="click" signal="cameraswitch"/>
+    
+    <!--world map-->
+    <Binding input="pad:back" action="click" signal="show_map"/>
+    <NoResend input="pad:back"/>
+    <Binding input="pad:touchpad" action="click" signal="show_map"/>
+    <NoResend input="pad:touchpad"/>
+    <Binding  input="cs:map_open" action="click" signal="show_map"/>
+    <NoResend input="cs:map_open"/>
+    
+  </ActionMap>
+
+  <ActionMap name="race_driving_drone" resendOnChange="0" controlSchemeContext="rcdrone">
+    <Import actionmap="common_flying_drone"/>
+    <Import actionmap="common_hack_selection_layer"/>
+    <Import actionmap="common_musicplayer_control"/>
+    <Import actionmap="common_race"/>
+    <Import actionmap="common_showconsole"/>
+  </ActionMap>
+  
   <ActionMap name="race_phone_comm" >
     <Import actionmap="cinematic_nocameralock"/>
     <Import actionmap="phone_communication"/>
   </ActionMap>
 
+    <ActionMap name="race_coop_confirmation" >
+        <Import actionmap="menus"/>
+    </ActionMap>
+
+  <ActionMap name="race_spectator" resendOnChange="0" isLayer="1">
+    <Import actionmap="race_on_foot"/>
+
+    <Binding input="pad:right_shoulder" action="press" signal="race_spectator_next_target" consume="1"/>
+    <NoResend input="pad:right_shoulder"/>
+
+    <Binding input="kb:e" action="press" signal="race_spectator_next_target" consume="1"/>
+    <NoResend input="kb:e"/>
+
+    <Binding input="pad:left_shoulder" action="press" signal="race_spectator_previous_target" consume="1"/>
+    <NoResend input="pad:left_shoulder"/>
+
+    <Binding input="kb:q" action="press" signal="race_spectator_previous_target" consume="1"/>
+    <NoResend input="kb:q"/>    
+  </ActionMap>
 </Root>
