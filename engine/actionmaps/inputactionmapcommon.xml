@@ -1,0 +1,2117 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+
+<Root>
+
+    <Import file="engine\ActionMaps\InputActionMapConsole.xml"/>
+    <Import file="%APPDATA%InputUserActionMap.xml" optional=""/>
+
+    <!-- ******************************************************************************** -->
+    <Config>
+        <ClickGenerator ClickTime="0.35" DoubleClickTime="0.25" HoldClickTime="0.35"/>
+        <Driver deviceID="pad" DeadZone="0.0"/>
+        <Driver deviceID="mouse" Sensitivity="0.001" WheelSensitivity="0.02"/>
+    </Config>
+
+    <ActionMap name="common_bloomberg">
+        <Copy input="kb:lctrl" toInput="kb:control"/>
+        <Copy input="kb:rctrl" toInput="kb:control"/>
+        <Binding signal="create_issue">
+            <Input input="kb:control" action="press"/>
+            <Input input="kb:j" action="press" useAsAxisInput="1"/>
+        </Binding>
+        <Binding signal="create_review">
+            <Input input="kb:r" action="press" useAsAxisInput="1"/>
+            <Input input="kb:control" action="press"/>
+        </Binding>
+        <Binding signal="bloomberg_simulate_assert">
+            <Input input="kb:q" action="press" useAsAxisInput="1"/>
+            <Input input="kb:control" action="press"/>
+        </Binding>
+        <Binding signal="bloomberg_simulate_warning">
+            <Input input="kb:w" action="press" useAsAxisInput="1"/>
+            <Input input="kb:control" action="press"/>
+        </Binding>
+        <Binding signal="bloomberg_simulate_deadlock">
+            <Input input="kb:d" action="press" useAsAxisInput="1"/>
+            <Input input="kb:control" action="press"/>
+        </Binding>
+        <Binding signal="bloomberg_simulate_outofmemory">
+            <Input input="kb:o" action="press" useAsAxisInput="1"/>
+            <Input input="kb:control" action="press"/>
+        </Binding>
+        <Binding signal="bloomberg_simulate_stackoverflow">
+            <Input input="kb:s" action="press" useAsAxisInput="1"/>
+            <Input input="kb:control" action="press"/>
+        </Binding>
+        <Binding signal="bloomberg_simulate_purevirtualcall">
+            <Input input="kb:p" action="press" useAsAxisInput="1"/>
+            <Input input="kb:control" action="press"/>
+        </Binding>
+        <Binding signal="bloomberg_simulate_invalidparamcall">
+            <Input input="kb:i" action="press" useAsAxisInput="1"/>
+            <Input input="kb:control" action="press"/>
+        </Binding>
+        <Binding signal="bloomberg_simulate_heapcorruption">
+            <Input input="kb:h" action="press" useAsAxisInput="1"/>
+            <Input input="kb:control" action="press"/>
+        </Binding>
+        <Binding signal="bloomberg_simulate_segfault">
+            <Input input="kb:f9" action="press"/>
+            <Input input="kb:control" action="press"/>
+        </Binding>
+    </ActionMap>
+
+    <!-- ******************************************************************************** -->
+    <ActionMap name="common_showconsole">
+        <Import actionmap="common_bloomberg"/>
+
+        <Binding input="kb:~" action="press" signal="toggle_console"/>
+        <Binding input="kb:`" action="press" signal="toggle_console"/>
+    </ActionMap>
+
+    <!-- ******************************************************************************** -->
+    <ActionMap name="common_system_nopausemenu" resendOnChange="0" >
+
+        <!-- Do not use F10, it is a window command. -->
+        <!-- Do not use F12, it is a window command. -->
+
+        <Import actionmap="common_showconsole"/>
+        <Import actionmap="common_scry_alwaysactive"/>
+
+        <Copy input="kb:lctrl" toInput="kb:control"/>
+        <Copy input="kb:rctrl" toInput="kb:control"/>
+
+        <Copy input="pad:left_thumb_push" toInput="pad:ghost_left_thumb_push"/>
+        <Copy input="pad:right_thumb_push" toInput="pad:ghost_right_thumb_push"/>
+
+        <!--Ghosting from gamepad-->
+        <Binding input="pad:ghost_left_thumb_push"  action="press"   signal="toggle_ghost_player_left_thumb"/>
+        <Binding input="pad:ghost_right_thumb_push" action="press"   signal="toggle_ghost_player_right_thumb"/>
+
+        <!--Keyboard-->
+
+        <Binding input="kb:f1" action="press" signal="toggle_debug_camera" additive="1"/>
+        <Binding input="kb:f2" action="press" signal="cycle_debug_pawnanim_mode" additive="1"/>
+        <Binding input="kb:f3" action="press" signal="toggle_ghost_player" additive="1"/>
+        <Binding input="kb:f4" action="press" signal="toggle_free_camera" additive="1"/>
+        <NoResend input="kb:f4"/>
+        <Binding input="kb:f5" action="press" signal="toggle_debug_locomotion" additive="1"/>
+        <Binding input="kb:f6" action="press" signal="toggle_control_camera" additive="1"/>
+        <NoResend input="kb:f6"/>
+        <Binding input="kb:f7" action="press" signal="toggle_market_camera" additive="1"/>
+        <Binding input="kb:f8" action="press" signal="toggle_local_referential" additive="1"/>
+        <Binding input="kb:f10" action="press" signal="mpcapture_fix_cam" additive="1"/>
+        <Binding input="kb:f11" action="press" signal="toggle_debug_target" additive="1"/>
+
+        <!-- Numbers -->
+        <Binding input="kb:1" action="press" signal="toggle_debug_preset_anim" additive="1"/>
+        <Binding input="kb:2" action="press" signal="toggle_debug_preset_gameplay" additive="1"/>
+        <Binding input="kb:3" action="press" signal="toggle_debug_preset_camera" additive="1"/>
+        <Binding input="kb:4" action="press" signal="toggle_debug_preset_shooting" additive="1"/>
+        <Binding input="kb:5" action="press" signal="toggle_debug_preset_full" additive="1"/>
+        <Binding input="kb:6" action="click"   signal="toggle_debug_navmesh_pathfinder" additive="1"/>
+        <Binding input="kb:6" action="hold"    signal="hold_debug_navmesh_pathfinder" additive="1"/>
+        <Binding input="kb:6" action="release" signal="release_debug_navmesh_pathfinder" additive="1"/>
+        <Binding input="kb:7" action="press" signal="toggle_debug_dialog" additive="1"/>
+        <Binding input="kb:8" action="press" signal="toggle_debug_navmesh" additive="1"/>
+        <Binding input="kb:9" action="press" signal="toggle_reaction_debug_mode" additive="1"/>
+        <Binding input="kb:0" action="press" signal="cycle_debug_reaction_type" additive="1"/>
+        <Binding input="kb:-" action="press" signal="cycle_debug_incident_detail" additive="1"/>
+        <Binding input="kb:=" action="press" signal="cycle_debug_reaction_radius" additive="1"/>
+        <Binding input="kb:backspace" action="press" signal="trigger_debug_reaction" additive="1"/>
+
+
+        <!-- Top row -->
+        <Binding input="kb:t" action="press" signal="toggle_runtime_stats" additive="1"/>
+        <Binding input="kb:y" action="release" signal="print_anim_debug_info" additive="1"/>
+        <Binding input="kb:u" action="press" signal="debug_toggle_defaultsquad_start_stop" additive="1"/>
+        <Binding input="kb:i" action="press" signal="toggle_player_invincible" additive="1"/>
+        <Binding input="kb:o" action="press" signal="cheatpause_step" additive="1"/>
+        <Binding input="kb:p" action="press" signal="cheatpause_toggle" additive="1"/>
+        <Binding input="kb:[" action="press" signal="cheatpause_step_hold" additive="1"/>
+        <Binding input="kb:[" action="release" signal="cheatpause_step_release" additive="1"/>
+        <Binding input="kb:]" action="press" signal="toggle_pathfind_stats" additive="1"/>
+
+        <!-- Mid row -->
+        <Binding input="kb:f" action="release" signal="debug_force_scanned" additive="1"/>
+        <Binding input="kb:h" action="press" signal="debug_force_mediabroadcast" additive="1"/>
+        <Binding input="kb:k" action="press" signal="debug_kill_felony" additive="1"/>
+        <Binding input="kb:l" action="press" signal="free_cam_lock_entity" additive="1"/>
+        <Binding input="kb:;" action="press" signal="trigger_initial_spawn" additive="1"/>
+
+        <!-- Bottom row -->
+        <Binding input="kb:z" action="press" signal="debug_soft_kill_felony" additive="1"/>
+        <Binding input="kb:x" action="press" signal="toggle_ammo_unlimited" additive="1"/>
+        <Binding input="kb:c" action="press" signal="marketing_toggle_combat" additive="1"/>
+        <Binding input="kb:v" action="press" signal="toggle_player_invisible" additive="1"/>
+        <Binding input="kb:b" action="press" signal="marketing_toggle_conceal" additive="1"/>
+        <Binding input="kb:m" action="press" signal="camera_toggle_aimat" additive="1"/>
+        <Binding input="kb:," action="press" signal="toggle_debug_spawning" additive="1"/>
+        <Binding input="kb:." action="press" signal="cheat_spawn_stim" additive="1"/>
+
+        <Binding input="kb:space" action="press" signal="TEMPrevive_avatar" additive="1"/>
+        <Binding input="kb:space" action="press" signal="lag_switch_begin" additive="1"/>
+        <Binding input="kb:space" action="release" signal="lag_switch_end" additive="1"/>
+        <Binding input="kb:tab" action="press" signal="e32016_request_merge" additive="1"/>        
+
+        <!-- Numpad -->
+        <Binding input="kb:numpad0" action="press" signal="enable_profiler_dump" additive="1"/>
+        <Binding input="kb:numpad0" action="release" signal="disable_profiler_dump" additive="1"/>
+        <Binding input="kb:numpad1" action="press" signal="enable_renderer_dump" additive="1"/>
+        <Binding input="kb:numpad2" action="press" signal="enable_memtracer_dump" additive="1"/>
+        <Binding input="kb:numpad3" action="press" signal="gpu_capture" additive="1"/>
+        <Binding input="kb:numpad4" action="release" signal="profile_data_capture_single_frame" additive="1"/>
+        <Binding input="kb:numpad5" action="release" signal="profile_data_capture_two_frames" additive="1"/>
+        <Binding input="kb:numpad6" action="release" signal="profiler_data_capture_toggle" additive="1"/>
+        <Binding input="kb:numpad7" action="press" signal="enable_physics_dump" additive="1"/>
+        <Binding input="kb:numpad8" action="press" signal="toggle_recording" additive="1"/>
+        <Binding input="kb:numpad9" action="press" signal="bandwidth_stats_capture_toggle" additive="1"/>
+        <Binding input="kb:numpadreturn" action="press" signal="recompile_shaders" additive="1"/>
+        <Binding input="kb:add"   action="press" signal="pick_entity" additive="1"/>
+        <Binding input="kb:multiply"  action="press" signal="select_debug_target" additive="1"/>
+        <Binding input="kb:subtract"  action="press" signal="cancel_debug_target" additive="1"/>
+        <Binding input="kb:divide"  action="press" signal="toggle_follow_debug_target" additive="1"/>
+        <Binding input="kb:s"  action="press" signal="profiler_fire_memory_snapshot" additive="1"/>
+        <Binding input="kb:sysrq" action="press" signal="snapshot" additive="1"/>
+        
+        <Binding signal="toggle_mp_demo_info" input="kb:insert" action="press" additive="1"/>
+    </ActionMap>
+
+	<!-- ******************************************************************************** -->
+    <ActionMap name="common_pausemenu" resendOnChange="0" >
+		<Binding input="pad:start" action="press"  signal="show_pause_menu"/>
+		<Binding input="pad:back"  action="click"  signal="show_pause_menu"/>
+		<Binding input="kb:escape" action="press"  signal="show_pause_menu"/>
+		<Binding input="pad:touchpad" action="click" signal="show_pause_menu"/>
+
+        <!-- REMOTEPLAY BEGIN -->
+        <Binding input="pad:touch_front_center" action="press" signal="show_pause_menu"/>
+        <!-- REMOTEPLAY END   -->
+    </ActionMap>
+
+	<!-- ******************************************************************************** -->
+    <ActionMap name="exotic_mission_pausemenu" resendOnChange="0" isLayer="1">
+		<Binding input="pad:start"  action="click"  signal="show_pause_menu"/>
+		<Binding input="kb:escape" action="press"  signal="show_pause_menu"/>
+    </ActionMap>
+	
+    <!-- ******************************************************************************** -->
+    <ActionMap name="common_system" resendOnChange="0" >
+        <Import actionmap="common_system_nopausemenu" optional=""/>
+        <Binding input="kb:escape" action="press"   signal="show_map"/>
+        <Binding input="pad:back" action="click" signal="show_map"/>
+        <NoResend input="pad:back"/>
+        <Binding input="pad:touchpad" action="click" signal="show_map"/>
+        <NoResend input="pad:touchpad"/>
+
+        <!-- REMOTEPLAY BEGIN -->
+        <Binding input="pad:touch_front_center" action="click" signal="show_map"/>
+        <NoResend input="pad:touch_front_center"/>
+        <!-- REMOTEPLAY END   -->
+
+        <Binding input="pad:a" action="press"  signal="toggle_start_menu" additive="1"/>
+        <Binding input="speech:what can i say" action="press"   signal="show_voice_commands"/>
+        <Binding input="pad:pause" action="press"  signal="show_pause_menu"/>
+        <Binding input="pad:play" action="press"   signal="hide_pause_menu"/>
+    </ActionMap>
+
+    <!-- ******************************************************************************** -->
+    <ActionMap name="common_move_no_cover">
+        <!--Keyboard-->
+        <CompoundInput name="move" device="kb">
+            <Input input="w" axis="0"/>
+            <Input input="s" axis="0" invert="1"/>
+            <Input input="d" axis="1"/>
+            <Input input="a" axis="1" invert="1"/>
+        </CompoundInput>
+
+        <Binding input="kb:move" action="press" signal="move"/>
+        <Binding input="kb:move" action="release" signal="move"/>
+
+        <Binding input="pad:left_thumb_push" action="press"     signal="sprint_trigger_press"/>
+        <Binding input="pad:left_thumb_push" action="release"   signal="sprint_trigger_release"/>
+        <Binding input="pad:left_thumb_push" action="hold"      signal="sprint_trigger_hold"/>
+        <!-- REMOTEPLAY BEGIN -->
+        <Binding input="pad:touch_back_bottomleft" action="press"     signal="sprint_trigger_press"/>
+        <Binding input="pad:touch_back_bottomleft" action="release"   signal="sprint_trigger_release"/>
+        <Binding input="pad:touch_back_bottomleft" action="hold"      signal="sprint_trigger_hold"/>
+        <!-- REMOTEPLAY END   -->
+
+        <!--Gamepad-->
+        <PadFilter name="left_thumb" device="pad">
+            <Binding input="left_thumb_leftright" axis="1" sensitivity="1" curve="Curves.MovementCurves.Joystick_LeftRight"/>
+            <Binding input="left_thumb_updown" axis="0" sensitivity="1" curve="Curves.MovementCurves.Joystick_UpDown"/>
+        </PadFilter>
+
+        <Binding input="pad:left_thumb" action="update" signal="move"/>
+    </ActionMap>
+
+    <!-- ******************************************************************************** -->
+    <ActionMap name="common_aim_and_shoot">
+        <Binding input="pad:left_trigger"           action="press"      signal="aiming_trigger_press"/>
+        <Binding input="pad:left_trigger"           action="release"    signal="aiming_trigger_release"/>
+
+        <Binding input="pad:right_shoulder"         action="press"      signal="projectile_aiming_press"/>
+        <Binding input="pad:right_shoulder"         action="release"    signal="projectile_aiming_release"/>
+        <NoResend input="pad:right_shoulder"/>
+        
+        <!-- REMOTEPLAY BEGIN -->
+        <Binding input="pad:touch_back_right"         action="press"      signal="projectile_aiming_press"/>
+        <Binding input="pad:touch_back_right"         action="release"    signal="projectile_aiming_release"/>
+        <NoResend input="pad:touch_back_right"/>
+        <!-- REMOTEPLAY END   -->
+    </ActionMap>
+
+    <ActionMap name="common_aim_nomove">
+        <Binding input="pad:left_trigger"           action="press"      signal="aiming_trigger_press_nomove"/>
+        <Binding input="pad:left_trigger"           action="release"    signal="aiming_trigger_release"/>
+    </ActionMap>
+
+    <ActionMap name="common_cover">
+        <Binding input="pad:a" action="press" signal="cover_press"/>
+        <NoResend input="pad:a"/>
+    </ActionMap>
+
+    <ActionMap name="common_cover_exit_layer" isLayer="1">
+        <Binding input="pad:left_thumb_push" action="press" signal="cover_exit_stick" consume="1"/>
+        <NoResend input="pad:left_thumb_push"/>
+        <Binding input="pad:b" action="press" signal="cover_exit"/>
+        <NoResend input="pad:b"/>
+        <!-- REMOTEPLAY BEGIN -->
+        <Binding input="pad:touch_back_bottomleft" action="press" signal="cover_exit_stick" consume="1"/>
+        <NoResend input="pad:touch_back_bottomleft"/>
+        <!-- REMOTEPLAY END   -->
+    </ActionMap>
+
+    <ActionMap name="common_interact" >
+        <!--Keyboard-->
+        <Binding input="kb:e" action="click"   signal="use"/>
+
+        <!-- keyboard debug -->
+        <Binding    input="kb:n"                    action="press"      signal="interact_press"     additive="1"/>
+        <!-- keyboard debug -->
+
+        <!--Gamepad-->
+        <Binding input="pad:right_trigger" action="press"   signal="interact_press" additive="1"/>
+        <Binding input="pad:right_trigger" action="click"   signal="interact_click"/>
+        <Binding input="pad:right_trigger" action="hold"    signal="interact_hold"/>
+        <Binding input="pad:right_trigger" action="release" signal="interact_release"/>
+        <Binding input="pad:ui_back" action="press" signal="common_ui_back"/>
+        <Binding input="pad:y" action="press"   signal="use_press" additive="1"/>
+        <Binding input="pad:y" action="click"   signal="use"/>
+        <Binding input="pad:y" action="hold"    signal="use_hold"/>
+        <Binding input="pad:y" action="release" signal="use_release"/>
+        <Binding input="pad:y" action="hold"    signal="pick_hold" additive="1"/>
+        <Binding input="pad:y" action="press"   signal="pick_press"/>
+        <Binding input="pad:y" action="release" signal="pick_release" additive="1"/>
+        <NoResend input="pad:right_trigger"/>
+        <NoResend input="pad:y"/>
+    </ActionMap>
+
+    <ActionMap name="common_cancel" >
+        <Binding input="pad:b" action="press"     signal="common_cancel" additive="1"/>
+        <NoResend input="pad:b"/>
+    </ActionMap>
+
+    <!-- ******************************************************************************** -->
+    <ActionMap name="common_reload">
+        <!-- REMOTEPLAY BEGIN -->
+        <Binding input="pad:touch_front_topleft"    action="click"      signal="aiming_reload_press"/>
+        <!-- REMOTEPLAY END -->
+        <Binding input="pad:x"                      action="click"      signal="aiming_reload_press"  additive="1"/>
+    </ActionMap>
+
+    <!-- ******************************************************************************** -->
+    <ActionMap name="common_aiming">
+        <!--Gamepad-->
+        <Binding    input="pad:right_trigger"   action="press"      signal="fire_trigger_press"   additive="1"/>
+        <Binding    input="pad:right_trigger"   action="release"    signal="fire_trigger_release" additive="1"/>
+        
+        <Binding    input="pad:left_thumb_push" action="click"      signal="toggle_scope"/>
+        <!-- REMOTEPLAY BEGIN -->
+        <Binding    input="pad:touch_back_bottomleft" action="click"      signal="toggle_scope"/>
+        <!-- REMOTEPLAY END -->
+        
+        <Binding    input="pad:left_shoulder"   action="click"      signal="select_nextweapon"/>
+        <Binding    input="pad:left_shoulder"   action="dbl_click"  signal="select_nextweapon"/>
+
+        <!-- REMOTEPLAY BEGIN -->
+        <Binding    input="pad:touch_back_topleft"   action="click"      signal="select_nextweapon"/>
+        <Binding    input="pad:touch_back_topleft"   action="dbl_click"  signal="select_nextweapon"/>
+        <!-- REMOTEPLAY END -->
+    </ActionMap>
+    
+    <!-- ******************************************************************************** -->
+    <ActionMap name="common_projectile_aiming_layer" isLayer="1">
+        <Binding    input="pad:b"   action="press"      signal="cancel_projectile_aiming" consume="1" noHistory="1"/>
+    </ActionMap>
+
+    <!-- ******************************************************************************** -->
+    <ActionMap name="common_not_aiming">
+        <Binding    input="pad:right_trigger"   action="press"      signal="shoot_press"   additive="1"/>
+        <Binding    input="pad:right_trigger"   action="release"    signal="shoot_release" additive="1"/>
+    </ActionMap>
+
+    <!-- ******************************************************************************** -->
+    <!-- C O M M O N   C A M E R A   M A P P I N G -->
+    <!-- ******************************************************************************** -->
+    <ActionMap name="common_camera_look">
+        <!--Mouse-->
+        <MouseFilter input="mouse:move" curve="" sensitivity="1.0" maxOutput="10" />
+        <Binding input="mouse:move" action="update" signal="cam_look_py"/>
+
+        <!--GamePad-->
+        <PadFilter name="right_thumb" device="pad">
+            <Binding input="right_thumb_leftright" axis="0" sensitivity="1" curve="Curves.MovementCurves.Joystick_LeftRight"/>
+            <Binding input="right_thumb_updown" axis="1" sensitivity="1" curve="Curves.MovementCurves.Joystick_UpDown"/>
+        </PadFilter>
+        <Binding input="pad:right_thumb" action="update" signal="cam_look_py"/>
+    </ActionMap>
+
+    <ActionMap name="common_free_camera_look">
+        <!--Mouse-->
+        <MouseFilter input="mouse:move" curve="" sensitivity="1.0" maxOutput="10" />
+        <Binding input="mouse:move" action="update" signal="free_cam_look_py"/>
+
+        <!--GamePad-->
+        <PadFilter name="right_thumb" device="pad">
+            <Binding input="right_thumb_leftright" axis="0" sensitivity="1" curve="Curves.MovementCurves.Joystick_LeftRight"/>
+            <Binding input="right_thumb_updown" axis="1" sensitivity="1" curve="Curves.MovementCurves.Joystick_UpDown"/>
+        </PadFilter>
+        <Binding input="pad:right_thumb" action="update" signal="free_cam_look_py"/>
+    </ActionMap>
+
+    <ActionMap name="common_free_camera_move">
+        <!--Keyboard-->
+        <CompoundInput name="move_xy" device="kb">
+            <Input input="w" axis="0"/>
+            <Input input="s" axis="0" invert="1"/>
+            <Input input="d" axis="1"/>
+            <Input input="a" axis="1" invert="1"/>
+        </CompoundInput>
+        <Binding input="kb:move_xy" action="press" signal="free_cam_move_xy"/>
+        <Binding input="kb:move_xy" action="release" signal="free_cam_move_xy"/>
+
+        <CompoundInput name="move_z" device="mouse">
+            <Input input="lb" axis="0"/>
+            <Input input="rb" axis="0" invert="1"/>
+        </CompoundInput>
+        <Binding input="mouse:move_z" action="press" signal="free_cam_move_z"/>
+        <Binding input="mouse:move_z" action="release" signal="free_cam_move_z"/>
+
+        <Binding input="mouse:wheel" action="update" signal="free_cam_move_speed"/>
+
+        <!--Gamepad-->
+        <PadFilter name="left_thumb" device="pad">
+            <Binding input="left_thumb_leftright" axis="1" sensitivity="1" curve="Curves.MovementCurves.Joystick_LeftRight_DeadZoned_Top"/>
+            <Binding input="left_thumb_updown" axis="0" sensitivity="1" curve="Curves.MovementCurves.Joystick_UpDown_DeadZoned_Top"/>
+        </PadFilter>
+        <Binding input="pad:left_thumb" action="update" signal="free_cam_move_xy"/>
+
+        <CompoundInput name="move_speed" device="pad">
+            <Input input="right_trigger" axis="0"/>
+            <Input input="left_trigger" axis="0" invert="1"/>
+        </CompoundInput>
+        <CompoundInput name="move_z" device="pad">
+            <Input input="right_shoulder" axis="0"/>
+            <Input input="left_shoulder" axis="0" invert="1"/>
+        </CompoundInput>
+
+        <Binding input="pad:move_speed" action="update" signal="free_cam_move_speed"/>
+        <Binding input="pad:move_z" action="update" signal="free_cam_move_z"/>
+    </ActionMap>
+
+    <!-- ******************************************************************************** -->
+    <!-- F R E E   C A M E R A   M A P P I N G -->
+    <!-- ******************************************************************************** -->
+    <ActionMap name="common_free_camera" resendOnChange="0">
+
+        <!--Camera Look-->
+        <Import actionmap="common_free_camera_look"/>
+        <!--Camera Look-->
+
+        <!--Camera Move-->
+        <Import actionmap="common_free_camera_move"/>
+        <!--Camera Move-->
+
+        <Import actionmap="common_net_surfing_toggle"/>
+        
+        <!--Camera Free Debug Triggers-->
+        <Binding input="pad:right" action="press" signal="free_cam_lock_entity"/>
+        <Binding input="pad:left" action="press" signal="free_cam_lock_transform"/>
+
+        <Binding input="pad:x" action="press" signal="select_debug_target"/>
+        <!--<Binding input="pad:b" action="press" signal="return_from_target_debug"/>-->
+        <Binding input="pad:y" action="press" signal="filter_log_target_debug"/>
+        <Binding input="kb:u" action="press" signal="unspawn_entity"/>
+        <Binding input="kb:y" action="press" signal="unmanage_entity"/>
+        <!--<Binding input="pad:right_trigger" action="press" signal="copy_graphickit"/> disabling because its too easy to do by accident-->
+    </ActionMap>
+
+    <ActionMap name="common_marketing_camera" resendOnChange="0">
+        <Binding input="pad:right_thumb_push" action="press" signal="market_cam_toggle_activation"/>
+        
+        <Binding input="pad:back" action="press" signal="market_cam_toggle_lock"/>
+        <Binding input="pad:touchpad" action="press" signal="market_cam_toggle_lock"/>
+        
+        <Binding input="pad:start" action="press" signal="market_cam_toggle_transform"/>
+
+        <!--Camera Look-->
+        <PadFilter name="right_thumb" device="pad">
+            <Binding input="right_thumb_leftright" axis="0" sensitivity="1" curve="Curves.MovementCurves.Joystick_LeftRight"/>
+            <Binding input="right_thumb_updown" axis="1" sensitivity="1" curve="Curves.MovementCurves.Joystick_UpDown"/>
+        </PadFilter>
+        <Binding input="pad:right_thumb" action="update" signal="free_cam_look_py"/>
+
+        <CompoundInput name="tilt" device="pad">
+            <Input input="right_shoulder" axis="0"/>
+            <Input input="left_shoulder" axis="0" invert="1"/>
+        </CompoundInput>
+        <Binding input="pad:tilt" action="update" signal="free_cam_look_r"/>
+        <!--Camera Look-->
+
+        <!--Camera Move-->
+        <PadFilter name="left_thumb" device="pad">
+            <Binding input="left_thumb_leftright" axis="1" sensitivity="1" curve="Curves.MovementCurves.Joystick_LeftRight"/>
+            <Binding input="left_thumb_updown" axis="0" sensitivity="1" curve="Curves.MovementCurves.Joystick_UpDown"/>
+        </PadFilter>
+        <Binding input="pad:left_thumb" action="update" signal="free_cam_move_xy"/>
+
+        <CompoundInput name="move_z" device="pad">
+            <Input input="right_trigger" axis="0"/>
+            <Input input="left_trigger" axis="0" invert="1"/>
+        </CompoundInput>
+        <Binding input="pad:move_z" action="update" signal="free_cam_move_z"/>
+        <!--Camera Move-->
+
+        <!--Camera Multipliers-->
+        <CompoundInput name="special_speed" device="pad">
+            <Input input="x" axis="0"/>
+            <Input input="a" axis="0" invert="1"/>
+        </CompoundInput>
+        <Binding input="pad:special_speed" action="update" signal="market_cam_special_speed_step"/>
+
+        <CompoundInput name="trans_speed" device="pad">
+            <Input input="y" axis="0"/>
+            <Input input="b" axis="0" invert="1"/>
+        </CompoundInput>
+        <Binding input="pad:trans_speed" action="update" signal="market_cam_trans_speed_step"/>
+
+        <CompoundInput name="rot_speed" device="pad">
+            <Input input="up" axis="0"/>
+            <Input input="down" axis="0" invert="1"/>
+        </CompoundInput>
+        <Binding input="pad:rot_speed" action="update" signal="market_cam_rot_speed_step"/>
+
+        <CompoundInput name="fov_speed" device="pad">
+            <Input input="left_thumb_push" axis="0"/>
+        </CompoundInput>
+        <Binding input="pad:fov_speed" action="update" signal="market_cam_fov_speed_step"/>
+
+        <Binding input="pad:left"   action="click"   signal="market_cam_scale_speed_step_down"/>
+        <Binding input="pad:right"  action="click"   signal="market_cam_scale_speed_step_up"/>
+        <!--Camera Multipliers-->
+
+
+        <!-- REMOTEPLAY BEGIN -->
+        <Binding input="pad:touch_front_center" action="press" signal="market_cam_toggle_lock"/>
+        <!-- REMOTEPLAY END -->
+
+    </ActionMap>
+
+    <!-- ******************************************************************************** -->
+    <!-- Install download -->
+    <ActionMap name="common_install_download">
+        <Binding input="pad:back" action="hold"   signal="install_download" additive="1"/>
+        <NoResend input="pad:back"/>
+        <Binding input="pad:touchpad" action="hold"   signal="install_download" additive="1"/>
+        <NoResend input="pad:touchpad"/>
+
+        <!-- REMOTEPLAY BEGIN -->
+        <Binding input="pad:touch_front_center" action="hold"   signal="install_download" additive="1"/>
+        <NoResend input="pad:touch_front_center"/>
+        <!-- REMOTEPLAY END -->
+    </ActionMap>
+
+    <!-- ******************************************************************************** -->
+    <!-- Menu PDA action map -->
+    <ActionMap name="common_pda" resendOnChange="0">
+        <Import actionmap="common_install_download" />
+
+        <Binding input="pad:start" action="click"   signal="show_pda"/>
+        <NoResend input="pad:start"/>
+    </ActionMap>
+
+    <!-- ******************************************************************************** -->
+    <!-- Menu Tutorial action map -->
+    <ActionMap name="tutorial_show_pda" resendOnChange="0">
+        <Import actionmap="common_system" />
+
+        <Binding input="pad:start" action="click"   signal="show_pda"/>
+        <NoResend input="pad:start"/>
+    </ActionMap>
+
+    <ActionMap name="tutorial_buy_garage_door" resendOnChange="0">
+        <Import actionmap="common_system" />
+        <AcceptBack name="tutorial_buy_garage_door_enterexit"/>
+        <Binding input="pad:a_accept"    action="press" signal="tree_navigation_select"/>
+        <NoResend input="pad:a_accept"/>
+    </ActionMap>
+
+    <ActionMap name="profile_debug" resendOnChange="0">
+        <Import actionmap="common_system" />
+        <Import actionmap="common_camera_look"/>
+        <Import actionmap="common_move_no_cover"/>
+        <Import actionmap="common_aim_and_shoot"/>
+        <Import actionmap="common_reload"/>
+        <Import actionmap="common_cover"/>
+        <Import actionmap="common_interact"/>
+		<Import actionmap="common_hack_selection_layer"/>
+        <Binding input="pad:right" action="press" signal="profile_scroll_next"/>
+        <NoResend input="pad:right"/>
+        <Binding input="pad:left" action="press" signal="profile_scroll_previous"/>
+        <NoResend input="pad:left"/>
+        <Binding input="pad:up" action="press" signal="profile_scroll_next_identity"/>
+        <NoResend input="pad:up"/>
+        <Binding input="pad:down" action="press" signal="profile_scroll_previous_identity"/>
+        <NoResend input="pad:down"/>
+		<Binding input="pad:x" action="press" signal="profile_toggle_chat"/>
+        <NoResend input="pad:x"/>
+    </ActionMap>
+
+    <!-- ******************************************************************************** -->
+    <!-- Inventory Selection action map -->
+    <ActionMap name="common_weaponselection" resendOnChange="0">
+        <Binding input="pad:up"     action="press"    signal="inventory_selection_begin"/>
+        <Binding input="pad:up"     action="release"  signal="inventory_selection_end"/>
+    </ActionMap>
+
+    <ActionMap name="common_emotes" resendOnChange="0">
+        <Binding input="pad:down"   action="press"    signal="emotes_selection_begin"/>
+        <Binding input="pad:down"   action="release"  signal="emotes_selection_end"/>
+    </ActionMap>
+
+    <ActionMap name="common_rcdeploy" resendOnChange="0">
+        <Binding input="pad:left"   action="press"    signal="deploy_toycar"/>
+        <Binding input="pad:right"  action="press"    signal="deploy_flyingdrone"/>
+    </ActionMap>
+
+    <!-- ******************************************************************************** -->
+    <!-- Ingame Computer action map -->
+    <ActionMap name="ingame_computer_action_map" resendOnChange="0">
+        <Import actionmap="common_system_nopausemenu"/>
+        
+        <AcceptBack name="ingame_computer"/>
+        <Binding input="pad:a_accept"        action="press"    signal="ingame_computer_accept"/>
+        <Binding input="pad:left_shoulder"   action="press"    signal="ingame_computer_left"/>
+        <Binding input="pad:right_shoulder"  action="press"    signal="ingame_computer_right"/>
+
+        <PadFilter name="left_thumb" device="pad">
+            <Binding input="left_thumb_leftright" axis="0" acceleration="0" sensitivity="1" curve="Curves.MovementCurves.Joystick_LeftRight"/>
+            <Binding input="left_thumb_updown" axis="1" acceleration="0" sensitivity="1" curve="Curves.MovementCurves.Joystick_UpDown"/>
+        </PadFilter>
+        <Binding input="pad:left_thumb" action="update" signal="ingame_computer_stick"/>
+    
+        <!-- REMOTEPLAY BEGIN -->
+        <Binding input="pad:touch_back_topleft"   action="press"    signal="ingame_computer_left"/>
+        <Binding input="pad:touch_back_right"  action="press"    signal="ingame_computer_right"/>
+        <!-- REMOTEPLAY END -->
+    </ActionMap>
+
+    <!-- ******************************************************************************** -->
+    <!-- Music Player Control action map -->
+    <ActionMap name="common_musicplayer_control" resendOnChange="0">
+        <Binding    input="pad:back"                action="hold"       signal="start_music_control" additive="1"/>
+        <Binding    input="pad:back"                action="release"    signal="stop_music_control" additive="1"/>
+        <Binding    input="pad:touchpad"            action="hold"       signal="start_music_control" additive="1"/>
+        <Binding    input="pad:touchpad"            action="release"    signal="stop_music_control" additive="1"/>
+
+        <!-- REMOTEPLAY BEGIN -->
+        <Binding    input="pad:touch_front_center"            action="hold"       signal="start_music_control" additive="1"/>
+        <Binding    input="pad:touch_front_center"            action="release"    signal="stop_music_control" additive="1"/>
+        <!-- REMOTEPLAY END -->
+    </ActionMap>
+
+    <!-- ******************************************************************************** -->
+    <!-- Activity action map -->
+    <ActionMap name="activity_layer" isLayer="1">
+        <Binding input="pad:back"   action="hold" signal="skip_current_activity" consume="1"/>
+        <NoResend   input="pad:back"/>
+        <Binding input="pad:touchpad"   action="hold" signal="skip_current_activity" consume="1"/>
+        <NoResend   input="pad:touchpad"/>
+
+        <!-- REMOTEPLAY BEGIN -->
+        <Binding input="pad:touch_front_center"   action="hold" signal="skip_current_activity" consume="1"/>
+        <NoResend   input="pad:touch_front_center"/>
+        <!-- REMOTEPLAY END -->
+    </ActionMap>
+
+    <!-- ******************************************************************************** -->
+    <!-- Vote UI action map -->
+    <ActionMap name="contract_vote">
+        <Binding input="pad:left"   action="hold" signal="open_vote_app" consume="1"/>
+    </ActionMap>
+
+    <!-- ******************************************************************************** -->
+    <!-- Takedown -->
+    <ActionMap name="common_takedown">
+        <!-- keyboard debug -->
+        <Binding    input="kb:b"                    action="press"      signal="takedown_press"     additive="1"/>
+        <Binding    input="kb:b"                    action="hold"       signal="takedown_hold"      additive="1"/>
+        <Binding    input="kb:b"                    action="release"    signal="takedown_release"   additive="1"/>
+        <!-- keyboard debug -->
+
+        <!--Gamepad-->
+        <Binding    input="pad:b"       action="press"      signal="takedown_press"/>
+        <Binding    input="pad:b"       action="hold"       signal="takedown_hold"/>
+        <Binding    input="pad:b"       action="release"    signal="takedown_release"/>
+        <NoResend   input="pad:b"/>
+    </ActionMap>
+
+    <!-- ******************************************************************************** -->
+    <!-- Net surfing toggle -->
+    <ActionMap name="common_net_surfing_toggle">
+        <Binding    input="pad:right_thumb_push"                  action="press"      signal="net_surfing_toggle" consume="1"/>
+        <NoResend   input="pad:right_thumb_push"/>
+
+        <!-- REMOTEPLAY BEGIN -->
+        <Binding    input="pad:touch_front_bottomright"                  action="press"      signal="net_surfing_toggle" consume="1"/>
+        <NoResend   input="pad:touch_front_bottomright"/>
+        <!-- REMOTEPLAY END -->
+    </ActionMap>
+
+    <ActionMap name="common_softwares">
+        <!--Gamepad-->
+        <Binding  input="pad:x" action="hold"    signal="hold_software"/>
+        <Binding  input="pad:x" action="press"   signal="press_software"/>
+        <Binding  input="pad:x" action="release" signal="release_software"/>
+        <Binding  input="pad:x" action="click"   signal="arm_auto_takedown" additive="1"/>
+        <NoResend input="pad:x"/>
+    </ActionMap>
+
+    <!-- ******************************************************************************** -->
+    <!--In-Game Cinematic action map-->
+    <ActionMap name="common_cinematic">
+        <Import actionmap="common_system_nopausemenu"/>
+        <Binding input="pad:b" action="press"   signal="skip_cinematic"/>
+        <NoResend input="pad:b"/>
+    </ActionMap>
+
+    <!-- ******************************************************************************** -->
+    <ActionMap name="common_in_vehicle_no_look">
+        <Binding input="kb:e" action="press" signal="exitvehicle"/>
+        <Binding input="pad:y" action="press" signal="exitvehicle"/>
+        <NoResend input="pad:y"/>
+        
+        <Binding  input="pad:right_shoulder" action="press" signal="projectile_aiming_press"/>
+        <NoResend input="pad:right_shoulder"/>
+
+        <!-- REMOTEPLAY BEGIN -->
+        <Binding  input="pad:touch_back_right" action="press" signal="projectile_aiming_press"/>
+        <NoResend input="pad:touch_back_right"/>
+        <!-- REMOTEPLAY END   -->
+    </ActionMap>
+
+    <!-- ******************************************************************************** -->
+    <ActionMap name="common_look_back">
+        <Binding input= "pad:right_thumb_push" action="press" signal="look_back"/>
+        <Binding input= "pad:right_thumb_push" action="release" signal="cancel_look_back"/>
+        <NoResend input="pad:right_thumb_push"/>
+
+        <!--Both mouse buttons generate a look-back-->
+        <Binding signal="look_back">
+            <Input input="mouse:rb" action="press" useAsAxisInput="1"/>
+            <Input input="mouse:lb" action="press"/>
+        </Binding>
+
+        <!-- REMOTEPLAY BEGIN -->
+        <Binding input= "pad:touch_front_bottomright" action="press" signal="look_back"/>
+        <Binding input= "pad:touch_front_bottomright" action="release" signal="cancel_look_back"/>
+        <NoResend input="pad:touch_front_bottomright"/>
+        <!-- REMOTEPLAY END   -->
+    </ActionMap>
+
+    <ActionMap name="common_camera_switch">
+        <Binding input="pad:down" action="click" signal="cameraswitch"/>
+    </ActionMap>
+
+    <ActionMap name="common_driving_noprofiler">
+        <!--Sixaxis-->
+        <Copy input="pad:sensor_x" toInput="pad:sixaxis_steering" />
+        <CurveFilter input="pad:sixaxis_steering" sensitivity="5" maxOutput="1" />
+        <Binding input="pad:sixaxis_steering" action="update" signal="sixaxis_steering" />
+
+        <!--Keyboard-->
+        <CompoundInput name="accelerator" device="kb">
+            <Input input="w"/>
+        </CompoundInput>
+        <CompoundInput name="reverse" device="kb">
+            <Input input="s"/>
+        </CompoundInput>
+        <CompoundInput name="steering" device="kb">
+            <Input input="d" axis="0"/>
+            <Input input="a" axis="0" invert="1"/>
+            <Input input="w" axis="1"/>
+            <Input input="s" axis="1" invert="1"/>
+        </CompoundInput>
+
+        <Binding input="kb:accelerator" action="press" signal="accelerator"/>
+        <Binding input="kb:accelerator" action="release" signal="accelerator"/>
+        <Binding input="kb:reverse" action="press" signal="reverse"/>
+        <Binding input="kb:reverse" action="release" signal="reverse"/>
+        <Binding input="kb:steering" action="press" signal="steering"/>
+        <Binding input="kb:steering" action="release" signal="steering"/>
+        <Binding input="kb:space" action="press" signal="hand_brake"/>
+        <Binding input="kb:space" action="release" signal="hand_brake"/>
+        <Binding input="kb:5" action="press" signal="toggle_gadget"/>
+        <Binding input="kb:g" action="press" signal="toggle_headlights"/>
+        <Binding input="kb:a" action="press" signal="toggle_allLights"/>
+
+        <!--Gamepad-->
+        <CompoundInput name="accelerator" device="pad">
+            <Input input="right_trigger"/>
+        </CompoundInput>
+        <CompoundInput name="reverse" device="pad">
+            <Input input="left_trigger"/>
+        </CompoundInput>
+
+        <Binding input="pad:accelerator" action="update" signal="accelerator"/>
+        <Binding input="pad:reverse" action="update" signal="reverse"/>
+
+        <PadFilter name="left_thumb" device="pad">
+            <Binding input="left_thumb_leftright" axis="0" acceleration="0" sensitivity="1" curve="Curves.MovementCurves.Joystick_LeftRight"/>
+            <Binding input="left_thumb_updown" axis="1" acceleration="0" sensitivity="1" curve="Curves.MovementCurves.Joystick_UpDown"/>
+        </PadFilter>
+        <Binding input="pad:left_thumb" action="update" signal="steering"/>
+
+        <Binding input="pad:b"                  action="update" signal="hand_brake"/>
+        <Binding input="pad:b"                  action="press" signal="hide_in_car"/>
+        <NoResend input="pad:b" />
+
+        <Binding input="pad:left_thumb_push"    action="press"   signal="toggle_police_sirens_lights_or_horn"/>
+        <Binding input="pad:left_thumb_push"    action="release" signal="cancel_horn"/>
+        <!-- REMOTEPLAY BEGIN -->
+        <Binding input="pad:touch_back_bottomleft"    action="press"   signal="toggle_police_sirens_lights_or_horn"/>
+        <Binding input="pad:touch_back_bottomleft"    action="release" signal="cancel_horn"/>
+        <!-- REMOTEPLAY END   -->
+
+        <Binding input="pad:a"    action="press" signal="start_nitro"/>
+        <Binding input="pad:a"    action="release" signal="stop_nitro"/>
+    </ActionMap>
+
+    <ActionMap name="common_passenger">
+        <Binding input="kb:e" action="press" signal="exitvehicle"/>
+        <Binding input="pad:y" action="press" signal="exitvehicle"/>
+        <NoResend input="pad:y"/>
+    </ActionMap>
+
+    <ActionMap name="vehicle_exitblocked">
+        <Import actionmap="common_look_back"/>
+        <Import actionmap="common_camera_look"/>
+        <Import actionmap="common_camera_switch"/>
+        <Import actionmap="common_driving_noprofiler"/>
+        <Import actionmap="common_system"/>
+        <Import actionmap="common_showconsole"/>
+        <Import actionmap="common_softwares"/>
+        <Import actionmap="common_musicplayer_control"/>
+        <Import actionmap="common_scry_alwaysactive"/>
+        <Binding input="pad:y" action="hold" signal="resetvehicle"/>
+    </ActionMap>
+
+    <!-- ******************************************************************************** -->
+    <ActionMap name="common_emptyactionmap" resendOnChange="0">
+        <Import actionmap="common_system" />
+    </ActionMap>
+
+    <!-- ******************************************************************************** -->
+    <ActionMap name="common_unlockingHub" resendOnChange="0">
+        <Import actionmap="common_system" />
+    </ActionMap>
+
+    <!-- ******************************************************************************** -->
+    <!--Briefing action map-->
+    <ActionMap name="common_dominoinputlistener">
+        <!--Keyboard-->
+        <Binding input="kb:move" action="press" signal="InputDominoMove"/>
+        <Binding input="kb:move" action="release" signal="InputDominoMove"/>
+
+        <Binding input="kb:lshift" action="press" signal="InputDominoDoNothing"/>
+        <Binding input="kb:lshift" action="release" signal="InputDominoDoNothing"/>
+
+        <!--Gamepad-->
+        <Binding input="pad:left_thumb_push" action="press" signal="InputDominoDoNothing"/>
+        <Binding input="pad:left_thumb_push" action="release" signal="InputDominoDoNothing"/>
+        <!-- REMOTEPLAY BEGIN -->
+        <Binding input="pad:touch_back_bottomleft" action="press" signal="InputDominoDoNothing"/>
+        <Binding input="pad:touch_back_bottomleft" action="release" signal="InputDominoDoNothing"/>
+        <!-- REMOTEPLAY END   -->
+
+        <Binding input="pad:left_thumb" action="update" signal="InputDominoMove"/>
+    </ActionMap>
+
+    <!-- ******************************************************************************** -->
+    <!-- Scry debug console Action Maps -->
+    <ActionMap name="common_scry_alwaysactive">
+        <!-- The copies are so Scry can still be opened by clicking the thumbsticks, or by
+                lctrl+whatever your console key is, even if the user renames the thumb push
+                inputs or lctrl by changing their key bindings -->
+      <Copy input="pad:a" toInput="pad:scry_left_thumb_push"/>
+      <Copy input="pad:b" toInput="pad:scry_right_thumb_push"/>
+      <Copy input="kb:lctrl" toInput="kb:scry_lctrl"/>
+
+      <!-- keyboard activation -->
+
+      <Binding input="kb:\" action="press" signal="scry_press_openclose"/>
+      <Binding input="kb:\" action="release" signal="scry_release_openclose"/>
+
+      <!-- thumbstick activation -->
+
+      <Binding input="pad:scry_left_thumb_push"  action="press"   signal="scry_press_left_thumb"/>
+      <Binding input="pad:scry_left_thumb_push"  action="release" signal="scry_release_left_thumb"/>
+      <Binding input="pad:scry_right_thumb_push" action="press"   signal="scry_press_right_thumb"/>
+      <Binding input="pad:scry_right_thumb_push" action="release" signal="scry_release_right_thumb"/>
+
+      <Binding input="pad:scry_left_thumb_push"  action="press"   signal="scry_press_a"/>
+      <Binding input="pad:scry_left_thumb_push"  action="release" signal="scry_release_a"/>
+      <Binding input="pad:scry_right_thumb_push" action="press"   signal="scry_press_b"/>
+      <Binding input="pad:scry_right_thumb_push" action="release" signal="scry_release_b"/>
+  </ActionMap>
+
+  <!-- ******************************************************************************** -->
+  <ActionMap name="common_driver_aiming">
+    <!--Gamepad-->
+    <Binding    input="pad:left_shoulder"   action="press"      signal="fire_trigger_press"/>
+    <Binding    input="pad:left_shoulder"   action="release"    signal="fire_trigger_release"/>
+    <Binding    input="pad:right_shoulder"   action="press"      signal="projectile_aiming_press" additive="1"/>
+    <Binding    input="pad:right_shoulder"   action="release"    signal="projectile_aiming_release" additive="1"/>
+
+    <!-- REMOTEPLAY BEGIN -->
+    <Binding    input="pad:touch_back_topleft"   action="press"      signal="fire_trigger_press"/>
+    <Binding    input="pad:touch_back_topleft"   action="release"    signal="fire_trigger_release"/>
+    <Binding    input="pad:touch_back_right"   action="press"      signal="projectile_aiming_press" additive="1"/>
+    <Binding    input="pad:touch_back_right"   action="release"    signal="projectile_aiming_release" additive="1"/>
+    <!-- REMOTEPLAY END   -->
+
+    <!-- REMOTEPLAY BEGIN -->
+    <Binding input="pad:touch_front_topleft"    action="click"      signal="aiming_reload_press"/>
+    <!-- REMOTEPLAY END -->
+    <Binding input="pad:x"                      action="click"      signal="aiming_reload_press" />
+  </ActionMap>
+
+  <!-- ******************************************************************************** -->
+  <ActionMap name="common_scry">
+      <Binding input="kb:escape" action="press" signal="scry_press_openclose"/>
+
+      <!-- overlay activation -->
+      <Binding input="kb:space" action="press" signal="scry_press_start"/>
+      <Binding input="kb:space" action="release" signal="scry_release_start"/>
+
+      <!-- Hyper navigation -->
+      <Binding input="kb:lctrl" action="press" signal="scry_press_left_thumb"/>
+      <Binding input="kb:lctrl" action="release" signal="scry_release_left_thumb"/>
+
+      <!-- keyboard+mouse navigation -->
+      <CompoundInput name="moveLT" device="kb">
+          <Input input="w" axis="1"/>
+          <Input input="s" axis="1" invert="1"/>
+          <Input input="d" axis="0"/>
+          <Input input="a" axis="0" invert="1"/>
+      </CompoundInput>
+
+      <CompoundInput name="moveRT" device="kb">
+          <Input input="up" axis="1"/>
+          <Input input="down" axis="1" invert="1"/>
+          <Input input="right" axis="0"/>
+          <Input input="left" axis="0" invert="1"/>
+      </CompoundInput>
+
+      <Binding input="kb:moveLT" action="press"   signal="scry_move_left_thumb"/>
+      <Binding input="kb:moveLT" action="release" signal="scry_move_left_thumb"/>
+
+      <Binding input="kb:moveRT" action="press"   signal="scry_move_right_thumb"/>
+      <Binding input="kb:moveRT" action="release" signal="scry_move_right_thumb"/>
+
+      <MouseFilter input="mouse:move" sensitivity="0.8" maxOutput="10" />
+      <Binding input="mouse:move" action="update" signal="scry_move_right_thumb"/>
+
+      <!-- thumbstick navigation -->
+      <PadFilter name="left_thumb" device="pad" padAccelerationBoostAmplitude="4">
+          <Binding input="left_thumb_leftright" axis="0" sensitivity="1" curve="Curves.MovementCurves.Joystick_LeftRight_DeadZoned_TopBottom"/>
+          <Binding input="left_thumb_updown" axis="1" sensitivity="1" curve="Curves.MovementCurves.Joystick_UpDown_DeadZoned_TopBottom"/>
+      </PadFilter>
+
+      <PadFilter name="right_thumb" device="pad" padAccelerationBoostAmplitude="4">
+          <Binding input="right_thumb_leftright" axis="0" sensitivity="1" curve="Curves.MovementCurves.Joystick_LeftRight_DeadZoned_TopBottom"/>
+          <Binding input="right_thumb_updown" axis="1" sensitivity="1" curve="Curves.MovementCurves.Joystick_UpDown_DeadZoned_TopBottom"/>
+      </PadFilter>
+
+      <Binding input="pad:left_thumb"       action="update"  signal="scry_move_left_thumb"/>
+      <Binding input="pad:right_thumb"      action="update"  signal="scry_move_right_thumb"/>
+
+      <!-- dpad -->
+      <Binding input="pad:up"               action="press"   signal="scry_press_dpad_up"/>
+      <Binding input="pad:up"               action="release" signal="scry_release_dpad_up"/>
+      <Binding input="pad:down"             action="press"   signal="scry_press_dpad_down"/>
+      <Binding input="pad:down"             action="release" signal="scry_release_dpad_down"/>
+      <Binding input="pad:left"             action="press"   signal="scry_press_dpad_left"/>
+      <Binding input="pad:left"             action="release" signal="scry_release_dpad_left"/>
+      <Binding input="pad:right"            action="press"   signal="scry_press_dpad_right"/>
+      <Binding input="pad:right"            action="release" signal="scry_release_dpad_right"/>
+
+      <!-- buttons -->
+      <Binding input="pad:a"                action="press"   signal="scry_press_a"/>
+      <Binding input="pad:a"                action="release" signal="scry_release_a"/>
+      <Binding input="pad:b"                action="press"   signal="scry_press_b"/>
+      <Binding input="pad:b"                action="release" signal="scry_release_b"/>
+      <Binding input="pad:x"                action="press"   signal="scry_press_x"/>
+      <Binding input="pad:x"                action="release" signal="scry_release_x"/>
+      <Binding input="pad:y"                action="press"   signal="scry_press_y"/>
+      <Binding input="pad:y"                action="release" signal="scry_release_y"/>
+      <Binding input="pad:start"            action="press"   signal="scry_press_start"/>
+      <Binding input="pad:start"            action="release" signal="scry_release_start"/>
+      <Binding input="pad:back"             action="press"   signal="scry_press_back"/>
+      <Binding input="pad:back"             action="release" signal="scry_release_back"/>
+      <Binding input="pad:left_trigger"     action="press"   signal="scry_press_left_trigger"/>
+      <Binding input="pad:left_trigger"     action="release" signal="scry_release_left_trigger"/>
+      <Binding input="pad:right_trigger"    action="press"   signal="scry_press_right_trigger"/>
+      <Binding input="pad:right_trigger"    action="release" signal="scry_release_right_trigger"/>
+      <Binding input="pad:left_shoulder"    action="press"   signal="scry_press_left_shoulder"/>
+      <Binding input="pad:left_shoulder"    action="release" signal="scry_release_left_shoulder"/>
+      <Binding input="pad:right_shoulder"   action="press"   signal="scry_press_right_shoulder"/>
+      <Binding input="pad:right_shoulder"   action="release" signal="scry_release_right_shoulder"/>
+      <Binding input="pad:left_thumb_push"  action="press"   signal="scry_press_left_thumb"/>
+      <Binding input="pad:left_thumb_push"  action="release" signal="scry_release_left_thumb"/>
+      <Binding input="pad:right_thumb_push" action="press"   signal="scry_press_right_thumb"/>
+      <Binding input="pad:right_thumb_push" action="release" signal="scry_release_right_thumb"/>
+
+      <NoResend input="pad:b"/>
+  </ActionMap>
+
+  <ActionMap name="radar" resendOnChange="0">
+      <Binding input="kb:subtract" action="press" signal="radar_zoom_out"/>
+      <Binding input="kb:add" action="press"      signal="radar_zoom_in"/>
+
+      <CompoundInput name="move" device="kb">
+          <Input input="left"   axis="0"/>
+          <Input input="right"  axis="0" invert="1"/>
+          <Input input="up"     axis="1"/>
+          <Input input="down"   axis="1" invert="1"/>
+      </CompoundInput>
+      <Binding input="kb:move" action="press" signal="radar_move"/>
+      <Binding input="kb:home" action="press" signal="radar_reset"/>
+
+      <Binding input="kb:multiply"  action="press" signal="radar_mode"/>
+      <Binding input="kb:pgup"      action="press" signal="radar_pgup"/>
+      <Binding input="kb:pgdown"    action="press" signal="radar_pgdown"/>
+  </ActionMap>
+
+  <ActionMap name="securitycamera" keepHistory="0">
+      <Import actionmap="common_camera_look"/>
+      <Import actionmap="common_system"/>
+      <Import actionmap="common_install_download"/>
+      <Import actionmap="common_net_surfing_toggle"/>
+      <Import actionmap="common_musicplayer_control"/>
+      <Import actionmap="common_rcdeploy"/>
+      <Import actionmap="common_pausemenu"/>
+
+      <Binding input="pad:back" action="click" signal="show_map"/>
+      <Binding input="pad:touchpad" action="click" signal="show_map"/>
+
+      <CompoundInput name="camera_zoom" device="pad">
+          <Input input="right_trigger" axis="0"/>
+          <Input input="left_trigger" axis="0" invert="1"/>
+      </CompoundInput>
+
+      <Binding input="pad:camera_zoom"        action="update"   signal="cam_zoom_speed"/>
+      <Binding input="pad:x"                  action="hold"     signal="hold_software"/>
+      <Binding input="pad:x"                  action="press"    signal="press_software"/>
+      <Binding input="pad:x"                  action="release"  signal="release_software"/>
+      <NoResend input="pad:x"/>
+
+      <Binding input="pad:a"                  action="press"    signal="cam_take_photo"/>
+      <Binding input="pad:a"                  action="release"  signal="cam_take_photo_release"/>
+          
+      <Binding input="pad:ui_back"            action="press"    signal="exit_camera" noHistory="1"/>
+      <NoResend input="pad:ui_back"/>
+
+      <Binding input="pad:b"                  action="press"    signal="exit_camera" noHistory="1"/>
+      <NoResend input="pad:b"/>
+      
+      <Binding input="pad:right"              action="press"    signal="dpad_right" additive="1" />
+  </ActionMap>
+
+  <ActionMap name="securitycamera_transition" >
+    <Import actionmap="common_system"/>
+    <Import actionmap="common_musicplayer_control"/>
+    <Import actionmap="common_net_surfing_toggle"/>
+  </ActionMap>
+
+  <ActionMap name="dead" resendOnChange="0">
+      <Import actionmap="common_system_nopausemenu"/>
+      <Import actionmap="common_camera_look"/>
+  </ActionMap>
+
+  <ActionMap name="atm" resendOnChange="0">
+      <Import actionmap="common_system"/>
+      <Import actionmap="common_camera_look"/>
+
+      <Binding input="pad:b" action="click" signal="cancel_interaction"/>
+      <Binding input="pad:b" action="hold"  signal="cancel_interaction_hold"/>
+  </ActionMap>
+
+  <!-- REMOTEPLAY -->
+  <ActionMap name="shellgame" >
+      <Import actionmap="common_system"/>
+      <Import actionmap="common_camera_look"/>
+      <AcceptBack name="shellgame_enterexit"/>
+
+      <PadFilter name="left_thumb" device="pad">
+          <Binding input="left_thumb_leftright" axis="0" sensitivity="1" curve="Curves.MovementCurves.Joystick_LeftRight_DeadZoned_TopBottom"/>
+          <Binding input="left_thumb_updown" axis="1" sensitivity="1" curve="Curves.MovementCurves.Joystick_UpDown_DeadZoned_TopBottom"/>
+      </PadFilter>
+      <Binding input="pad:left_thumb" action="update" signal="shell_LeftStickMove"/>
+      <Binding input="pad:a_accept"  action="press"    signal="shell_accept"/>
+      <Binding input="pad:b_back"  action="press"    signal="shell_deline"/>
+      <Binding input="pad:ui_back"  action="press"    signal="shell_deline"/>
+      <Binding input="pad:right_thumb" action="update" signal="right_stick"/>
+  </ActionMap>
+
+  <ActionMap name="chess" >
+      <Import actionmap="common_system"/>
+      <Import actionmap="common_camera_look"/>
+
+      <!--Accept/Back for menu-->
+      <AcceptBack name="chess_enterexit"/>
+
+      <Binding input="pad:b_back"     action="press"   signal="cancel"/>
+      <Binding input="pad:ui_back"     action="press"   signal="cancel"/>
+      <Binding input="pad:a_accept"   action="press"   signal="select"/>
+      <Binding input="pad:up"         action="press"   signal="movePieceUp"/>
+      <Binding input="pad:down"       action="press"   signal="movePieceDown"/>
+      <Binding input="pad:left"       action="press"   signal="movePieceLeft"/>
+      <Binding input="pad:right"      action="press"   signal="movePieceRight"/>
+      <PadFilter name="left_thumb" device="pad">
+          <Binding input="left_thumb_leftright" axis="0" sensitivity="1" curve="Curves.MovementCurves.Joystick_LeftRight_DeadZoned_TopBottom"/>
+          <Binding input="left_thumb_updown" axis="1" sensitivity="1" curve="Curves.MovementCurves.Joystick_LeftRight_DeadZoned_TopBottom"/>
+      </PadFilter>
+      <Binding input="pad:left_thumb" action="update"  signal="chess_move_cursor"/>
+      <Binding input="pad:right_thumb" action="update" signal="chess_head_turn"/>
+      <Binding input="pad:right_thumb" action="release" signal="chess_head_turn_release"/>
+  </ActionMap>
+
+  <ActionMap name="poker" >
+      <Import actionmap="common_system"/>
+      <Import actionmap="common_camera_look"/>
+      <AcceptBack name="poker_enterexit"/>
+      <Binding input="pad:b_back" action="release" signal="leaveGame"/>
+      <Binding input="pad:ui_back" action="press" signal="leaveGame"/>
+  </ActionMap>
+
+  <ActionMap name="drinkinggame" >
+      <Import actionmap="common_system"/>
+      <AcceptBack name="drinkinggame_enterexit"/>
+
+      <PadFilter name="left_thumb" device="pad" padAccelerationBoostAmplitude="0">
+          <Binding input="left_thumb_leftright" axis="0" sensitivity="0.9" curve="Curves.MovementCurves.Joystick_LeftRight_DeadZoned_TopBottom"/>
+          <Binding input="left_thumb_updown" axis="1" sensitivity="0.9" curve="Curves.MovementCurves.Joystick_UpDown_DeadZoned_TopBottom"/>
+      </PadFilter>
+      <Binding input="pad:left_thumb" action="update" signal="left_stick"/>
+      <PadFilter name="right_thumb" device="pad" padAccelerationBoostAmplitude="0">
+          <Binding input="right_thumb_leftright" axis="0" sensitivity="0.9" curve="Curves.MovementCurves.Joystick_LeftRight"/>
+          <Binding input="right_thumb_updown" axis="1" sensitivity="0.9" curve="Curves.MovementCurves.Joystick_UpDown"/>
+      </PadFilter>
+      <Binding input="pad:right_thumb" action="update" signal="right_stick"/>
+      <Binding input="pad:b_back" action="press" signal="abort_wager"/>
+      <Binding input="pad:ui_back" action="press" signal="abort_wager"/>
+      <Binding input="pad:left_trigger" action="press" signal="left_trigger_press" />
+      <Binding input="pad:left_trigger" action="release" signal="left_trigger_release" />
+      <Binding input="pad:right_trigger" action="press" signal="right_trigger_press" />
+      <Binding input="pad:right_trigger" action="release" signal="right_trigger_release" />
+      <Binding input="pad:a_accept" action="press" signal="accept_press" />
+      <Binding input="pad:a_accept" action="release" signal="accept_release" />
+      <Binding input="pad:b_back" action="press" signal="decline_press" />
+      <Binding input="pad:b_back" action="release" signal="decline_release" />
+      <Binding input="pad:ui_back" action="press" signal="decline_press" />
+      <Binding input="pad:a" action="press" signal="a_press" />
+      <Binding input="pad:a" action="release" signal="a_release" />
+      <Binding input="pad:b" action="press" signal="b_press" />
+      <Binding input="pad:b" action="release" signal="b_release" />
+      <Binding input="pad:x" action="press" signal="x_press" />
+      <Binding input="pad:x" action="release" signal="x_release" />
+      <Binding input="pad:y" action="press" signal="y_press" />
+      <Binding input="pad:y" action="release" signal="y_release" />
+  </ActionMap>
+
+  <ActionMap name="FruitMachine" >
+      <Import actionmap="common_system"/>
+      <Import actionmap="common_camera_look"/>
+  </ActionMap>
+
+  <!-- ******************************************************************************** -->
+  <!-- GRID AND WORLD MAP MAPPING -->
+  <ActionMap name="common_worldmap_and_grid" resendOnChange="0">
+
+      <!--Camera Look-->
+      <Import actionmap="common_free_camera_look"/>
+
+      <!--Camera Move-->
+      <Import actionmap="common_free_camera_move"/>
+
+      <!--bloomberg interaction and tests -->
+      <Import actionmap="common_bloomberg"/>
+
+      <!--Grid Interactions-->
+      <CompoundInput name="map_zoom" device="pad">
+          <Input input="right_trigger" axis="0"/>
+          <Input input="left_trigger" axis="0" invert="1"/>
+      </CompoundInput>
+      <!--Accept/Back for menu-->
+      <AcceptBack name="map_enterexit"/>
+
+      <Binding input="pad:a_accept" action="press"  signal="placeWaypoint"/>
+      <Binding input="pad:y"        action="press"  signal="YButtonClick"/>
+      <Binding input="pad:b_back"   action="release"  signal="exit"/>
+      <Binding input="pad:ui_back"  action="release"  signal="exit"/>
+      <Binding input="pad:map_zoom" action="update" signal="cam_zoom_speed"/>
+      <Binding input="kb:home"      action="press"  signal="teleportToCursor"/>
+      <Binding input="kb:end"       action="press"  signal="teleportToCursor"/>
+      <Binding input="pad:right_shoulder" action="press"  signal="switch_right_shoulder"/>
+      <Binding input="pad:left_shoulder"  action="press"  signal="switch_left_shoulder"/>
+      <Binding input="pad:right_trigger" action="press"  signal="press_right_trigger"/>
+      <Binding input="pad:left_trigger"  action="press"  signal="press_left_trigger"/>
+      <Binding input="pad:right_trigger" action="release"  signal="release_right_trigger"/>
+      <Binding input="pad:left_trigger"  action="release"  signal="release_left_trigger"/>
+      <Binding input="pad:x"        action="press"  signal="trigger_element"/>
+      <Binding input="pad:up"       action="press"  signal="survivalGuideButton"/>
+      <Binding input="pad:back"     action="press"  signal="quitapplication"/>  <!-- button used for show_map should close it -->
+      <NoResend input="pad:back"/>
+      <Binding input="pad:start"     action="press"  signal="quitapplication"/>  <!-- button used for show_map should close it -->
+      <NoResend input="pad:start"/>
+      <Binding input="pad:touchpad" action="press"  signal="quitapplication"/>  <!-- button used for show_map should close it -->
+      <NoResend input="pad:touchpad"/>
+      
+      <!-- REMOTEPLAY BEGIN -->
+      <Binding input="pad:touch_front_center" action="press"  signal="quitapplication"/>
+      <NoResend input="pad:touch_front_center"/>
+      <Binding input="pad:touch_back_topleft"  action="press"  signal="switch_left_shoulder"/>
+      <Binding input="pad:touch_back_right"  action="press"  signal="switch_right_shoulder"/>
+      <Binding input="pad:touch_front_panning_touch_id1" action="press"   signal="touch_1_press"/>
+      <Binding input="pad:touch_front_panning_touch_id1" action="update"  signal="touch_1_update"/>
+      <Binding input="pad:touch_front_panning_touch_id1" action="release" signal="touch_1_release"/>
+      <Binding input="pad:touch_front_panning_touch_id1" action="click"   signal="touch_1_tap"/>
+      <Binding input="pad:touch_front_panning_touch_id2" action="press"   signal="touch_2_press"/>
+      <Binding input="pad:touch_front_panning_touch_id2" action="update"  signal="touch_2_update"/>
+      <Binding input="pad:touch_front_panning_touch_id2" action="release" signal="touch_2_release"/>
+      <Binding input="pad:touch_front_panning_touch_id2" action="click"   signal="touch_2_tap"/>
+      <!-- REMOTEPLAY END -->
+      
+      <Binding input="pad:touchpad_touch_id1" action="press"   signal="touch_1_press"/>
+      <Binding input="pad:touchpad_touch_id1" action="update"  signal="touch_1_update"/>
+      <Binding input="pad:touchpad_touch_id1" action="release" signal="touch_1_release"/>
+      <Binding input="pad:touchpad_touch_id1" action="click"   signal="touch_1_tap"/>
+      <Binding input="pad:touchpad_touch_id2" action="press"   signal="touch_2_press"/>
+      <Binding input="pad:touchpad_touch_id2" action="update"  signal="touch_2_update"/>
+      <Binding input="pad:touchpad_touch_id2" action="release" signal="touch_2_release"/>
+      <Binding input="pad:touchpad_touch_id2" action="click"   signal="touch_2_tap"/>
+
+      <Copy input="kb:lctrl" toInput="kb:control"/>
+      <Copy input="kb:rctrl" toInput="kb:control"/>
+      <Binding signal="create_issue">
+          <Input input="kb:j" action="press" useAsAxisInput="1"/>
+          <Input input="kb:control" action="press"/>
+      </Binding>
+      <Binding signal="create_review">
+          <Input input="kb:r" action="press" useAsAxisInput="1"/>
+          <Input input="kb:control" action="press"/>
+      </Binding>
+      <Binding signal="bloomberg_simulate_crash">
+          <Input input="kb:f9" action="press"/>
+          <Input input="kb:control" action="press"/>
+      </Binding>
+
+
+  </ActionMap>
+
+  <!-- ******************************************************************************** -->
+    <!-- Common Menu navigation and buttons -->
+    <ActionMap name="common_menu_navigation" >
+        <!-- Right stick navigation -->
+        <PadFilter name="right_thumb" device="pad" padAccelerationBoostAmplitude="4">
+            <Binding input="right_thumb_leftright" axis="0" sensitivity="1" curve="Curves.MovementCurves.Joystick_LeftRight_DeadZoned_TopBottom"/>
+            <Binding input="right_thumb_updown" axis="1" sensitivity="1" curve="Curves.MovementCurves.Joystick_UpDown_DeadZoned_TopBottom"/>
+        </PadFilter>
+
+        <Binding input="pad:right_thumb" action="update" signal="menu_navigation_right_stick" consume="1"/>
+
+        <!-- Consume camera movement -->
+        <Binding input="pad:right_thumb_leftright"  action="update" signal=""                                     consume="1"/>
+        <Binding input="pad:right_thumb_updown"     action="update" signal=""                                     consume="1"/>
+        <Binding input="mouse:move"                 action="update" signal=""                                     consume="1"/>
+
+        <!-- Pad inputs -->
+        <Binding input="pad:up"   	action="press" signal="menu_navigation_pad_up"      consume="1"/>
+        <Binding input="pad:down"   action="press" signal="menu_navigation_pad_down"    consume="1"/>
+        <Binding input="pad:left"   action="press" signal="menu_navigation_pad_left"    consume="1"/>
+        <Binding input="pad:right"  action="press" signal="menu_navigation_pad_right"   consume="1"/>
+        <Binding input="pad:up"   	action="release" signal=""      consume="1"/>
+        <Binding input="pad:down"   action="release" signal=""    consume="1"/>
+        <Binding input="pad:left"   action="release" signal=""    consume="1"/>
+        <Binding input="pad:right"  action="release" signal=""   consume="1"/>
+        <Binding input="pad:up"   	action="click" signal=""      consume="1"/>
+        <Binding input="pad:down"   action="click" signal=""    consume="1"/>
+        <Binding input="pad:left"   action="click" signal=""    consume="1"/>
+        <Binding input="pad:right"  action="click" signal=""   consume="1"/>
+        <Binding input="pad:up"   	action="hold" signal=""      consume="1"/>
+        <Binding input="pad:down"   action="hold" signal=""    consume="1"/>
+        <Binding input="pad:left"   action="hold" signal=""    consume="1"/>
+        <Binding input="pad:right"  action="hold" signal=""   consume="1"/>
+    </ActionMap>
+
+    <ActionMap name="common_menu_buttons" >
+        <!--Accept/Back for menu-->
+        <AcceptBack name="buttons_acceptback"/>
+
+        <Binding  input="pad:a_accept" action="press" signal="menu_button_select_press" consume="1"/>
+        <Binding  input="pad:a_accept" action="release" signal="menu_button_select_release" consume="1"/>
+        <Binding  input="pad:a_accept" action="hold" signal="menu_button_select_hold" consume="1"/>
+        <Binding  input="pad:a_accept" action="click" signal="" consume="1"/>
+        <NoResend input="pad:a_accept"/>
+
+        <Binding  input="pad:b_back" action="press" signal="menu_button_back" consume="1" noHistory="1"/>
+        <Binding  input="pad:b_back" action="click" signal="" consume="1"/>
+        <Binding  input="pad:b_back" action="hold" signal="" consume="1"/>
+        <NoResend input="pad:b_back"/>
+		
+        <Binding input="pad:x" action="press" signal="menu_button_x" consume="1"/>
+        <Binding input="pad:x" action="release" signal="" consume="1"/>
+        <Binding input="pad:x" action="click" signal="" consume="1"/>
+        <Binding input="pad:x" action="hold" signal="" consume="1"/>
+		<NoResend input="pad:x"/>
+
+        <Binding input="pad:y" action="press" signal="menu_button_y" consume="1"/>
+        <Binding input="pad:y" action="hold" signal="menu_button_y_hold" consume="1"/>
+        <Binding input="pad:y" action="release" signal="menu_button_y_release" consume="1"/>
+        <Binding input="pad:y" action="click" signal="" consume="1"/>
+        <NoResend input="pad:y"/>
+
+        <!--Consume buttons to prevent underlying action in the game-->
+        <Binding  input="pad:a" action="press" signal="" consume="1"/>
+        <Binding  input="pad:a" action="release" signal="" consume="1"/>
+        <Binding  input="pad:a" action="click" signal="" consume="1"/>
+        <Binding  input="pad:a" action="hold" signal="" consume="1"/>
+        <Binding  input="pad:a" action="update" signal="" consume="1"/>
+        <NoResend input="pad:a"/>
+        <Binding  input="pad:b" action="press" signal="" consume="1" noHistory="1"/>
+        <Binding  input="pad:b" action="release" signal="" consume="1"/>
+        <Binding  input="pad:b" action="click" signal="" consume="1"/>
+        <Binding  input="pad:b" action="hold" signal="" consume="1"/>
+        <Binding  input="pad:b" action="update" signal="" consume="1"/>
+        <NoResend input="pad:b"/>
+
+        <Binding input="pad:ui_back" action="press" signal="menu_button_back" consume="1" noHistory="1"/>
+
+        <Binding input="pad:start" action="click" signal="menu_button_start" consume="1"/>
+        <NoResend input="pad:start"/>
+
+        <Binding input="pad:back" action="click" signal="menu_button_back_button" consume="1"/>
+        <NoResend input="pad:back"/>
+
+        <Binding input="pad:touchpad" action="click" signal="menu_button_back_button" consume="1"/>
+        <NoResend input="pad:touchpad"/>
+
+        <!-- REMOTEPLAY BEGIN -->
+        <Binding input="pad:touch_front_center" action="click" signal="menu_button_back_button" consume="1"/>
+        <NoResend input="pad:touch_front_center"/>
+        <!-- REMOTEPLAY END   -->
+
+        <!-- 	Don't process the "click" & "press":
+                Menus should own those buttons while opened. Because there are many context (press,
+                click, etc.), consume them all to avoid letting gameplay functions process those buttons.
+        -->
+        <Binding input="pad:a"    action="press"    signal=""     consume="1"/>
+        <Binding input="pad:a"    action="click"    signal=""     consume="1"/>
+
+        <Binding input="pad:b"    action="press"    signal=""     consume="1"/>
+        <Binding input="pad:b"    action="click"    signal=""     consume="1"/>
+        <Binding input="pad:b"    action="release"  signal=""     consume="1"/>
+
+        <Binding input="pad:start" action="press" signal="" consume="1"/>
+        <Binding input="pad:start" action="release" signal="" consume="1"/>
+
+        <Binding input="pad:touchpad" action="press" signal="" consume="1"/>
+        <Binding input="pad:touchpad" action="release" signal="" consume="1"/>
+        
+        <!-- REMOTEPLAY BEGIN -->
+        <Binding input="pad:touch_front_center" action="press" signal="" consume="1"/>
+        <Binding input="pad:touch_front_center" action="release" signal="" consume="1"/>
+        <!-- REMOTEPLAY END   -->
+        
+    </ActionMap>
+
+    <!-- ******************************************************************************** -->
+    <!-- Customization menu -->
+    <ActionMap name="default_customization_menu">
+        <Import actionmap="common_system"/>
+        
+        <Import actionmap="common_menu_navigation"/>
+        <Import actionmap="common_menu_buttons"/>
+		
+		<Binding input="pad:left_trigger"           action="press"      signal="aiming_trigger_press"/>
+        <Binding input="pad:left_trigger"           action="release"    signal="aiming_trigger_release"/>
+
+        <Binding input="pad:right_shoulder" action="press" signal="menu_button_right_shoulder"/>
+        <Binding input="pad:left_shoulder"  action="press" signal="menu_button_left_shoulder"/>
+		
+        <!-- REMOTEPLAY BEGIN -->
+        <Binding input="pad:touch_back_right" action="press" signal="menu_button_right_shoulder"/>
+        <Binding input="pad:touch_back_topleft"  action="press"  signal="menu_button_left_shoulder"/>
+        <!-- REMOTEPLAY END -->
+    </ActionMap>
+
+    <!-- ******************************************************************************** -->
+    <!-- Fullscreen menu -->
+    <ActionMap name="default_fullscreen_menu" resendOnChange="0">
+        <Import actionmap="common_system_nopausemenu"/>
+
+        <Import actionmap="common_menu_navigation"/>
+        <Import actionmap="common_menu_buttons"/>
+
+        <!-- Left stick navigation -->
+        <PadFilter name="left_thumb" device="pad" padAccelerationBoostAmplitude="4">
+            <Binding input="left_thumb_leftright" axis="0" sensitivity="1" curve="Curves.MovementCurves.Joystick_LeftRight_DeadZoned_TopBottom"/>
+            <Binding input="left_thumb_updown" axis="1" sensitivity="1" curve="Curves.MovementCurves.Joystick_UpDown_DeadZoned_TopBottom"/>
+        </PadFilter>
+
+        <Binding input="pad:left_thumb" action="update" signal="menu_navigation_left_stick"/>
+
+        <Binding input="pad:right_thumb" action="release" signal="menu_navigation_right_stick_release"/>
+        <Binding input="pad:left_thumb" action="release" signal="menu_navigation_left_stick_release"/>
+
+        <Binding input="pad:right_thumb_push" action="press" signal="menu_navigation_right_stick_press"/>
+        <Binding input="pad:left_thumb_push" action="press" signal="menu_navigation_left_stick_press"/>
+
+        <Binding input="pad:right_shoulder" action="press" signal="menu_button_right_shoulder"/>
+        <Binding input="pad:left_shoulder"  action="press" signal="menu_button_left_shoulder"/>
+
+        <CompoundInput name="trigger_value" device="pad">
+            <Input input="right_trigger" axis="0"/>
+            <Input input="left_trigger" axis="0" invert="1"/>
+        </CompoundInput>
+
+        <Binding input="pad:trigger_value"  action="update" signal="menu_button_triggers"/>     
+
+        <Binding input="pad:right_trigger"  action="press" signal="menu_button_right_trigger"/>
+        <Binding input="pad:left_trigger"   action="press" signal="menu_button_left_trigger"/>
+        
+        <Binding input="kb:home" action="press" signal="menu_key_home"/>
+        <Binding input="kb:end"  action="press" signal="menu_key_end"/>
+        
+        <Binding input="pad:touchpad_touch_id1" action="press"   signal="menu_button_touch_1_press"/>
+        <Binding input="pad:touchpad_touch_id1" action="update"  signal="menu_button_touch_1_update"/>
+        <Binding input="pad:touchpad_touch_id1" action="release" signal="menu_button_touch_1_release"/>
+        <Binding input="pad:touchpad_touch_id1" action="click"   signal="menu_button_touch_1_tap"/>
+        <Binding input="pad:touchpad_touch_id2" action="press"   signal="menu_button_touch_2_press"/>
+        <Binding input="pad:touchpad_touch_id2" action="update"  signal="menu_button_touch_2_update"/>
+        <Binding input="pad:touchpad_touch_id2" action="release" signal="menu_button_touch_2_release"/>
+        <Binding input="pad:touchpad_touch_id2" action="click"   signal="menu_button_touch_2_tap"/>
+
+        <!-- REMOTEPLAY BEGIN -->
+        <Binding input="pad:touch_back_right" action="press" signal="menu_button_right_shoulder"/>
+        <Binding input="pad:touch_back_topleft"  action="press" signal="menu_button_left_shoulder"/>
+        <Binding input="pad:touch_front_panning_touch_id1" action="press"   signal="menu_button_touch_1_press"/>
+        <Binding input="pad:touch_front_panning_touch_id1" action="update"  signal="menu_button_touch_1_update"/>
+        <Binding input="pad:touch_front_panning_touch_id1" action="release" signal="menu_button_touch_1_release"/>
+        <Binding input="pad:touch_front_panning_touch_id1" action="click"   signal="menu_button_touch_1_tap"/>
+        <Binding input="pad:touch_front_panning_touch_id2" action="press"   signal="menu_button_touch_2_press"/>
+        <Binding input="pad:touch_front_panning_touch_id2" action="update"  signal="menu_button_touch_2_update"/>
+        <Binding input="pad:touch_front_panning_touch_id2" action="release" signal="menu_button_touch_2_release"/>
+        <Binding input="pad:touch_front_panning_touch_id2" action="click"   signal="menu_button_touch_2_tap"/>
+
+        <Binding input="pad:touch_front_bottomright" action="press" signal="menu_navigation_right_stick_press"/>
+        <Binding input="pad:touch_back_bottomleft" action="press" signal="menu_navigation_left_stick_press"/>
+        <!-- REMOTEPLAY END -->
+        
+    </ActionMap>
+
+    <!-- ******************************************************************************** -->
+    <!-- Message boxes -->
+    <ActionMap name="common_messagebox" resendOnChange="0">
+        <Binding input="pad:a" action="press" signal="messagebox_input_a"/>
+        <Binding input="pad:b" action="press" signal="messagebox_input_b" noHistory="1"/>
+        <Binding input="pad:ui_back" action="press" signal="messagebox_input_b" noHistory="1"/>
+        <Binding input="pad:x" action="press" signal="messagebox_input_x"/>
+        <Binding input="pad:y" action="press" signal="messagebox_input_y"/>
+
+        <Binding input="kb:return" action="press" signal="messagebox_input_a"/>
+        <Binding input="kb:a" action="press" signal="messagebox_input_a"/>
+        <Binding input="kb:b" action="press" signal="messagebox_input_b" noHistory="1"/>
+        <Binding input="kb:escape" action="press" signal="messagebox_dismiss"/>
+    </ActionMap>
+
+    <ActionMap name="teleporting">
+        <!-- do nothing -->
+    </ActionMap>
+
+    <ActionMap name="common_remote_control_driving">
+        <!--Sixaxis-->
+        <Copy input="pad:sensor_x" toInput="pad:sixaxis_steering" />
+        <CurveFilter input="pad:sixaxis_steering" sensitivity="5" maxOutput="1" />
+        <Binding input="pad:sixaxis_steering" action="update" signal="sixaxis_steering" />
+
+        <!--Keyboard-->
+        <CompoundInput name="accelerator" device="kb">
+            <Input input="w"/>
+        </CompoundInput>
+        <CompoundInput name="reverse" device="kb">
+            <Input input="s"/>
+        </CompoundInput>
+        <CompoundInput name="rcsteering" device="kb">
+            <Input input="d" axis="0"/>
+            <Input input="a" axis="0" invert="1"/>
+        </CompoundInput>
+
+        <Binding input="kb:accelerator" action="press" signal="accelerator"/>
+        <Binding input="kb:accelerator" action="release" signal="accelerator"/>
+        <Binding input="kb:reverse" action="press" signal="reverse"/>
+        <Binding input="kb:reverse" action="release" signal="reverse"/>
+        <Binding input="kb:steering" action="press" signal="rcsteering"/>
+        <Binding input="kb:steering" action="release" signal="rcsteering"/>
+        <Binding input="kb:space" action="press" signal="hand_brake"/>
+        <Binding input="kb:space" action="release" signal="hand_brake"/>
+        <Binding input="kb:5" action="press" signal="toggle_gadget"/>
+        <Binding input="kb:g" action="press" signal="toggle_headlights"/>
+        <Binding input="kb:f" action="press" signal="toggle_police_sirens_lights_or_horn"/>
+        <Binding input="kb:a" action="press" signal="toggle_allLights"/>
+
+        <!--Gamepad-->
+        <CompoundInput name="accelerator" device="pad">
+            <Input input="right_trigger"/>
+        </CompoundInput>
+        <CompoundInput name="reverse" device="pad">
+            <Input input="left_trigger"/>
+        </CompoundInput>
+
+        <Binding input="pad:accelerator" action="update" signal="accelerator"/>
+        <Binding input="pad:reverse" action="update" signal="reverse"/>
+
+        <PadFilter name="left_thumb" device="pad">
+            <Binding input="left_thumb_leftright" axis="0" acceleration="0" sensitivity="1" curve="Curves.MovementCurves.Joystick_LeftRight"/>
+            <Binding input="left_thumb_updown" axis="1" acceleration="0" sensitivity="1" curve="Curves.MovementCurves.Joystick_UpDown"/>
+        </PadFilter>
+        <Binding input="pad:left_thumb" action="update" signal="rcsteering"/>
+
+        <!-- REMOTEPLAY BEGIN -->
+        <Binding input="pad:touch_front_topleft" action="press"   signal="toggle_police_sirens_lights_or_horn"/>
+        <Binding input="pad:touch_front_topleft" action="release" signal="cancel_horn"/>
+        <!-- REMOTEPLAY END   -->
+        
+        <Binding input="pad:left_thumb_push"    action="press" signal="toggle_police_sirens_lights_or_horn"/>
+        <Binding input="pad:left_thumb_push"    action="release" signal="cancel_horn"/>
+        <!-- REMOTEPLAY BEGIN -->
+        <Binding input="pad:touch_back_bottomleft"    action="press" signal="toggle_police_sirens_lights_or_horn"/>
+        <Binding input="pad:touch_back_bottomleft"    action="release" signal="cancel_horn"/>
+        <!-- REMOTEPLAY END -->
+
+    </ActionMap>
+
+    <ActionMap name="common_remote_control">
+        <Import actionmap="common_camera_look"/>
+        <Import actionmap="common_softwares"/>
+        <Import actionmap="common_musicplayer_control"/>
+        <Import actionmap="common_system"/>
+        <Import actionmap="common_showconsole"/>
+        <Import actionmap="common_net_surfing_toggle"/>
+        <Import actionmap="phone_communication"/>
+        <Import actionmap="common_rcdeploy"/>
+        <Import actionmap="common_pda"/>
+
+        <Binding input="pad:b"                  action="click"      signal="rctc_disconnect" consume="1"/>
+        <NoResend input="pad:b"/>
+
+        <Binding input="pad:touch_back_right"   action="press"      signal="rctc_disconnect"/>
+
+        <!-- keyboard bindings -->
+        <Binding input="kb:g"                   action="press"      signal="rctc_disconnect"/>
+    </ActionMap>
+
+    <ActionMap name="common_remote_control_interact">
+        <Binding input="pad:y"                  action="press"      signal="rctc_use_press"/>
+        <Binding input="pad:y"                  action="hold"       signal="rctc_use_hold"/>
+        <Binding input="pad:y"                  action="release"    signal="rctc_use_release"/>
+    </ActionMap>
+
+    <ActionMap name="common_remote_control_dropobject">
+        <Binding  input="pad:right_shoulder"    action="press"      signal="rctc_dropobject_press"/>
+        <Binding  input="pad:right_shoulder"    action="release"    signal="rctc_dropobject_release"/>
+        <NoResend input="pad:right_shoulder"/>
+
+        <!-- REMOTEPLAY BEGIN -->
+        <Binding  input="pad:touch_back_right"    action="press"      signal="rctc_dropobject_press"/>
+        <Binding  input="pad:touch_back_right"    action="release"    signal="rctc_dropobject_release"/>
+        <NoResend input="pad:touch_back_right"/>
+        <!-- REMOTEPLAY END   -->
+    </ActionMap>
+
+    <ActionMap name="common_remote_control_toggle_photo_camera">
+        <Binding input="pad:back"		action="click"		signal="rctc_toggle_cam"/>
+        <NoResend input="pad:back"/>
+        <Binding input="pad:touchpad"   action="click"      signal="rctc_toggle_cam"/>
+        <NoResend input="pad:touchpad"/>
+        
+        <!-- REMOTEPLAY BEGIN -->
+        <Binding input="pad:touch_front_center"   action="click" signal="rctc_toggle_cam"/>
+        <NoResend input="pad:touch_front_center"/>
+        <!-- REMOTEPLAY END   -->
+    </ActionMap>
+
+    <ActionMap name="common_remote_control_platform">
+        <Binding input="pad:y"     action="press"      signal="raise_platform"/>
+        <Binding input="pad:y"     action="release"    signal="raise_platform_release"/>
+        <Binding input="pad:a"     action="press"      signal="lower_platform"/>
+        <Binding input="pad:a"     action="release"    signal="lower_platform_release"/>
+    </ActionMap>
+
+
+    <ActionMap name="remote_control_toy_car" resendOnChange="0">
+        <Import actionmap="common_camera_switch"/>
+        <Import actionmap="common_remote_control"/>
+        <Import actionmap="common_remote_control_driving"/>
+        <Import actionmap="common_remote_control_interact"/>
+        <Import actionmap="common_remote_control_dropobject"/>
+        <Import actionmap="common_remote_control_toggle_photo_camera"/>
+        <Import actionmap="common_weaponselection"/>
+
+        <Binding input="pad:a"                  action="press"      signal="rctc_jump"/>
+        <Binding input="pad:a"                  action="release"    signal="rctc_jump_release"/>
+        <NoResend input="pad:a"/>
+
+        <Binding input="pad:b"                  action="hold"      signal="rctc_call_back"/>
+        <NoResend input="pad:b"/>
+
+        <Binding  input="pad:right_trigger"   action="press"      signal="rctc_attract"/>
+        <NoResend input="pad:right_trigger"/>
+
+        <Binding  input="pad:left_thumb_push"     action="press"      signal="rctc_speedboost"/>
+        <NoResend input="pad:left_thumb_push"/>
+        <!-- REMOTEPLAY BEGIN -->
+        <Binding  input="pad:touch_back_bottomleft"     action="press"      signal="rctc_speedboost"/>
+        <NoResend input="pad:touch_back_bottomleft"/>
+        <!-- REMOTEPLAY END -->
+		
+        <!-- keyboard bindings -->
+        <Binding  input="kb:c"      action="click"      signal="rctc_call_back"/>
+    </ActionMap>
+
+    <ActionMap name="remote_control_photo_camera" resendOnChange="0" isLayer="1">
+		<Binding input="pad:a"                  action="press"    	signal="rctc_take_photo"		consume="1"/>
+		<Binding input="pad:a"                  action="release"    signal="rctc_take_photo_release" 	consume="1"/>
+        <Binding input="pad:up"   				action="press"    	signal="cam_open_menu" 			consume="1"/>
+		<Binding input="pad:right_thumb_push"   action="press"    	signal="cam_focus"				consume="1"/>
+		<Binding input="pad:left"   			action="press"    	signal="" 						consume="1"/>
+		<Binding input="pad:right"   			action="press"    	signal=""						consume="1"/>
+		<Binding input="pad:down"   			action="click"    	signal=""						consume="1"/>
+		<Binding input="pad:left_shoulder"      action="press"      signal="" 						consume="1"/>
+		<Binding input="pad:right_trigger"      action="press"      signal=""                       consume="1"/>
+		<Binding input="pad:right_shoulder"     action="press"      signal=""                       consume="1"/>
+		<Binding input="pad:right_shoulder"     action="release"    signal=""                       consume="1"/>
+		<Binding input="pad:start"		action="click"	    signal=""			    consume="1"/>
+		<Binding input="pad:start"		action="press"	    signal=""			    consume="1"/>
+		<Binding input="pad:start"		action="release"    signal=""			    consume="1"/>
+		
+        <!-- REMOTEPLAY BEGIN -->
+        <Binding input="pad:touch_front_bottomright"   action="press"    	signal="cam_focus"				consume="1"/>
+		<Binding input="pad:touch_back_topleft"        action="press"       signal=""                       consume="1"/>
+		<Binding input="pad:touch_back_right"          action="press"       signal=""                       consume="1"/>
+		<Binding input="pad:touch_back_right"          action="release"     signal=""                       consume="1"/>
+        <!-- REMOTEPLAY END   -->
+    </ActionMap>
+
+    <ActionMap name="remote_control_toy_car_jumper">
+        <Import actionmap="remote_control_toy_car"/>
+        <Binding input="kb:h" action="click" signal="rctc_disconnect"/>
+        <Binding input="kb:h" action="press" signal="deploy_flyingdrone"/>
+        <NoResend input="kb:h"/>
+        <Binding input="kb:b" action="click" signal="rctc_disconnect"/>
+        <Binding input="kb:b" action="hold"  signal="rctc_call_back"/>
+        <NoResend input="kb:b"/>
+    </ActionMap>
+
+    <ActionMap name="remote_control_toy_car_drone">
+        <Import actionmap="remote_control_toy_car"/>
+        <Binding input="kb:b" action="click" signal="rctc_disconnect"/>
+        <Binding input="kb:b" action="press" signal="deploy_toycar"/>
+        <NoResend input="kb:b"/>
+        <Binding input="kb:h" action="click" signal="rctc_disconnect"/>
+        <Binding input="kb:h" action="hold" signal="rctc_call_back"/>
+        <NoResend input="kb:h"/>
+    </ActionMap>
+    
+    <ActionMap name="remote_control_wrench_jr" resendOnChange="0">
+        <Import actionmap="common_remote_control_driving"/>
+        <Import actionmap="common_remote_control_interact"/>
+		<!-- Wrench JR doesn't have B to go back to player, so we need to manually import everything that common_remote_control would for us -->
+		<Import actionmap="common_camera_look"/>
+        <Import actionmap="common_softwares"/>
+        <Import actionmap="common_musicplayer_control"/>
+        <Import actionmap="common_system"/>
+        <Import actionmap="common_showconsole"/>
+        <Import actionmap="common_net_surfing_toggle"/>
+        <Import actionmap="phone_communication"/>
+        <Import actionmap="common_pausemenu"/>
+		
+		<Binding  input="pad:right_trigger"   action="press"      signal="rctc_attract"/>
+        <NoResend input="pad:right_trigger"/>
+
+        <Binding  input="pad:left_thumb_push"     action="press"      signal="rctc_speedboost"/>
+        <NoResend input="pad:left_thumb_push"/>
+        <!-- REMOTEPLAY BEGIN -->
+        <Binding  input="pad:touch_back_bottomleft"     action="press"      signal="rctc_speedboost"/>
+        <NoResend input="pad:touch_back_bottomleft"/>
+        <!-- REMOTEPLAY END -->
+    </ActionMap>
+
+    <ActionMap name="remote_control_scissor_lift" resendOnChange="0">
+        <Import actionmap="common_remote_control"/>
+        <Import actionmap="common_remote_control_driving"/>
+        <Import actionmap="common_remote_control_platform"/>
+    </ActionMap>
+
+    <ActionMap name="remote_control_crane" resendOnChange="0">
+        <Import actionmap="common_remote_control"/>
+        <Import actionmap="common_remote_control_driving"/>  <!-- required for steering input -->
+        <Import actionmap="common_remote_control_platform"/>
+
+        <Binding input="pad:right_shoulder"   action="click"  signal="platform_toggle_activation"/>
+
+        <!-- REMOTEPLAY BEGIN -->
+        <Binding input="pad:touch_back_right"   action="click"  signal="platform_toggle_activation"/>
+        <!-- REMOTEPLAY END   -->
+    </ActionMap>
+
+    <ActionMap name="photocamera" resendOnChange="0">
+        <Import actionmap="common_camera_look"/>
+        <Import actionmap="common_system"/>
+	<Import actionmap="common_musicplayer_control"/>
+
+        <CompoundInput name="camera_zoom" device="pad">
+            <Input input="left_trigger" axis="0"/>
+            <Input input="right_trigger" axis="0" invert="1"/>
+        </CompoundInput>
+
+        <PadFilter name="left_thumb" device="pad">
+            <Binding input="left_thumb_leftright" axis="1" sensitivity="1" curve="Curves.MovementCurves.Joystick_LeftRight"/>
+            <Binding input="left_thumb_updown" axis="0" sensitivity="1" curve="Curves.MovementCurves.Joystick_UpDown"/>
+        </PadFilter>
+
+        <Binding input="pad:left_thumb" action="update" signal="move"/>
+
+        <Binding input="pad:b"					action="press" 		signal="exit_camera"/>
+        <NoResend input="pad:b"/>
+        <Binding input="pad:camera_zoom"        action="update"   	signal="cam_zoom_speed"/>
+        <Binding input="pad:camera_zoom"        action="press"      	signal="press_cam_zoom"/>
+        <Binding input="pad:camera_zoom"        action="release"    	signal="release_cam_zoom"/>
+        <Binding input="pad:left_shoulder" 		action="press"   	signal="cam_precision_begin"/>
+        <Binding input="pad:left_shoulder" 		action="release"   	signal="cam_precision_end"/>
+        <Binding input="pad:right_shoulder"		action="press"		signal="cam_trigger_emote"/>
+        <Binding input="pad:y"   				action="press"    	signal="cam_switch"/>
+        <Binding input="pad:a"   				action="press"    	signal="cam_take_photo"/>
+	<Binding input="pad:a"					action="release"	signal="cam_take_photo_release"/>
+        <Binding input="pad:up"   				action="press"    	signal="cam_open_menu"/>
+		<Binding input="pad:right_thumb_push"   action="press"    	signal="cam_focus"/>
+		<Binding input="pad:x"   				action="press"    	signal="cam_open_app" consume="1"/>
+		<NoResend input="pad:x"/>
+
+        <!-- REMOTEPLAY BEGIN -->
+        <Binding input="pad:touch_back_right"		action="press"		signal="cam_trigger_emote"/>
+        <Binding input="pad:touch_front_bottomright"   action="press"    	signal="cam_focus"/>
+        <Binding input="pad:touch_back_topleft" 		action="press"   	signal="cam_precision_begin"/>
+        <Binding input="pad:touch_back_topleft" 		action="release"   	signal="cam_precision_end"/>
+        <!-- REMOTEPLAY END   -->
+    </ActionMap>
+	
+	<ActionMap name="photocameramenu" resendOnChange="0" isLayer="1">	
+		<Binding input="pad:down"   			action="press"    	signal="photoCamera_menu_down" 		consume="1"/>
+		<Binding input="pad:right"   			action="press"    	signal="photoCamera_menu_right" 	consume="1"/>
+		<Binding input="pad:left"   			action="press"    	signal="photoCamera_menu_left" 		consume="1"/>
+	</ActionMap>
+	
+    <ActionMap name="securitycamera_iop" keepHistory="0">
+        <Import actionmap="common_camera_look"/>
+        <Import actionmap="common_system"/>
+		<Import actionmap="common_net_surfing_toggle"/>
+		<Import actionmap="common_pausemenu"/>
+		
+        <CompoundInput name="camera_zoom" device="pad">
+            <Input input="right_trigger" axis="0"/>
+            <Input input="left_trigger" axis="0" invert="1"/>
+        </CompoundInput>
+
+        <Binding input="pad:camera_zoom"        action="update"   signal="cam_zoom_speed"/>
+        <Binding    input="pad:x"                   action="hold"       signal="hold_software"/>
+        <Binding    input="pad:x"                   action="press"      signal="press_software"/>
+        <Binding input="pad:x"                  action="release"  signal="release_software"/>
+        <NoResend input="pad:x"/>
+
+        <Binding input="pad:b"                  action="press"    signal="exit_camera" />
+        <NoResend input="pad:b"/>
+        <Binding input="pad:ui_back"                  action="press"    signal="exit_camera"/>
+        <Binding input="pad:right"     	action="press"   signal="dpad_right"/>
+    </ActionMap>
+
+    <!-- ******************************************************************************** -->
+    <!-- ********                     *************************************************** -->
+    <!-- ********  LAYER ACTION MAPS  *************************************************** -->
+    <!-- ********                     *************************************************** -->
+    <!-- ******************************************************************************** -->
+
+    <!-- ******************************************************************************** -->
+    <!-- music control -->
+    <ActionMap name="music_control_layer" isLayer="1">
+        <PadFilter name="right_thumb" device="pad">
+            <Binding input="right_thumb_leftright" axis="0" sensitivity="1" curve="Curves.MovementCurves.Joystick_LeftRight" />
+            <Binding input="right_thumb_updown" axis="1" sensitivity="1" curve="Curves.MovementCurves.Joystick_UpDown" />
+        </PadFilter>
+        <Binding    input="pad:right_thumb"         action="update"     signal="song_control"         additive="1" consume="1"/>
+
+        <!-- Prevent weapon wheel -->
+        <Binding input="pad:left_shoulder"   action="press"    signal=""  consume="1"/>
+        <Binding input="pad:left_shoulder"   action="release"  signal=""  consume="1"/>
+        <!-- REMOTEPLAY BEGIN -->
+        <Binding input="pad:touch_back_topleft"   action="press"    signal=""  consume="1"/>
+        <Binding input="pad:touch_back_topleft"   action="release"  signal=""  consume="1"/>
+        <!-- REMOTEPLAY END   -->
+
+        <!-- Consume camera movement -->
+        <Binding input="pad:right_thumb_leftright"  action="update" signal=""                                     consume="1"/>
+        <Binding input="pad:right_thumb_updown"     action="update" signal=""                                     consume="1"/>
+        <Binding input="mouse:move"                 action="update" signal=""                                     consume="1"/>
+    </ActionMap>
+
+    <ActionMap name="music_control_layer_inverted" isLayer="1">
+        <PadFilter name="left_thumb" device="pad">
+            <Binding input="left_thumb_leftright" axis="0" sensitivity="1" curve="Curves.MovementCurves.Joystick_LeftRight" />
+            <Binding input="left_thumb_updown" axis="1" sensitivity="1" curve="Curves.MovementCurves.Joystick_UpDown" />
+        </PadFilter>
+        <Binding    input="pad:left_thumb"         action="update"     signal="song_control_inverted"         additive="1" consume="1"/>
+
+        <!-- Prevent weapon wheel -->
+        <Binding input="pad:left_shoulder"   action="press"    signal=""  consume="1"/>
+        <Binding input="pad:left_shoulder"   action="release"  signal=""  consume="1"/>
+        <!-- REMOTEPLAY BEGIN -->
+        <Binding input="pad:touch_back_topleft"   action="press"    signal=""  consume="1"/>
+        <Binding input="pad:touch_back_topleft"   action="release"  signal=""  consume="1"/>
+        <!-- REMOTEPLAY END   -->
+
+        <!-- Consume camera movement -->
+        <Binding input="pad:left_thumb_leftright"   action="update" signal=""                                     consume="1"/>
+        <Binding input="pad:left_thumb_updown"      action="update" signal=""                                     consume="1"/>
+        <!-- Consume movement, we use kb:move because that's the primary input mapped to the "move" action -->
+        <Binding input="kb:move"  action="press" signal="" consume="1"/>
+    </ActionMap>
+
+    <!-- ******************************************************************************** -->
+    <!-- Event proposition action map -->
+    <ActionMap name="event_proposition_layer" isLayer="1">
+        <Binding input="pad:back"       action="hold" signal="accept_event_proposition" consume="1"/>
+        <Binding input="pad:touchpad"   action="hold" signal="accept_event_proposition" consume="1"/>
+
+        <!-- REMOTEPLAY BEGIN -->
+        <Binding input="pad:touch_front_center"   action="hold" signal="accept_event_proposition" consume="1"/>
+        <!-- REMOTEPLAY END   -->
+    </ActionMap>
+
+    <!-- ******************************************************************************** -->
+    <!-- Matchmaking action map -->
+    <ActionMap name="searching_for_mp" isLayer="1">
+        <Binding input="pad:back"       action="hold" signal="cancel_matchmaking" consume="1"/>
+        <Binding input="pad:touchpad"   action="hold" signal="cancel_matchmaking" consume="1"/>
+
+        <!-- REMOTEPLAY BEGIN -->
+        <Binding input="pad:touch_front_center"   action="hold" signal="cancel_matchmaking" consume="1"/>
+        <!-- REMOTEPLAY END   -->
+    </ActionMap>
+
+    <!-- ******************************************************************************** -->
+    <!-- Potential target in MP -->
+    <ActionMap name="potential_target" isLayer="1">
+        <Binding input="pad:back"       action="hold" signal="accept_potential_target" consume="1"/>
+        <Binding input="pad:touchpad"   action="hold" signal="accept_potential_target" consume="1"/>
+        <Binding input="pad:b"  action="click" signal="reject_potential_target" consume="1"/>
+
+        <!-- REMOTEPLAY BEGIN -->
+        <Binding input="pad:touch_front_center"   action="hold" signal="accept_potential_target" consume="1"/>
+        <!-- REMOTEPLAY END   -->
+    </ActionMap>
+
+    <!-- ******************************************************************************** -->
+    <!-- Phone Communication action map -->
+    <ActionMap name="phone_communication" isLayer="1">
+        <Binding input="pad:back"   action="hold" signal="skip_phone_communication" additive="1"/>
+        <NoResend input="pad:back"/>
+        <Binding input="pad:touchpad"   action="hold" signal="skip_phone_communication" additive="1"/>
+        <NoResend input="pad:touchpad"/>
+
+        <!-- REMOTEPLAY BEGIN -->
+        <Binding input="pad:touch_front_center"   action="hold" signal="skip_phone_communication" additive="1"/>
+        <NoResend input="pad:touch_front_center"/>
+        <!-- REMOTEPLAY END   -->
+    </ActionMap>
+
+	<!-- ******************************************************************************** -->
+    <!-- Smartphone Notification action map -->
+    <ActionMap name="smartphone_notification" isLayer="1" keepHistory="1">
+        <Binding input="kb:escape" action="press"      signal="smartphone_notification_open" consume="1"/>
+		<Binding input="kb:escape"  action="release"   signal=""                             consume="1"/>
+		<NoResend input="kb:escape"/>
+        <Binding input="pad:back"  action="click"      signal="smartphone_notification_open" consume="1"/>
+		<Binding input="pad:back"  action="press"      signal="smartphone_notification_open" consume="1"/>
+		<Binding input="pad:back"  action="release"    signal=""                             consume="1"/>
+        <NoResend input="pad:back"/>
+        <Binding input="pad:touchpad" action="click"   signal="smartphone_notification_open" consume="1"/>
+		<Binding input="pad:back"  action="press"      signal="smartphone_notification_open" consume="1"/>
+		<Binding input="pad:touchpad" action="release" signal=""                             consume="1"/>
+        <NoResend input="pad:touchpad"/>
+
+        <!-- Allow the release of the music control mode, otherwise we can get stuck -->
+        <Binding    input="pad:back"                action="release"      signal="stop_music_control" additive="1"/>
+        <Binding    input="pad:touchpad"            action="release"      signal="stop_music_control" additive="1"/>
+
+        <!-- REMOTEPLAY BEGIN -->
+        <Binding input="pad:touch_front_center" action="click" signal="smartphone_notification_open" consume="1"/>
+		<Binding input="pad:touch_front_center" action="release" signal=""                           consume="1"/>
+        <NoResend input="pad:touch_front_center"/>
+        <Binding    input="pad:touch_front_center"            action="release"      signal="stop_music_control" additive="1"/>
+        <!-- REMOTEPLAY END   -->
+    </ActionMap>
+	
+    <!-- ******************************************************************************** -->
+    <!-- inventory wheel layer -->
+    <ActionMap name="inventory_wheel_layer_base">
+        <Binding input="mouse:move"                 action="update" signal="" consume="1"/>
+        <Binding input="pad:right_shoulder" action="press"  signal="wheel_consumable_selection_right" consume="1"/>
+        <!-- REMOTEPLAY BEGIN -->
+        <Binding input="pad:touch_back_right" action="press"  signal="wheel_consumable_selection_right" consume="1"/>
+        <!-- REMOTEPLAY END   -->
+
+        <!-- Prevent profiler -->
+        <Binding input="pad:right_thumb_push" action="press"    signal="" consume="1"/>
+        <Binding input="pad:right_thumb_push" action="release"  signal="" consume="1"/>
+        <Binding input="pad:right_thumb_push" action="click"    signal="" consume="1"/>
+
+        <!-- Prevent music control -->
+        <Binding input="pad:back"     action="hold"    signal="" consume="1"/>
+        <Binding input="pad:touchpad" action="hold"    signal="" consume="1"/>
+        
+        <!-- REMOTEPLAY BEGIN -->
+        <Binding input="pad:touch_front_center" action="hold"    signal="" consume="1"/>
+        <Binding input="pad:touch_front_bottomright" action="press"    signal="" consume="1"/>
+        <Binding input="pad:touch_front_bottomright" action="release"  signal="" consume="1"/>
+        <Binding input="pad:touch_front_bottomright" action="click"    signal="" consume="1"/>
+        <!-- REMOTEPLAY END   -->
+    </ActionMap>
+
+    <ActionMap name="inventory_wheel_layer" resendOnChange="1" keepHistory="1" isLayer="1">
+        <Import actionmap="inventory_wheel_layer_base"/>
+
+        <!-- Right stick selection -->
+        <PadFilter name="right_thumb" device="pad">
+            <Binding input="right_thumb_leftright" axis="0" sensitivity="1" curve="Curves.MovementCurves.Joystick_LeftRight" />
+            <Binding input="right_thumb_updown" axis="1" sensitivity="1" curve="Curves.MovementCurves.Joystick_UpDown" />
+        </PadFilter>
+        <Binding input="pad:right_thumb"    action="update" signal="wheel_selection_input"            consume="1"/>
+
+        <!-- Consume camera movement -->
+        <Binding input="pad:right_thumb_leftright"  action="update" signal="" consume="1"/>
+        <Binding input="pad:right_thumb_updown"     action="update" signal="" consume="1"/>
+    </ActionMap>
+
+    <ActionMap name="inventory_wheel_layer_inverted" resendOnChange="1" keepHistory="1" isLayer="1">
+        <Import actionmap="inventory_wheel_layer_base"/>
+
+        <!-- Left stick selection -->
+        <PadFilter name="left_thumb" device="pad">
+            <Binding input="left_thumb_leftright" axis="0" sensitivity="1" curve="Curves.MovementCurves.Joystick_LeftRight" />
+            <Binding input="left_thumb_updown" axis="1" sensitivity="1" curve="Curves.MovementCurves.Joystick_UpDown" />
+        </PadFilter>
+        <Binding input="pad:left_thumb"    action="update" signal="wheel_selection_input"            consume="1"/>
+
+        <!-- Consume camera movement -->
+        <Binding input="pad:left_thumb_leftright"   action="update" signal="" consume="1"/>
+        <Binding input="pad:left_thumb_updown"      action="update" signal="" consume="1"/>
+
+        <!-- Consume movement, we use kb:move because that's the primary input mapped to the "move" action -->
+        <Binding input="kb:move"  action="press" signal="" consume="1"/>
+    </ActionMap>
+
+    <!-- ******************************************************************************** -->
+    <!-- Smartphone Menu -->
+    <ActionMap name="default_smartphone" isLayer="1">
+        <Import actionmap="common_menu_navigation"/>
+        <Import actionmap="common_menu_buttons"/>
+
+        <Binding input="pad:right_shoulder" action="press" signal="menu_button_right_shoulder" consume="1"/>
+        <NoResend input="pad:right_shoulder"/>
+        <!-- REMOTEPLAY BEGIN -->
+        <Binding input="pad:touch_back_right" action="press" signal="menu_button_right_shoulder" consume="1"/>
+        <NoResend input="pad:touch_back_right"/>
+        <!-- REMOTEPLAY END   -->
+        
+        <Binding input="pad:left_shoulder"  action="press" signal="menu_button_left_shoulder" consume="1"/>
+        <NoResend input="pad:left_shoulder"/>
+        <!-- REMOTEPLAY BEGIN -->
+        <Binding input="pad:touch_back_topleft"  action="press" signal="menu_button_left_shoulder" consume="1"/>
+        <NoResend input="pad:touch_back_topleft"/>
+        <!-- REMOTEPLAY END -->
+
+        <!--Prevent music control-->
+        <Binding input="pad:back"     action="hold"   signal="" consume="1"/>
+        <Binding input="pad:touchpad" action="hold"   signal="" consume="1"/>
+        <!-- REMOTEPLAY BEGIN -->
+        <Binding input="pad:touch_front_center" action="hold"   signal="" consume="1"/>
+        <!-- REMOTEPLAY END -->
+        
+        <!-- Prevent profiler -->
+        <Binding input="pad:right_thumb_push" action="press"    signal="" consume="1"/>
+        <Binding input="pad:right_thumb_push" action="release"  signal="" consume="1"/>
+        <Binding input="pad:right_thumb_push" action="click"    signal="" consume="1"/>
+
+        <!-- REMOTEPLAY BEGIN -->
+        <Binding input="pad:touch_front_center" action="hold"   signal="" consume="1"/> 
+        <NoResend input="pad:touch_front_center"/>
+        
+        <Binding input="pad:touch_front_bottomright" action="press"    signal="" consume="1"/>
+        <Binding input="pad:touch_front_bottomright" action="release"  signal="" consume="1"/>
+        <Binding input="pad:touch_front_bottomright" action="click"    signal="" consume="1"/>
+        <!-- REMOTEPLAY END -->
+    </ActionMap>
+    
+    <ActionMap name="race_app" resendOnChange="0">
+        <Import actionmap="default_smartphone"/>
+    </ActionMap>
+
+  <ActionMap name="default_smartphone_tutorial" resendOnChange="0">
+    <Import actionmap="common_system_nopausemenu"/>
+    <Import actionmap="default_smartphone"/>
+    <!-- The tutorial can pop before we release and we don't want to get stuck in that state. -->
+    <Binding input="pad:left_shoulder"                  action="release"       signal="hack_lock_stop" consume="1"/>
+    <!-- REMOTEPLAY BEGIN -->
+    <Binding input="pad:touch_back_topleft"             action="release"       signal="hack_lock_stop" consume="1"/>
+    <!-- REMOTEPLAY BEGIN -->
+  </ActionMap>
+
+
+  <!-- ******************************************************************************** -->
+    <!-- hack selection layer -->
+    <ActionMap name="common_hack_selection_layer" isLayer="1">
+        <Import actionmap="phone_communication"/>
+        <Import actionmap="common_install_download"/>
+
+        <Binding input="pad:left_shoulder"                  action="press"         signal="hack_lock_start" consume="1"/>
+        <Binding input="pad:left_shoulder"                  action="release"       signal="hack_lock_stop" consume="1"/>
+        <Binding input="pad:left_shoulder"                  action="hold"          signal="hack_lock_hold" consume="1"/>
+
+        <!-- REMOTEPLAY BEGIN -->
+        <Binding input="pad:touch_back_topleft"                  action="press"         signal="hack_lock_start" consume="1"/>
+        <Binding input="pad:touch_back_topleft"                  action="release"       signal="hack_lock_stop" consume="1"/>
+        <Binding input="pad:touch_back_topleft"                  action="hold"          signal="hack_lock_hold" consume="1"/>
+        <!-- REMOTEPLAY BEGIN -->
+    </ActionMap>
+
+    <!-- ******************************************************************************** -->
+    <!-- hacking layer -->
+    <ActionMap name="hacking_lock_layer" isLayer="1" keepHistory="1">
+        <!-- Allow releasing certain features on the face buttons. -->
+        <Binding input="pad:y"     action="release"    signal="raise_platform_release"      additive="1"/>
+        <Binding input="pad:a"     action="release"    signal="lower_platform_release"      additive="1"/>
+        <Binding input="pad:a"     action="release"    signal="stop_nitro"                  additive="1"/>
+        
+<Binding input="pad:b"     action="release"    signal="hand_brake"                  additive="1"/>
+        
+        <Binding input="pad:x"                  action="press"         signal="left_hack_select_press" consume="1"/>
+        <Binding input="pad:x"                  action="release"       signal="left_hack_select_release" consume="1"/>
+        <Binding input="pad:x"                  action="click"       signal="" consume="1"/>
+        <Binding input="pad:x"                  action="hold"       signal="" consume="1"/>
+        <Binding input="pad:x"                  action="update"       signal="" consume="1"/>
+        <NoResend   input="pad:x"/>
+        <Binding input="pad:b"                 action="press"         signal="right_hack_select_press" consume="1"/>
+        <Binding input="pad:b"                 action="release"       signal="right_hack_select_release" consume="1"/>
+        <Binding input="pad:b"                 action="click"       signal="" consume="1"/>
+        <Binding input="pad:b"                 action="hold"       signal="" consume="1"/>
+        <Binding input="pad:b"                 action="update"       signal="" consume="1"/>
+        <NoResend   input="pad:b"/>
+        <Binding input="pad:a"                  action="press"         signal="down_hack_select_press" consume="1"/>
+        <Binding input="pad:a"                  action="release"       signal="down_hack_select_release" consume="1"/>
+        <Binding input="pad:a"                  action="click"       signal="" consume="1"/>
+        <Binding input="pad:a"                  action="hold"       signal="" consume="1"/>
+        <Binding input="pad:a"                  action="update"       signal="" consume="1"/>
+        <NoResend   input="pad:a"/>
+        <Binding input="pad:y"                   action="press"         signal="up_hack_select_press" consume="1"/>
+        <Binding input="pad:y"                   action="release"       signal="up_hack_select_release" consume="1"/>
+        <Binding input="pad:y"                   action="click"       signal="" consume="1"/>
+        <Binding input="pad:y"                   action="hold"       signal="" consume="1"/>
+        <Binding input="pad:y"                   action="update"       signal="" consume="1"/>
+        <NoResend   input="pad:y"/>
+		
+        <Binding input="pad:left_shoulder"       action="release"       signal="hack_lock_stop" consume="1"/>
+        <!-- REMOTEPLAY BEGIN -->
+        <Binding input="pad:touch_back_topleft"       action="release"       signal="hack_lock_stop" consume="1"/>
+        <!-- REMOTEPLAY END -->
+    </ActionMap>
+
+	    <!-- ************************* Pills - SpiderTank Action Map ************************* -->
+    <ActionMap name="spidertank_move">
+        <!--Gamepad-->
+        <PadFilter name="left_thumb" device="pad">
+            <Binding input="left_thumb_leftright" axis="1" sensitivity="1" curve="Curves.MovementCurves.Joystick_LeftRight"/>
+            <Binding input="left_thumb_updown" axis="0" sensitivity="1" curve="Curves.MovementCurves.Joystick_UpDown"/>
+        </PadFilter>
+
+		<PadFilter name="right_thumb" device="pad">
+            <Binding input="right_thumb_leftright" axis="0" sensitivity="1" curve="Curves.MovementCurves.Joystick_LeftRight"/>
+            <Binding input="right_thumb_updown" axis="1" sensitivity="1" curve="Curves.MovementCurves.Joystick_UpDown"/>
+        </PadFilter>
+		
+        <Binding input="pad:left_thumb" action="update" signal="spidertank_move"/>
+		<Binding input="pad:right_thumb" action="update" signal="cam_look_py"/>
+    </ActionMap>
+
+    <ActionMap name="spidertank_camera">
+        <!--GamePad-->
+        <PadFilter name="right_thumb" device="pad">
+            <Binding input="right_thumb_leftright" axis="0" sensitivity="1" curve="Curves.MovementCurves.Joystick_LeftRight"/>
+            <Binding input="right_thumb_updown" axis="1" sensitivity="1" curve="Curves.MovementCurves.Joystick_UpDown"/>
+        </PadFilter>
+		
+        <Binding input="pad:right_thumb" action="update" signal="cam_look_py"/>
+		<Binding input="pad:left_trigger"  action="press"    signal="spidertank_aim_start"/>
+        <Binding input="pad:left_trigger"  action="release"    signal="spidertank_aim_stop"/>
+    </ActionMap>
+
+    <ActionMap name="spidertank" resendOnChange="0">
+        <Import actionmap="common_system"/>
+        <Import actionmap="common_showconsole"/>
+
+        <Import actionmap="spidertank_camera"/>
+        <Import actionmap="spidertank_move"/>
+        <Import actionmap="common_pausemenu"/>
+
+        <Binding input="pad:b"  action="press"    signal="spidertank_exit"/>
+        <Binding input="pad:a"  action="press"    signal="spidertank_jump"/>
+        <Binding input="pad:x"  action="press"    signal="spidertank_attack"/>
+        
+		<Binding input="pad:right_trigger"          action="press"    signal="spidertank_trigger_press"/>
+        <Binding input="pad:right_trigger"          action="release"  signal="spidertank_trigger_release"/>
+		
+        <Binding input="pad:right_shoulder"  action="press"    signal="spidertank_weapon_nonlethal_press"/>
+		<Binding input="pad:right_shoulder"  action="release"    signal="spidertank_weapon_nonlethal_release"/>
+        <!-- REMOTEPLAY BEGIN -->
+        <Binding input="pad:touch_back_right"  action="press"    signal="spidertank_weapon_nonlethal_press"/>
+        <Binding input="pad:touch_back_right"  action="release"    signal="spidertank_weapon_nonlethal_release"/>
+        <!-- REMOTEPLAY END -->
+    </ActionMap>
+
+    <ActionMap name="common_prepare_stage" isLayer="1">
+        <Binding input="pad:a" action="press"    signal="prepare_engage_press"   additive="1"/>
+        <Binding input="pad:a" action="release"  signal="prepare_engage_release" additive="1"/>
+    </ActionMap>
+</Root>

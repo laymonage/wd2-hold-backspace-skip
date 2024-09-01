@@ -1,0 +1,1064 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+
+<Root>
+  <!-- The Type must be the first tag of the file ! -->
+  <Type mode="Game"/>
+
+  <Import file="engine\ActionMaps\InputActionMapCommon.xml"/>
+
+  <ActionMap name="showconsole" >
+    <Import actionmap="common_showconsole"/>
+  </ActionMap>
+
+  <ActionMap name="system" resendOnChange="0" >
+    <Import actionmap="common_system"/>
+
+    <Binding input="kb:." action="release" signal="cheat_ToggleRadar" />
+    <Binding input="kb:s" action="press" signal="player_respawn_export"/>
+  </ActionMap>
+
+  <ActionMap name="free_camera" resendOnChange="0">
+    <Import actionmap="system"/>
+    <Import actionmap="common_pda"/>
+    <Import actionmap="common_free_camera"/>
+  </ActionMap>
+
+  <ActionMap name="market_camera" resendOnChange="0">
+    <Import actionmap="system"/>
+    <Import actionmap="common_pda"/>
+    <Import actionmap="common_marketing_camera"/>
+  </ActionMap>
+
+  <ActionMap name="menus" resendOnChange="0">
+    <Binding input="kb:f5" action="release" signal="quicksave"/>
+    <Binding input="kb:f9" action="release" signal="quickload"/>
+    <Binding input="kb:escape" action="release" signal="show_pausemenu"/>
+    <Binding input="pad:start" action="release" signal="show_pausemenu"/>
+  </ActionMap>
+
+  <ActionMap name="default" resendOnChange="1" keepHistory="1" controlSchemeContext="onfoot">
+    <Import actionmap="common_move_no_cover"/>
+    <Import actionmap="common_aim_and_shoot"/>
+    <Import actionmap="common_reload"/>
+    <Import actionmap="common_cover"/>
+    <Import actionmap="common_interact"/>
+    <Import actionmap="common_cancel"/>
+    <Import actionmap="system"/>
+    <Import actionmap="common_camera_look"/>
+    <Import actionmap="common_net_surfing_toggle"/>
+    <Import actionmap="common_weaponselection"/>
+    <Import actionmap="common_emotes"/>
+    <Import actionmap="common_rcdeploy"/>
+    <Import actionmap="common_takedown"/>
+    <Import actionmap="common_musicplayer_control"/>
+    <Import actionmap="common_softwares"/>
+    <Import actionmap="common_pda"/>
+    <Import actionmap="common_not_aiming"/>
+    <Import actionmap="menus"/>
+  </ActionMap>
+
+  <ActionMap name="default_aiming" resendOnChange="1" keepHistory="1" >
+    <Import actionmap="common_move_no_cover"/>
+    <Import actionmap="common_aim_and_shoot"/>
+    <Import actionmap="common_reload"/>
+    <Import actionmap="common_cover"/>
+    <Import actionmap="common_interact"/>
+    <Import actionmap="common_cancel"/>
+    <Import actionmap="system"/>
+    <Import actionmap="common_camera_look"/>
+    <Import actionmap="common_net_surfing_toggle"/>
+    <Import actionmap="common_weaponselection"/>
+    <Import actionmap="common_rcdeploy"/>
+    <Import actionmap="common_takedown"/>
+    <Import actionmap="common_musicplayer_control"/>
+    <Import actionmap="common_softwares"/>
+    <Import actionmap="common_pda"/>
+    <Import actionmap="common_aiming"/>
+    <Import actionmap="menus"/>
+  </ActionMap>
+  
+  <ActionMap name="spectator_cam">
+    <Import actionmap="system"/>
+    <Import actionmap="common_camera_look"/>
+    <Import actionmap="common_musicplayer_control"/>
+    <Import actionmap="common_pda"/>
+    <Import actionmap="menus"/>
+  </ActionMap>
+
+  <ActionMap name="editor" >
+    <Import actionmap="common_move_no_cover"/>
+    <Import actionmap="common_aim_and_shoot"/>
+    <Import actionmap="common_reload"/>
+    <Import actionmap="common_cover"/>
+    <Import actionmap="common_interact"/>
+    <Import actionmap="common_cancel"/>
+    <Import actionmap="system"/>
+    <Import actionmap="common_camera_look"/>
+    <Import actionmap="common_net_surfing_toggle"/>
+    <Import actionmap="common_weaponselection"/>
+    <Import actionmap="common_emotes"/>
+    <Import actionmap="common_rcdeploy"/>
+    <Import actionmap="common_takedown"/>
+    <Import actionmap="common_musicplayer_control"/>
+    <Import actionmap="common_softwares"/>
+    <Import actionmap="common_pda"/>
+    <Import actionmap="common_not_aiming"/>
+  </ActionMap>
+
+  <ActionMap name="cinematic" >
+    <Import actionmap="menus"/>
+    <Import actionmap="common_cinematic"/>
+	
+    <Binding input="kb:." action="release" signal="cheat_ToggleRadar" />
+    <Binding input="kb:s" action="press" signal="player_respawn_export"/>
+	
+	<Binding input="pad:a" action="press"  signal="toggle_start_menu" additive="1"/>
+    <Binding input="speech:what can i say" action="press"   signal="show_voice_commands"/>
+    <Binding input="pad:pause" action="press"  signal="show_pause_menu"/>
+    <Binding input="pad:play" action="press"   signal="hide_pause_menu"/>
+  </ActionMap>
+
+  <ActionMap name="no_controls" >
+    <Import actionmap="menus"/>
+    <Import actionmap="system"/>
+  </ActionMap>
+  
+  <ActionMap name="lock_weapons_in_race" resendOnChange="1">
+	<Binding input="cs:equip_weapon1" action="press" signal="" consume="1"/>
+	<Binding input="cs:equip_weapon1" action="release" signal="" consume="1"/>
+	<Binding input="cs:equip_weapon1" action="click" signal="" consume="1"/>
+	<Binding input="cs:equip_weapon1" action="hold" signal="" consume="1"/>
+	
+	<Binding input="cs:equip_weapon2" action="press" signal="" consume="1"/>
+	<Binding input="cs:equip_weapon2" action="release" signal="" consume="1"/>
+	<Binding input="cs:equip_weapon2" action="click" signal="" consume="1"/>
+	<Binding input="cs:equip_weapon2" action="hold" signal="" consume="1"/>
+	
+	<Binding input="cs:equip_weapon3" action="press" signal="" consume="1"/>
+	<Binding input="cs:equip_weapon3" action="release" signal="" consume="1"/>
+	<Binding input="cs:equip_weapon3" action="click" signal="" consume="1"/>
+	<Binding input="cs:equip_weapon3" action="hold" signal="" consume="1"/>
+	
+	<Binding input="cs:equip_tool1" action="press" signal="" consume="1"/>
+	<Binding input="cs:equip_tool1" action="release" signal="" consume="1"/>
+	<Binding input="cs:equip_tool1" action="click" signal="" consume="1"/>
+	<Binding input="cs:equip_tool1" action="hold" signal="" consume="1"/>
+	
+	<Binding input="cs:equip_tool2" action="press" signal="" consume="1"/>
+	<Binding input="cs:equip_tool2" action="release" signal="" consume="1"/>
+	<Binding input="cs:equip_tool2" action="click" signal="" consume="1"/>
+	<Binding input="cs:equip_tool2" action="hold" signal="" consume="1"/>
+	
+	<Binding input="cs:equip_tool3" action="press" signal="" consume="1"/>
+	<Binding input="cs:equip_tool3" action="release" signal="" consume="1"/>
+	<Binding input="cs:equip_tool3" action="click" signal="" consume="1"/>
+	<Binding input="cs:equip_tool3" action="hold" signal="" consume="1"/>
+	
+	<Binding input="cs:equip_tool4" action="press" signal="" consume="1"/>
+	<Binding input="cs:equip_tool4" action="release" signal="" consume="1"/>
+	<Binding input="cs:equip_tool4" action="click" signal="" consume="1"/>
+	<Binding input="cs:equip_tool4" action="hold" signal="" consume="1"/>
+	
+	<Binding input="cs:equip_tool5" action="press" signal="" consume="1"/>
+	<Binding input="cs:equip_tool5" action="release" signal="" consume="1"/>
+	<Binding input="cs:equip_tool5" action="click" signal="" consume="1"/>
+	<Binding input="cs:equip_tool5" action="hold" signal="" consume="1"/>
+	
+	<Binding input="cs:inventory_wheel" action="press" signal="" consume="1"/>
+	<Binding input="cs:inventory_wheel" action="release" signal="" consume="1"/>
+	<Binding input="cs:inventory_wheel" action="click" signal="" consume="1"/>
+	<Binding input="cs:inventory_wheel" action="hold" signal="" consume="1"/>
+	
+	<Binding input="cs:inventory_open" action="press" signal="" consume="1"/>
+	<Binding input="cs:inventory_open" action="release" signal="" consume="1"/>
+	<Binding input="cs:inventory_open" action="click" signal="" consume="1"/>
+	<Binding input="cs:inventory_open" action="hold" signal="" consume="1"/>
+	
+	<Binding input="cs:vehicle_combat_aim" action="press" signal="" consume="1"/>
+	<Binding input="cs:vehicle_combat_aim" action="release" signal="" consume="1"/>
+	<Binding input="cs:vehicle_combat_aim" action="click" signal="" consume="1"/>
+	<Binding input="cs:vehicle_combat_aim" action="hold" signal="" consume="1"/>
+	
+	<Binding input="cs:use_drone" action="press" signal="" consume="1"/>
+	<Binding input="cs:use_drone" action="release" signal="" consume="1"/>
+	<Binding input="cs:use_drone" action="click" signal="" consume="1"/>
+	<Binding input="cs:use_drone" action="hold" signal="" consume="1"/>
+	
+	<Binding input="cs:use_jumper" action="press" signal="" consume="1"/>
+	<Binding input="cs:use_jumper" action="release" signal="" consume="1"/>
+	<Binding input="cs:use_jumper" action="click" signal="" consume="1"/>
+	<Binding input="cs:use_jumper" action="hold" signal="" consume="1"/>
+	
+	<Binding input="cs:use_gadget" action="press" signal="" consume="1"/>
+	<Binding input="cs:use_gadget" action="release" signal="" consume="1"/>
+	<Binding input="cs:use_gadget" action="click" signal="" consume="1"/>
+	<Binding input="cs:use_gadget" action="hold" signal="" consume="1"/>
+	
+  </ActionMap>
+  
+  <ActionMap name="cinematic_nocameralock" >	
+    <Import actionmap="menus"/>
+    <Import actionmap="common_cinematic"/>
+    <Import actionmap="common_camera_look"/>
+    <Import actionmap="lock_weapons_in_race"/>
+  </ActionMap>
+
+  <ActionMap name="cinematic_noskip" >
+    <Import actionmap="menus"/>
+    <Import actionmap="common_system"/>
+    <Import actionmap="common_free_camera"/>
+    <Import actionmap="system"/>
+  </ActionMap>
+
+  <ActionMap name="cinematic_software_pnm" >
+    <Import actionmap="menus"/>
+    <Import actionmap="common_cinematic"/>
+    <Import actionmap="system"/>
+    <Binding input="pad:x" action="press" signal="press_software"/>
+    <Binding input="pad:x" action="release" signal="release_software"/>
+    <Binding input="pad:x" action="click" signal="use_software"/>
+    <NoResend input="pad:x"/>
+  </ActionMap>
+
+  <ActionMap name="cinematic_hacking" >
+    <Import actionmap="menus"/>
+    <Import actionmap="common_cinematic"/>
+    <Import actionmap="common_camera_look"/>
+    <Import actionmap="system"/>
+    <Binding input="pad:x" action="hold" signal="hold_software"/>
+    <Binding input="pad:x" action="press" signal="press_software"/>
+    <Binding input="pad:x" action="release" signal="release_software"/>
+    <Binding input="pad:x" action="click" signal="use_software"/>
+    <NoResend input="pad:x"/>
+  </ActionMap>
+
+  <ActionMap name="cinematic_interact_pnm" >
+    <Import actionmap="menus"/>
+    <Import actionmap="common_cinematic"/>
+    <Import actionmap="system"/>
+    <Binding input="pad:y" action="click" signal="use"/>
+    <NoResend input="pad:y"/>
+  </ActionMap>
+
+  <ActionMap name="cinematic_use_consumable" >
+    <Import actionmap="menus"/>
+    <Import actionmap="common_cinematic"/>
+    <Import actionmap="common_camera_look"/>
+    <Import actionmap="system"/>
+    <Binding input="pad:right_shoulder" action="press" signal="projectile_aiming_press"/>
+    <Binding input="pad:right_shoulder" action="release" signal="projectile_aiming_release"/>
+    <NoResend input="pad:right_shoulder"/>
+    <!-- REMOTEPLAY BEGIN -->
+    <Binding input="pad:touch_back_right" action="press" signal="projectile_aiming_press"/>
+    <Binding input="pad:touch_back_right" action="release" signal="projectile_aiming_release"/>
+    <NoResend input="pad:touch_back_right"/>
+    <!-- REMOTEPLAY END -->
+    <Import actionmap="common_weaponselection"      optional=""/>
+  </ActionMap>
+
+  <ActionMap name="domino_no_illegal_apps" >
+    <Import actionmap="common_move_no_cover"/>
+    <Import actionmap="common_aim_and_shoot"/>
+    <Import actionmap="common_reload"/>
+    <Import actionmap="common_cover"/>
+    <Import actionmap="common_interact"/>
+    <Import actionmap="system"/>
+    <Import actionmap="common_camera_look"/>
+    <Import actionmap="common_net_surfing_toggle"/>
+    <Import actionmap="common_weaponselection"/>
+    <Import actionmap="common_emotes"/>
+    <Import actionmap="common_rcdeploy"/>
+    <Import actionmap="common_takedown"/>
+    <Import actionmap="common_musicplayer_control"/>
+    <Import actionmap="common_softwares"/>
+    <Import actionmap="common_pda"/>
+    <Import actionmap="common_not_aiming"/>
+    <Import actionmap="menus"/>
+
+    <Binding input="pad:left"               action="press"   signal="Domino_DPadLeft_Press"/>
+    <Binding input="pad:left"               action="release" signal="Domino_DPadLeft_Release"/>
+    <Binding input="pad:left"               action="click" signal="Domino_DPadLeft_Click"/>
+    <Binding input="pad:left"               action="hold" signal="Domino_DPadLeft_Hold"/>
+    <NoResend input="pad:left"/>
+
+    <Binding input="pad:right"               action="press"   signal="Domino_DPadRight_Press"/>
+    <Binding input="pad:right"               action="release" signal="Domino_DPadRight_Release"/>
+    <Binding input="pad:right"               action="click" signal="Domino_DPadRight_Click"/>
+    <Binding input="pad:right"               action="hold" signal="Domino_DPadRight_Hold"/>
+    <NoResend input="pad:right"/>
+  </ActionMap>
+
+  <ActionMap name="domino_input_monitor_withControls_profiler">
+    <Import actionmap="default"/>
+
+    <Binding input="pad:left_shoulder" action="press" signal="Domino_LeftShoulder_Press"/>
+    <Binding input="pad:left_shoulder" action="release" signal="Domino_LeftShoulder_Release"/>
+    <Binding input="pad:left_shoulder" action="click" signal="Domino_LeftShoulder_Click"/>
+    <Binding input="pad:left_shoulder" action="hold" signal="Domino_LeftShoulder_Hold"/>
+    <NoResend input="pad:left_shoulder"/>
+
+    <!-- REMOTEPLAY BEGIN -->
+    <Binding input="pad:touch_back_topleft" action="press" signal="Domino_LeftShoulder_Press"/>
+    <Binding input="pad:touch_back_topleft" action="release" signal="Domino_LeftShoulder_Release"/>
+    <Binding input="pad:touch_back_topleft" action="click" signal="Domino_LeftShoulder_Click"/>
+    <Binding input="pad:touch_back_topleft" action="hold" signal="Domino_LeftShoulder_Hold"/>
+    <NoResend input="pad:touch_back_topleft"/>
+    <!-- REMOTEPLAY END   -->
+
+    <Binding input="pad:right_shoulder" action="press" signal="Domino_RightShoulder_Press"/>
+    <Binding input="pad:right_shoulder" action="release" signal="Domino_RightShoulder_Release"/>
+    <Binding input="pad:right_shoulder" action="click" signal="Domino_RightShoulder_Click"/>
+    <Binding input="pad:right_shoulder" action="hold" signal="Domino_RightShoulder_Hold"/>
+    <NoResend input="pad:right_shoulder"/>
+  </ActionMap>
+
+  <ActionMap name="common_domino_input_monitor" >
+    <!--Gamepad-->
+
+    <Binding input="pad:x" action="press" signal="Domino_X_Press"/>
+    <Binding input="pad:x" action="release" signal="Domino_X_Release"/>
+    <Binding input="pad:x" action="click" signal="Domino_X_Click"/>
+    <Binding input="pad:x" action="hold" signal="Domino_X_Hold"/>
+    <NoResend input="pad:x"/>
+
+    <Binding input="pad:y" action="press" signal="Domino_Y_Press"/>
+    <Binding input="pad:y" action="release" signal="Domino_Y_Release"/>
+    <Binding input="pad:y" action="click" signal="Domino_Y_Click"/>
+    <Binding input="pad:y" action="hold" signal="Domino_Y_Hold"/>
+    <NoResend input="pad:y"/>
+
+    <Binding input="pad:a" action="press" signal="Domino_A_Press"/>
+    <Binding input="pad:a" action="release" signal="Domino_A_Release"/>
+    <Binding input="pad:a" action="click" signal="Domino_A_Click"/>
+    <Binding input="pad:a" action="hold" signal="Domino_A_Hold"/>
+    <NoResend input="pad:a"/>
+
+    <Binding input="pad:b" action="press" signal="Domino_B_Press"/>
+    <Binding input="pad:b" action="release" signal="Domino_B_Release"/>
+    <Binding input="pad:b" action="click" signal="Domino_B_Click"/>
+    <Binding input="pad:b" action="hold" signal="Domino_B_Hold"/>
+    <NoResend input="pad:b"/>
+
+    <Binding input="pad:right_trigger" action="press" signal="Domino_RightTrigger_Press"/>
+    <Binding input="pad:right_trigger" action="release" signal="Domino_RightTrigger_Release"/>
+    <Binding input="pad:right_trigger" action="click" signal="Domino_RightTrigger_Click"/>
+    <Binding input="pad:right_trigger" action="hold" signal="Domino_RightTrigger_Hold"/>
+    <NoResend input="pad:right_trigger"/>
+
+    <Binding input="pad:left_trigger" action="press" signal="Domino_LeftTrigger_Press"/>
+    <Binding input="pad:left_trigger" action="release" signal="Domino_LeftTrigger_Release"/>
+    <Binding input="pad:left_trigger" action="click" signal="Domino_LeftTrigger_Click"/>
+    <Binding input="pad:left_trigger" action="hold" signal="Domino_LeftTrigger_Hold"/>
+    <NoResend input="pad:left_trigger"/>
+
+    <Binding input="pad:right_shoulder" action="press" signal="Domino_RightShoulder_Press"/>
+    <Binding input="pad:right_shoulder" action="release" signal="Domino_RightShoulder_Release"/>
+    <Binding input="pad:right_shoulder" action="click" signal="Domino_RightShoulder_Click"/>
+    <Binding input="pad:right_shoulder" action="hold" signal="Domino_RightShoulder_Hold"/>
+    <NoResend input="pad:right_shoulder"/>
+
+    <!-- REMOTEPLAY BEGIN -->
+    <Binding input="pad:touch_back_right" action="press" signal="Domino_RightShoulder_Press"/>
+    <Binding input="pad:touch_back_right" action="release" signal="Domino_RightShoulder_Release"/>
+    <Binding input="pad:touch_back_right" action="click" signal="Domino_RightShoulder_Click"/>
+    <Binding input="pad:touch_back_right" action="hold" signal="Domino_RightShoulder_Hold"/>
+    <NoResend input="pad:touch_back_right"/>
+    <!-- REMOTEPLAY END -->
+
+    <Binding input="pad:left_shoulder" action="press" signal="Domino_LeftShoulder_Press"/>
+    <Binding input="pad:left_shoulder" action="release" signal="Domino_LeftShoulder_Release"/>
+    <Binding input="pad:left_shoulder" action="click" signal="Domino_LeftShoulder_Click"/>
+    <Binding input="pad:left_shoulder" action="hold" signal="Domino_LeftShoulder_Hold"/>
+    <NoResend input="pad:left_shoulder"/>
+
+    <!-- REMOTEPLAY BEGIN -->
+    <Binding input="pad:touch_back_topleft" action="press" signal="Domino_LeftShoulder_Press"/>
+    <Binding input="pad:touch_back_topleft" action="release" signal="Domino_LeftShoulder_Release"/>
+    <Binding input="pad:touch_back_topleft" action="click" signal="Domino_LeftShoulder_Click"/>
+    <Binding input="pad:touch_back_topleft" action="hold" signal="Domino_LeftShoulder_Hold"/>
+    <NoResend input="pad:touch_back_topleft"/>
+    <!-- REMOTEPLAY END -->
+
+    <Binding input="pad:right_thumb" action="update" signal="Domino_RightThumb_Move"/>
+    <NoResend input="pad:right_thumb"/>
+
+    <Binding input="pad:left_thumb" action="update" signal="Domino_LeftThumb_Move"/>
+    <NoResend input="pad:left_thumb"/>
+
+    <Binding input="pad:right_thumb_push" action="press" signal="Domino_RightThumbClick_Press"/>
+    <Binding input="pad:right_thumb_push" action="release" signal="Domino_RightThumbClick_Release"/>
+    <Binding input="pad:right_thumb_push" action="click" signal="Domino_RightThumbClick_Click"/>
+    <Binding input="pad:right_thumb_push" action="hold" signal="Domino_RightThumbClick_Hold"/>
+    <NoResend input="pad:right_thumb_push"/>
+
+    <!-- REMOTEPLAY BEGIN -->
+    <Binding input="pad:touch_front_bottomright" action="press" signal="Domino_RightThumbClick_Press"/>
+    <Binding input="pad:touch_front_bottomright" action="release" signal="Domino_RightThumbClick_Release"/>
+    <Binding input="pad:touch_front_bottomright" action="click" signal="Domino_RightThumbClick_Click"/>
+    <Binding input="pad:touch_front_bottomright" action="hold" signal="Domino_RightThumbClick_Hold"/>
+    <NoResend input="pad:touch_front_bottomright"/>
+    <!-- REMOTEPLAY END -->
+
+    <Binding input="pad:left_thumb_push" action="press" signal="Domino_LeftThumbClick_Press"/>
+    <Binding input="pad:left_thumb_push" action="release" signal="Domino_LeftThumbClick_Release"/>
+    <Binding input="pad:left_thumb_push" action="click" signal="Domino_LeftThumbClick_Click"/>
+    <Binding input="pad:left_thumb_push" action="hold" signal="Domino_LeftThumbClick_Hold"/>
+    <NoResend input="pad:left_thumb_push"/>
+
+    <!-- REMOTEPLAY BEGIN -->
+    <Binding input="pad:touch_back_bottomleft" action="press" signal="Domino_LeftThumbClick_Press"/>
+    <Binding input="pad:touch_back_bottomleft" action="release" signal="Domino_LeftThumbClick_Release"/>
+    <Binding input="pad:touch_back_bottomleft" action="click" signal="Domino_LeftThumbClick_Click"/>
+    <Binding input="pad:touch_back_bottomleft" action="hold" signal="Domino_LeftThumbClick_Hold"/>
+    <NoResend input="pad:touch_back_bottomleft"/>
+    <!-- REMOTEPLAY END -->
+
+    <Binding input="pad:up"               action="press"   signal="Domino_DPadUp_Press"/>
+    <Binding input="pad:up"               action="release" signal="Domino_DPadUp_Release"/>
+    <Binding input="pad:up"               action="click" signal="Domino_DPadUp_Click"/>
+    <Binding input="pad:up"               action="hold" signal="Domino_DPadUp_Hold"/>
+    <NoResend input="pad:up"/>
+
+    <Binding input="pad:down"               action="press"   signal="Domino_DPadDown_Press"/>
+    <Binding input="pad:down"               action="release" signal="Domino_DPadDown_Release"/>
+    <Binding input="pad:down"               action="click" signal="Domino_DPadDown_Click"/>
+    <Binding input="pad:down"               action="hold" signal="Domino_DPadDown_Hold"/>
+    <NoResend input="pad:down"/>
+
+    <Binding input="pad:left"                action="press"   signal="Domino_DPadLeft_Press"/>
+    <Binding input="pad:left"                action="release" signal="Domino_DPadLeft_Release"/>
+    <Binding input="pad:left"                action="click" signal="Domino_DPadLeft_Click"/>
+    <Binding input="pad:left"                action="hold" signal="Domino_DPadLeft_Hold"/>
+    <NoResend input="pad:left"/>
+
+    <Binding input="pad:right"               action="press"   signal="Domino_DPadRight_Press"/>
+    <Binding input="pad:right"               action="release" signal="Domino_DPadRight_Release"/>
+    <Binding input="pad:right"               action="click"   signal="Domino_DPadRight_Click"/>
+    <Binding input="pad:right"               action="hold"    signal="Domino_DPadRight_Hold"/>
+    <NoResend input="pad:right"/>
+  </ActionMap>
+
+  <ActionMap name="domino_input_monitor" >
+    <Import actionmap="menus"/>
+    <Import actionmap="system"/>
+    <Import actionmap="common_domino_input_monitor"/>
+  </ActionMap>
+
+  <ActionMap name="domino_input_monitor_layer" isLayer="1">
+    <Import actionmap="common_domino_input_monitor"/>
+  </ActionMap>
+
+  <ActionMap name="domino_input_monitor_blackout" >
+    <Import actionmap="default"/>
+    
+    <Binding input="pad:right_shoulder" action="press" signal="Domino_RightShoulder_Press"/>
+    <Binding input="pad:right_shoulder" action="release" signal="Domino_RightShoulder_Release"/>
+    <Binding input="pad:right_shoulder" action="click" signal="Domino_RightShoulder_Click"/>
+    <Binding input="pad:right_shoulder" action="hold" signal="Domino_RightShoulder_Hold"/>
+    <NoResend input="pad:right_shoulder"/>
+
+    <!-- REMOTEPLAY BEGIN -->
+    <Binding input="pad:touch_back_right" action="press" signal="Domino_RightShoulder_Pressgridrace_pda_tile_navigation_common"/>
+    <Binding input="pad:touch_back_right" action="release" signal="Domino_RightShoulder_Release"/>
+    <Binding input="pad:touch_back_right" action="click" signal="Domino_RightShoulder_Click"/>
+    <Binding input="pad:touch_back_right" action="hold" signal="Domino_RightShoulder_Hold"/>
+    <NoResend input="pad:touch_back_right"/>
+    <!-- REMOTEPLAY END -->
+  </ActionMap>
+
+  <ActionMap name="driving" controlSchemeContext="driving">
+    <Import actionmap="menus"/>
+    <Import actionmap="common_cancel"/>
+    <Import actionmap="common_in_vehicle_no_look"/>
+    <Import actionmap="common_camera_look"/>
+    <Import actionmap="common_look_back"/>
+    <Import actionmap="common_camera_switch"/>
+    <Import actionmap="system"/>
+    <Import actionmap="common_pda"/>
+    <Import actionmap="common_driving_noprofiler"/>
+    <Import actionmap="common_softwares"/>
+    <Import actionmap="common_musicplayer_control"/>
+    <Import actionmap="common_driver_aiming"/>
+    <Import actionmap="common_weaponselection"/>
+    <Import actionmap="common_rcdeploy"/>
+  </ActionMap>
+
+    <ActionMap name="driving_custom_horn" controlSchemeContext="driving">
+        <Import actionmap="driving"/>
+
+        <Binding input="pad:left_thumb_push"    action="press"   signal="trigger_custom_horn"/>
+        <Binding input="pad:left_thumb_push"    action="release" signal=""/>
+        <!-- REMOTEPLAY BEGIN -->
+        <Binding input="pad:touch_back_bottomleft"    action="press"   signal="trigger_custom_horn"/>
+        <Binding input="pad:touch_back_bottomleft"    action="release" signal=""/>
+        <!-- REMOTEPLAY END   -->
+    </ActionMap>
+
+  <ActionMap name="driving_with_suspension" controlSchemeContext="driving">
+    <Import actionmap="driving"/>
+
+    <Binding input="pad:left_thumb_push"    action="press"   signal="toggle_suspension"/>
+    <Binding input="pad:left_thumb_push"    action="release" signal=""/>
+    <!-- REMOTEPLAY BEGIN -->
+    <Binding input="pad:touch_back_bottomleft"    action="press"   signal="toggle_suspension"/>
+    <Binding input="pad:touch_back_bottomleft"    action="release" signal=""/>
+    <!-- REMOTEPLAY END   -->
+
+    <!--Keyboard/Mouse Control Scheme-->
+    <Binding input="cs:vehicle_horn"    action="press"   signal="toggle_suspension"/>
+  </ActionMap>
+
+    <ActionMap name="driving_tbone" controlSchemeContext="driving">
+        <Import actionmap="driving"/>
+
+        <Binding input="pad:a"    action="press" signal="trigger_back_weapon"/>
+        <Binding input="pad:a"    action="release" signal=""/>
+
+        <Binding input="pad:left_thumb_push"    action="press"   signal="trigger_custom_horn"/>
+        <Binding input="pad:left_thumb_push"    action="release" signal=""/>
+        <!-- REMOTEPLAY BEGIN -->
+        <Binding input="pad:touch_back_bottomleft"    action="press"   signal="trigger_custom_horn"/>
+        <Binding input="pad:touch_back_bottomleft"    action="release" signal=""/>
+        <!-- REMOTEPLAY END   -->
+    </ActionMap>
+
+  <ActionMap name="passenger" >
+    <Import actionmap="system"/>
+    <Import actionmap="menus"/>
+    <Import actionmap="common_cancel"/>
+    <Import actionmap="common_camera_look"/>
+    <Import actionmap="common_passenger"/>
+    <Import actionmap="common_softwares"/>
+    <Import actionmap="common_musicplayer_control"/>
+    <Import actionmap="common_pda"/>
+    <Import actionmap="common_aiming"/>
+    <Import actionmap="common_aim_and_shoot"/>
+    <Import actionmap="common_reload"/>
+    <Import actionmap="common_weaponselection"/>
+    <Import actionmap="common_rcdeploy"/>
+  </ActionMap>
+
+  <ActionMap name="passenger_bus" >
+    <Import actionmap="system"/>
+    <Import actionmap="menus"/>
+    <Import actionmap="common_cancel"/>
+    <Import actionmap="common_camera_look"/>
+    <Import actionmap="common_passenger"/>
+    <Import actionmap="common_softwares"/>
+    <Import actionmap="common_musicplayer_control"/>
+    <Import actionmap="common_pda"/>
+    <Import actionmap="common_reload"/>
+    <Import actionmap="common_weaponselection"/>
+  </ActionMap>  
+  
+ <ActionMap name="drivingCHIP_noexit" >
+    <Import actionmap="menus"/>
+    <Import actionmap="common_cancel"/>
+    <Import actionmap="common_camera_look"/>
+    <Import actionmap="common_look_back"/>
+    <Import actionmap="common_camera_switch"/>
+    <Import actionmap="system"/>
+    <Import actionmap="common_pda"/>
+    <Import actionmap="common_driving_noprofiler"/>
+    <Import actionmap="common_softwares"/>
+    <Import actionmap="common_musicplayer_control"/>
+  </ActionMap>
+
+  <ActionMap name="pausemenu" >
+    <Import actionmap="showconsole"/>
+    <Import actionmap="system"/>
+    <Import actionmap="common_pda"/>
+  </ActionMap>
+
+  <ActionMap name="emptyactionmap" resendOnChange="0">
+    <Import actionmap="system"/>
+  </ActionMap>
+
+  <ActionMap name="hideout" >
+    <Import actionmap="common_menu_navigation"/>
+	<Import actionmap="common_menu_buttons"/>
+  </ActionMap>
+
+  <ActionMap name="dominoinputlistener" >
+    <Import actionmap="menus"/>
+    <Import actionmap="common_move_no_cover"/>
+    <Import actionmap="common_aim_and_shoot"/>
+    <Import actionmap="common_reload"/>
+    <Import actionmap="common_cover"/>
+    <Import actionmap="common_interact"/>
+    <Import actionmap="system"/>
+    <Import actionmap="common_dominoinputlistener"/>
+    <Import actionmap="common_pda"/>
+  </ActionMap>
+
+  <ActionMap name="scry" >
+    <Import actionmap="common_scry_alwaysactive"/>
+    <Import actionmap="common_scry"/>
+  </ActionMap>
+  
+  
+	<!-- TUTORIALS ! -->
+	<ActionMap name="mission_tutorials">	
+    <Import actionmap="menus"/>
+    <Import actionmap="common_system"/>
+    <Import actionmap="common_showconsole"/>
+    <Import actionmap="common_scry_alwaysactive"/>	
+	</ActionMap>
+	
+	
+  <ActionMap name="Tutorial_Lure_0" isLayer="1">
+		<Import actionmap="common_pausemenu"/>	
+		<Import actionmap="common_system_nopausemenu"/>	
+    <Binding input="pad:b"                 action="press"         signal="" consume="1"/>
+    <Binding input="pad:b"                 action="release"       signal="right_hack_select_release" consume="1"/>
+    <Binding input="pad:b"                 action="click"       signal="" consume="1"/>
+    <Binding input="pad:b"                 action="hold"       signal="" consume="1"/>
+    <Binding input="pad:b"                 action="update"       signal="" consume="1"/>
+    <NoResend   input="pad:b"/>
+    
+    <Binding input="pad:left_thumb_push" action="press" signal="" consume="1"/>
+    <NoResend input="pad:left_thumb_push"/>
+		
+    <!-- REMOTEPLAY BEGIN -->
+    <Binding input="pad:touch_back_bottomleft" action="press" signal="" consume="1"/>
+    <NoResend input="pad:touch_back_bottomleft"/>
+    <!-- REMOTEPLAY END   -->
+	</ActionMap>
+
+
+  <ActionMap name="Tutorial_Lure_1">
+    <Import actionmap="menus"/>
+    
+	
+    <Binding input="pad:y" action="press" signal="use_press" additive="1"/>
+    <Binding input="pad:y" action="click"  signal="use"/>
+    <Binding input="pad:y" action="hold" signal="use_hold"/>
+    <Binding input="pad:y" action="release" signal="use_release"/>
+    <NoResend input="pad:y"/>
+
+    <Binding input="cs:action_interact" action="press"   signal="use_press" additive="1"/>
+    <Binding input="cs:action_interact" action="press"   signal="use"/>
+    <Binding input="cs:action_interact" action="click"   signal="use"/>
+    <Binding input="cs:action_interact" action="hold"    signal="use_hold"/>
+    <Binding input="cs:action_interact" action="release" signal="use_release"/>
+    <NoResend input="cs:action_interact"/>
+
+    <Binding    input="pad:x"                   action="hold"       signal="hold_software"/>
+    <Binding    input="pad:x"                   action="press"      signal="press_software"/>
+    <Binding    input="pad:x"                   action="release"    signal="release_software"/>
+    <NoResend   input="pad:x"/>
+
+    <Binding  input="cs:action_hack" action="hold"    signal="hold_software"/>
+    <Binding  input="cs:action_hack" action="press"   signal="press_software"/>
+    <Binding  input="cs:action_hack" action="release" signal="release_software"/>
+    <NoResend input="cs:action_hack"/>
+
+    <Binding input="pad:right_shoulder"       action="press"   signal="projectile_aiming_press"/>
+    <Binding input="pad:right_shoulder"       action="release" signal="projectile_aiming_release"/>
+    <NoResend input="pad:right_shoulder"/>
+
+    <!-- REMOTEPLAY BEGIN -->
+    <Binding input="pad:touch_back_right"       action="press"   signal="projectile_aiming_press"/>
+    <Binding input="pad:touch_back_right"       action="release" signal="projectile_aiming_release"/>
+    <NoResend input="pad:touch_back_right"/>
+    <!-- REMOTEPLAY END -->
+
+    <Binding input="cs:combat_projectile" action="press"   signal="projectile_aiming_press"/>
+    <Binding input="cs:combat_projectile" action="release" signal="projectile_aiming_release"/>
+    <NoResend input="cs:combat_projectile"/>
+
+    <PadFilter name="right_thumb" device="pad">
+      <Binding input="right_thumb_leftright" axis="0" sensitivity="1" curve="Curves.MovementCurves.Joystick_LeftRight"/>
+      <Binding input="right_thumb_updown" axis="1" sensitivity="1" curve="Curves.MovementCurves.Joystick_UpDown"/>
+    </PadFilter>
+    <Binding input="pad:right_thumb" action="update" signal="cam_look_py"/>
+
+    <MouseFilter input="mouse:move" curve="" sensitivity="1.0" maxOutput="10" />
+    <Binding input="mouse:move" action="update" signal="cam_look_py"/>
+  </ActionMap>
+
+  <ActionMap name="Tutorial_Lure_2" >
+    <Import actionmap="menus"/>
+	<Import actionmap="common_pausemenu"/>	
+	<Import actionmap="common_system_nopausemenu"/>	
+    
+    <PadFilter name="right_thumb" device="pad">
+      <Binding input="right_thumb_leftright" axis="0" sensitivity="1" curve="Curves.MovementCurves.Joystick_LeftRight" />
+      <Binding input="right_thumb_updown" axis="1" sensitivity="1" curve="Curves.MovementCurves.Joystick_UpDown" />
+    </PadFilter>
+    
+    <Binding input="pad:right"   action="press"      signal="wheel_consumable_selection_right"/>
+
+    <Binding input="pad:right_shoulder"       action="press"   signal="projectile_aiming_press"/>
+    <Binding input="pad:right_shoulder"       action="release" signal="projectile_aiming_release"/>
+    <NoResend input="pad:right_shoulder"/>
+
+    <!-- REMOTEPLAY BEGIN -->
+    <Binding input="pad:touch_back_right"       action="press"   signal="projectile_aiming_press"/>
+    <Binding input="pad:touch_back_right"       action="release" signal="projectile_aiming_release"/>
+    <NoResend input="pad:touch_back_right"/>
+    <!-- REMOTEPLAY END -->
+  </ActionMap>
+
+  <ActionMap name="Tutorial_NoMovement_CamOnly" >
+    <Import actionmap="menus"/>
+    <Import actionmap="system"/>
+    <Import actionmap="common_camera_look"/>
+	<Import actionmap="common_pausemenu"/>	
+	<Import actionmap="common_system_nopausemenu"/>	
+  </ActionMap>
+
+  <ActionMap name="Tutorial_NetHack_Toggle" >
+    <Import actionmap="mission_tutorials"/>
+    <Import actionmap="common_camera_look"/>
+    <Import actionmap="common_net_surfing_toggle"/>
+	<Import actionmap="common_pausemenu"/>	
+	<Import actionmap="common_system_nopausemenu"/>	
+  </ActionMap>
+
+  <ActionMap name="Tutorial_NetHack_Hack" >
+    <Import actionmap="Tutorial_NetHack_Toggle"/>
+	<Import actionmap="common_pausemenu"/>	
+	<Import actionmap="common_system_nopausemenu"/>	
+	
+    <Binding  input="pad:x" action="hold"    signal="hold_software"/>
+  </ActionMap>
+  
+  <ActionMap name="Tutorial_TakeCover" >
+	<Import actionmap="common_pausemenu"/>	
+	<Import actionmap="common_system_nopausemenu"/>	
+	
+    <Binding input="pad:a"  action="click"     signal="cover_press"/>
+    <NoResend input="pad:a"/>	
+    <Import actionmap="mission_tutorials"/>
+  </ActionMap>
+  
+  <ActionMap name="Tutorial_MeleeTakedown" >
+    <Import actionmap="mission_tutorials"/>
+    <Import actionmap="common_camera_look"/>
+	<Import actionmap="common_pausemenu"/>	
+	<Import actionmap="common_system_nopausemenu"/>	
+	
+	<!-- keyboard debug -->
+	<Binding    input="kb:b"                    action="press"      signal="takedown_press"     additive="1"/>
+	<Binding    input="kb:b"                    action="hold"       signal="takedown_hold"      additive="1"/>
+	<Binding    input="kb:b"                    action="release"    signal="takedown_release"   additive="1"/>
+	<!-- keyboard debug -->
+
+    <!--Gamepad-->
+    <Binding    input="pad:b"       action="press"      signal="takedown_press"/>
+    <Binding    input="pad:b"       action="hold"       signal="takedown_hold"/>
+    <Binding    input="pad:b"       action="release"    signal="takedown_release"/>
+    <NoResend   input="pad:b"/>
+  </ActionMap>
+    
+  <ActionMap name="Tutorial_DPadHack" isLayer="1">
+    <Import actionmap="mission_tutorials"/>
+    <Import actionmap="common_camera_look"/>
+	
+    <Binding input="pad:x"                  action="press"         signal="left_hack_select_press" consume="1"/>
+    <Binding input="pad:x"                  action="release"       signal="left_hack_select_release" consume="1"/>
+    <NoResend   input="pad:x"/>
+    <Binding input="pad:b"                 action="press"         signal="right_hack_select_press" consume="1"/>
+    <Binding input="pad:b"                 action="release"       signal="right_hack_select_release" consume="1"/>
+    <NoResend   input="pad:b"/>
+    <Binding input="pad:a"                  action="press"         signal="down_hack_select_press" consume="1"/>
+    <Binding input="pad:a"                  action="release"       signal="down_hack_select_release" consume="1"/>
+    <NoResend   input="pad:a"/>
+    <Binding input="pad:y"                   action="press"         signal="up_hack_select_press" consume="1"/>
+    <Binding input="pad:y"                   action="release"       signal="up_hack_select_release" consume="1"/>
+    <NoResend   input="pad:y"/>
+  </ActionMap>
+
+<ActionMap name="Tutorial_DPadHack_Up" isLayer="1">
+    <Import actionmap="mission_tutorials"/>
+    <Import actionmap="common_camera_look"/>
+
+    <Binding input="pad:y"                   action="press"         signal="up_hack_select_press" consume="1"/>
+    <Binding input="pad:y"                   action="release"       signal="up_hack_select_release" consume="1"/>
+    <NoResend   input="pad:y"/>
+</ActionMap>
+    
+  <ActionMap name="Tutorial_DPadHack_Right" isLayer="1">
+    <Import actionmap="mission_tutorials"/>
+    <Import actionmap="common_camera_look"/>
+	
+    <Binding input="pad:b"                 action="press"         signal="right_hack_select_press" consume="1"/>
+    <Binding input="pad:b"                 action="release"       signal="right_hack_select_release" consume="1"/>
+    <NoResend   input="pad:b"/>
+  </ActionMap>
+  
+  <ActionMap name="Tutorial_AimAndShoot">
+    <Import actionmap="mission_tutorials"/>
+    <Import actionmap="common_camera_look"/>
+	<Import actionmap="common_pausemenu"/>	
+	<Import actionmap="common_system_nopausemenu"/>	
+	
+    <Binding input="pad:left_trigger"           action="press"      signal="aiming_trigger_press"/>
+    <Binding input="pad:left_trigger"           action="release"    signal="aiming_trigger_release"/>
+  </ActionMap>
+  
+  
+  <!-- MISSION SPECIFIC ! -->
+  <ActionMap name="S09M020_NoNethack" isLayer="1">
+    <Binding input="pad:right_thumb_push" action="press" signal="" consume="1"/>
+
+    <!-- REMOTEPLAY BEGIN -->
+    <Binding input="pad:touch_front_bottomright" action="press" signal="" consume="1"/>
+    <!-- REMOTEPLAY END -->
+  </ActionMap>
+
+  <ActionMap name="S03M040_CarNoExit" isLayer="1" controlSchemeContext="driving">
+    <Binding input="pad:y" action="hold" signal="" consume="1"/>
+    <Binding input="pad:y" action="press" signal="" consume="1"/>
+    <Binding input="pad:right_trigger" action="hold" signal="" consume="1"/>
+    <Binding input="pad:right_trigger" action="press" signal="" consume="1"/>
+    <Binding input="pad:left_trigger" action="press" signal="" consume="1"/>
+    <Binding input="pad:left_trigger" action="release" signal="" consume="1"/>
+
+    <Binding  input="cs:vehicle_exit"   action="hold" signal=""/>
+    <Binding  input="cs:vehicle_exit"   action="press" signal=""/>
+    <Binding  input="cs:vehicle_exit"   action="release" signal=""/>
+    <NoResend input="cs:vehicle_exit"/>
+  </ActionMap>
+  
+  <ActionMap name="S06M020_Car">
+    <Import actionmap="mission_tutorials"/>
+    <Import actionmap="common_camera_look"/>
+	<Import actionmap="common_pausemenu"/>	
+	<Import actionmap="common_system_nopausemenu"/>	
+	
+    <Binding  input="pad:x" action="hold"    signal="hold_software"/>
+	
+    <Binding input="pad:y"                   action="press"         signal="up_hack_select_press" consume="1"/>
+    <Binding input="pad:y"                   action="release"       signal="up_hack_select_release" consume="1"/>
+    <NoResend   input="pad:y"/>
+  </ActionMap>
+  
+  <ActionMap name="S06M020_NoGear">
+    <Import actionmap="mission_tutorials"/>
+    <Import actionmap="common_camera_look"/>
+    <Import actionmap="common_move_no_cover"/>
+    <Import actionmap="common_cover"/>
+    <Import actionmap="common_takedown"/>
+	<Import actionmap="common_pausemenu"/>	
+	<Import actionmap="common_system_nopausemenu"/>	
+	
+    <Binding input="pad:right_trigger" action="press"   signal="interact_press" additive="1"/>
+    <Binding input="pad:right_trigger" action="click"   signal="interact_click"/>
+    <Binding input="pad:right_trigger" action="hold"    signal="interact_hold"/>
+    <Binding input="pad:right_trigger" action="release" signal="interact_release"/>
+    <Binding input="pad:y" action="press"   signal="use_press" additive="1"/>
+    <Binding input="pad:y" action="click"   signal="use"/>
+    <Binding input="pad:y" action="hold"    signal="use_hold"/>
+    <Binding input="pad:y" action="release" signal="use_release"/>
+    <Binding input="pad:y" action="hold"    signal="pick_hold" additive="1"/>
+    <Binding input="pad:y" action="press"   signal="pick_press"/>
+    <Binding input="pad:y" action="release" signal="pick_release" additive="1"/>
+    <NoResend input="pad:b"/>
+    <NoResend input="pad:y"/>
+	
+    <Binding  input="pad:x" action="press"   signal="press_software"/>
+    <Binding  input="pad:x" action="release" signal="release_software"/>
+    <Binding  input="pad:x" action="hold"    signal="hold_software"/>
+	
+    <Binding input="pad:y"                   action="press"         signal="up_hack_select_press" consume="1"/>
+    <Binding input="pad:y"                   action="release"       signal="up_hack_select_release" consume="1"/>
+    <NoResend   input="pad:y"/>
+  </ActionMap>
+   
+  <ActionMap name="S07M030" isLayer="1">
+    <Import actionmap="common_musicplayer_control"/>
+	
+    <Binding input="pad:right_shoulder" action="press" signal="" consume="1"/>
+    <NoResend input="pad:right_shoulder"/>
+    <!-- REMOTEPLAY BEGIN -->
+    <Binding input="pad:touch_back_right" action="press" signal="" consume="1"/>
+    <NoResend input="pad:touch_back_right"/>
+    <!-- REMOTEPLAY END   -->
+      
+    <Binding input="pad:left"   action="press"    signal="" consume="1"/>
+    <Binding input="pad:left"   action="release"  signal="" consume="1"/>
+    <Binding input="pad:right"  action="press"    signal="" consume="1"/>
+    <Binding input="pad:right"  action="release"  signal="" consume="1"/>	
+	
+    <Binding input="pad:back" action="click" signal="" consume="1"/>
+    <Binding input="pad:back" action="release" signal="" consume="1"/>
+    <Binding input="pad:back" action="press" signal="" consume="1"/>
+    <NoResend input="pad:back"/>
+	<Binding input="pad:touchpad" action="click" signal="" consume="1"/>
+    <Binding input="pad:touchpad" action="release" signal="" consume="1"/>
+    <Binding input="pad:touchpad" action="press" signal="" consume="1"/>
+    <NoResend input="pad:touchpad"/>
+
+    <!-- REMOTEPLAY BEGIN -->
+    <Binding input="pad:touch_front_center" action="click" signal="" consume="1"/>
+    <Binding input="pad:touch_front_center" action="release" signal="" consume="1"/>
+    <Binding input="pad:touch_front_center" action="press" signal="" consume="1"/>
+    <NoResend input="pad:touch_front_center"/>
+    <!-- REMOTEPLAY END   -->
+  </ActionMap>
+    
+  <ActionMap name="S17M010_NoMovement">
+    <Import actionmap="common_aim_and_shoot"/>
+    <Import actionmap="common_reload"/>
+    <Import actionmap="common_cover"/>
+    <Import actionmap="common_interact"/>
+    <Import actionmap="common_cancel"/>
+    <Import actionmap="system"/>
+    <Import actionmap="common_camera_look"/>
+    <Import actionmap="common_net_surfing_toggle"/>
+    <Import actionmap="common_weaponselection"/>
+    <Import actionmap="common_emotes"/>
+    <Import actionmap="common_rcdeploy"/>
+    <Import actionmap="common_takedown"/>
+    <Import actionmap="common_musicplayer_control"/>
+    <Import actionmap="common_softwares"/>
+    <Import actionmap="common_pda"/>
+    <Import actionmap="common_not_aiming"/>
+    <Import actionmap="menus"/>
+	<Import actionmap="common_pausemenu"/>	
+	<Import actionmap="common_system_nopausemenu"/>	
+  </ActionMap>
+  
+  <ActionMap name="Nuddle_WalkAndTalk" isLayer="1">
+    <Binding input="pad:left"   action="press"    signal="" consume="1"/>
+    <Binding input="pad:left"   action="release"  signal="" consume="1"/>
+    <Binding input="pad:right"  action="press"    signal="" consume="1"/>
+    <Binding input="pad:right"  action="release"  signal="" consume="1"/>
+    <Binding input="pad:up"   action="press"    signal="" consume="1"/>
+    <Binding input="pad:up"   action="release"  signal="" consume="1"/>
+    <Binding input="pad:down"  action="press"    signal="" consume="1"/>
+    <Binding input="pad:down"  action="release"  signal="" consume="1"/>
+  </ActionMap>
+  
+	<!-- ACTIVITIES ! -->
+  <ActionMap name="sailboat" controlSchemeContext="driving">
+	<Import actionmap="driving"/>
+  </ActionMap>
+
+  <ActionMap name="race_on_foot" resendOnChange="0" isLayer="1" >
+    <Binding input="pad:y" action="hold" signal="resetvehicle" consume="1"/>
+    <Binding input="cs:hack_right" action="hold" signal="resetvehicle" consume="1"/>
+
+    <!-- Pause Menu binding ! -->
+    <Binding input="pad:start" action="release"  signal="" consume="1"/>
+    <Binding input="pad:start" action="click"  signal="show_pause_menu" consume="1"/>
+	<Binding input="kb:escape" action="press"  signal=""/>
+    <!-- End Pause Menu binding ! -->
+  </ActionMap>
+
+  <ActionMap name="race_no_wheapon_wheel" resendOnChange="0" isLayer="1" >
+    <Binding input="pad:up"     action="press"    signal="" consume="1"/>
+    <Binding input="pad:up"     action="release"  signal="" consume="1"/>
+    <Binding input="pad:down"   action="press"    signal="" consume="1"/>
+    <Binding input="pad:down"   action="release"  signal="" consume="1"/>
+    <Binding input="pad:left"   action="press"    signal="" consume="1"/>
+    <Binding input="pad:left"   action="release"  signal="" consume="1"/>
+    <Binding input="pad:right"  action="press"    signal="" consume="1"/>
+    <Binding input="pad:right"  action="release"  signal="" consume="1"/>
+    <Import actionmap="lock_weapons_in_race"/>
+  </ActionMap>
+
+  <ActionMap name="race_no_net_hacking" resendOnChange="0" isLayer="1" >
+    <Binding input="pad:right_thumb_push" action="press"    signal="" consume="1"/>
+    <Binding input="pad:right_thumb_push" action="release"  signal="" consume="1"/>
+    <Binding input="pad:right_thumb_push" action="click"    signal="" consume="1"/>
+
+    <!-- REMOTEPLAY BEGIN -->
+    <Binding input="pad:touch_front_bottomright" action="press"    signal="" consume="1"/>
+    <Binding input="pad:touch_front_bottomright" action="release"  signal="" consume="1"/>
+    <Binding input="pad:touch_front_bottomright" action="click"    signal="" consume="1"/>
+    <!-- REMOTEPLAY END -->
+  </ActionMap>
+
+  <ActionMap name="race_driving_default" resendOnChange="0" isLayer="1">
+    <Import actionmap="race_on_foot"/>
+	
+    <!-- Disable exit vehicle -->
+	
+    <Binding input="cs:vehicle_exit" action="press" signal="" consume="1"/>
+    <Binding input="cs:vehicle_exit" action="release" signal="" consume="1"/>
+    <Binding input="cs:vehicle_exit" action="click" signal="" consume="1"/>
+    <Binding input="cs:vehicle_exit" action="hold" signal="" consume="1"/>
+    <Binding input="pad:y" action="click" signal="" consume="1"/>
+    <Binding input="pad:y" action="press" signal="" consume="1"/>
+    <Binding input="pad:y" action="release" signal="" consume="1"/>
+  </ActionMap>
+
+  <ActionMap name="race_driving_drone" resendOnChange="0" isLayer="1" controlSchemeContext="rcdrone">
+    <Import actionmap="race_on_foot"/>
+    <Import actionmap="common_musicplayer_control"/>
+
+    <Binding input="pad:back" action="click" signal="" consume="1"/>
+    <Binding input="pad:back" action="release" signal="" consume="1"/>
+    <Binding input="pad:back" action="press" signal="" consume="1"/>
+    <NoResend input="pad:back"/>
+	<Binding input="kb:escape" action="press"  signal="show_pause_menu"/>
+	
+    <!-- REMOTEPLAY BEGIN -->
+    <Binding input="pad:touch_front_center" action="click" signal="" consume="1"/>
+    <Binding input="pad:touch_front_center" action="release" signal="" consume="1"/>
+    <Binding input="pad:touch_front_center" action="press" signal="" consume="1"/>
+    <NoResend input="pad:touch_front_center"/>
+    <!-- REMOTEPLAY END   -->
+
+    <!--disable show_map, M key-->
+    <Binding  input="cs:map_open" action="press" signal="" consume="1"/>
+    <Binding  input="cs:map_open" action="release" signal="" consume="1"/>
+    <Binding  input="cs:map_open" action="click" signal="" consume="1"/>
+
+    
+    <!--dispite having race_no_wheapon_wheel in stack the wheapon wheel should be blocked here since race_no_wheapon_wheel does not support the control scheme context-->
+
+    <!--the pad driving is provided in common_remote_control_driving, however since the context is rcdrone it wont work with common_remote_control_driving since it is build for the vehicle context-->
+    <!-- move -->
+    <PcAnalog name="move" device="cs">
+      <Input input="rcdrone_fly_forward" axis="1"/>
+      <Input input="rcdrone_fly_backward" axis="1" invert="1"/>
+      <Input input="rcdrone_fly_right" axis="0"/>
+      <Input input="rcdrone_fly_left" axis="0" invert="1"/>
+    </PcAnalog>
+    <Binding input="cs:move" action="press"   signal="rcsteering" consume="1" />
+    <Binding input="cs:move" action="update"  signal="rcsteering" consume="1" />
+    <Binding input="cs:move" action="release" signal="rcsteering" consume="1" />
+
+    <!-- ascent -->
+    <Binding input="cs:rcdrone_ascent" action="press" signal="accelerator" consume="1"/>
+    <Binding input="cs:rcdrone_ascent" action="update" signal="accelerator" consume="1"/>
+    <Binding input="cs:rcdrone_ascent" action="release" signal="accelerator" consume="1"/>
+
+    <!-- descent -->
+    <Binding input="cs:rcdrone_descent" action="press" signal="reverse" consume="1"/>
+    <Binding input="cs:rcdrone_descent" action="update" signal="reverse" consume="1"/>
+    <Binding input="cs:rcdrone_descent" action="release" signal="reverse" consume="1"/>
+
+    <!-- speed boost -->
+    <Binding input="cs:rcdrone_speedboost" action="press" signal="rctc_speedboost" consume="1"/>
+
+    <!-- drop, rctc_dropobject -->
+    <Binding input="cs:rcdrone_drop" action="press" signal="" consume="1"/>
+
+    <!-- callback, rctc_call_back -->
+    <Binding input="pad:b" action="hold" signal="" consume="1"/>
+    <Binding input="pad:touch_back_right"   action="press"      signal="" consume="1"/>
+    <NoResend input="pad:touch_back_right"/>
+    <Binding input="cs:rcdrone_exit" action="hold" signal="" consume="1"/>
+
+    <!-- switch to jumper, rctc_switch_to_jumper -->
+    <Binding input="cs:rcdrone_switchtojumper" action="press" signal="" consume="1"/>
+
+    <!-- switch camera -->
+    <Binding input="cs:rcdrone_cameraswitch" action="press" signal="cameraswitch" consume="1"/>
+  </ActionMap>
+  
+  <ActionMap name="race_driving_toy_car" resendOnChange="0" isLayer="1">
+    <Import actionmap="race_driving_drone"/>
+  </ActionMap>
+
+  <ActionMap name="race_phone_comm" >
+    <Import actionmap="cinematic_nocameralock"/>
+    <Import actionmap="phone_communication"/>
+  </ActionMap>
+
+</Root>

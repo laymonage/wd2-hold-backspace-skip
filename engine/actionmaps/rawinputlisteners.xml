@@ -1,0 +1,109 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+
+<Root>
+
+  <!-- REMOTEPLAY -->
+  <RawInputCompositeFilterListener>
+    <!-- RawInputListener filters are applied after all drivers are queried and before inputs are processed by the ActionMaps -->
+    <!-- Use the Rename filters to map all the buttons which have a direct standard equivalent. -->
+    <!-- Use the TouchAreaFilter to map the Vita Front Touch screen into 5 buttons. -->
+    <!-- Other ActionMaps can use all the non remapped buttons freely.
+         They can also use their own TouchAreaFilter but it must be self contained:
+         Any pressed touch button, must be released before leaving the ActionMap for another one.
+         In essence, only leave the action map upon "release" touch events. -->
+    <Rename input="padremoteplay:start"                 toInput="pad:start"/>
+    <Rename input="padremoteplay:left_shoulder"         toInput="pad:left_trigger" />
+    <Rename input="padremoteplay:right_shoulder"        toInput="pad:right_trigger"/>
+    <Rename input="padremoteplay:left"                  toInput="pad:left"/>
+    <Rename input="padremoteplay:right"                 toInput="pad:right"/>
+    <Rename input="padremoteplay:up"                    toInput="pad:up"/>
+    <Rename input="padremoteplay:down"                  toInput="pad:down"/>
+    <Rename input="padremoteplay:a"                     toInput="pad:a"/>
+    <Rename input="padremoteplay:b"                     toInput="pad:b"/>
+    <Rename input="padremoteplay:x"                     toInput="pad:x"/>
+    <Rename input="padremoteplay:y"                     toInput="pad:y"/>
+    <Rename input="padremoteplay:left_thumb_leftright"  toInput="pad:left_thumb_leftright"/>
+    <Rename input="padremoteplay:left_thumb_updown"     toInput="pad:left_thumb_updown"/>
+    <Rename input="padremoteplay:right_thumb_leftright" toInput="pad:right_thumb_leftright"/>
+    <Rename input="padremoteplay:right_thumb_updown"    toInput="pad:right_thumb_updown"/>
+    <!-- These create new inputs for front and back touch screens.
+         Four back buttons   (center quadrants)
+         and five front ones (corners plus center). -->
+    <Rename input="padremoteplay:left_trigger"          toInput="pad:touch_back_topleft"     />
+    <Rename input="padremoteplay:right_trigger"         toInput="pad:touch_back_topright"    />
+    <Rename input="padremoteplay:left_thumb_push"       toInput="pad:touch_back_bottomleft"  />
+    <Rename input="padremoteplay:right_thumb_push"      toInput="pad:touch_back_bottomright" />
+      <!--GroupFilter toInput="pad:touch_back_left">
+        <Input input="pad:touch_back_topleft"     />
+        <Input input="pad:touch_back_bottomleft"  />
+    </GroupFilter-->
+	<GroupFilter toInput="pad:touch_back_right">
+        <Input input="pad:touch_back_topright"    />
+        <Input input="pad:touch_back_bottomright" />
+    </GroupFilter>
+    <TouchAreaFilter name="remote_play" device="pad" passthrough="1"> <!-- device="padremoteplay" -->
+        <Input input="padremoteplay:touchpad_touch_id1"/>
+        <Input input="padremoteplay:touchpad_touch_id2"/>
+        <!-- Useful for testing when no Vita is available.
+             <Input input="pad:touchpad_touch_id1"/>
+             <Input input="pad:touchpad_touch_id2"/>
+        -->
+        <Surface toInput="pad:touch_front_topleft">
+            <vertex x="0.00" y="0.00"/>
+            <vertex x="0.40" y="0.00"/>
+            <vertex x="0.30" y="0.30"/>
+            <vertex x="0.00" y="0.40"/>
+        </Surface>
+        <Surface toInput="pad:touch_front_topright">
+            <vertex x="1.00" y="0.00"/>
+            <vertex x="1.00" y="0.40"/>
+            <vertex x="0.70" y="0.30"/>
+            <vertex x="0.60" y="0.00"/>
+        </Surface>
+        <Surface toInput="pad:touch_front_bottomleft"> <!-- Leaves a slight dead margin on the left. -->
+            <vertex x="0.05" y="1.00"/>
+            <vertex x="0.05" y="0.60"/>
+            <vertex x="0.30" y="0.70"/>
+            <vertex x="0.40" y="1.00"/>
+        </Surface>
+        <Surface toInput="pad:touch_front_bottomright"> <!-- Leaves a slight dead margin on the right. -->
+            <vertex x="0.95" y="1.00"/>
+            <vertex x="0.60" y="1.00"/>
+            <vertex x="0.70" y="0.70"/>
+            <vertex x="0.95" y="0.60"/>
+        </Surface>
+        <Surface toInput="pad:touch_front_center">
+            <vertex x="0.25" y="0.50"/>
+            <vertex x="0.50" y="0.25"/>
+            <vertex x="0.75" y="0.50"/>
+            <vertex x="0.50" y="0.75"/>
+        </Surface>
+    </TouchAreaFilter>
+
+    <!-- These filters finally translate the unfiltered RemotePlay touch inputs to regular ones.
+         They allow the Action Maps which rely on them to also work on the Vita.
+         They must be placed after generating the touch areas otherwise these will not see the remoteplay: inputs.
+         Take care to avoid overlaps between touch areas and unfiltered touch inputs inside Action Maps. -->
+    <ScaleAxis input="padremoteplay:touchpad_touch_id1" axis0="-2.2" axis1="-2.2" />
+    <ScaleAxis input="padremoteplay:touchpad_touch_id2" axis0="-2.2" axis1="-2.2" />
+    <Rename input="padremoteplay:touchpad_touch_id1" toInput="pad:touch_front_panning_touch_id1" />
+    <Rename input="padremoteplay:touchpad_touch_id2" toInput="pad:touch_front_panning_touch_id2" />
+
+    <HandednessFilter>
+        <Input input="pad:touch_front_topleft"     leftyStick=   "touch_front_topleft"
+                                                   LeftyShoulder="touch_front_topright"
+                                                   Lefty=        "touch_front_topright"/>
+        <Input input="pad:touch_front_topright"    leftyStick=   "touch_front_topright"
+                                                   LeftyShoulder="touch_front_topleft"
+                                                   Lefty=        "touch_front_topleft"/>
+        <Input input="pad:touch_front_bottomleft"  leftyStick=   "touch_front_bottomright"
+                                                   LeftyShoulder="touch_front_bottomleft"
+                                                   Lefty=        "touch_front_bottomright"/>
+        <Input input="pad:touch_front_bottomright" leftyStick=   "touch_front_bottomleft"
+                                                   LeftyShoulder="touch_front_bottomright"
+                                                   Lefty=        "touch_front_bottomleft"/>
+    </HandednessFilter>
+
+  </RawInputCompositeFilterListener>
+
+</Root>
